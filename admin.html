@@ -977,6 +977,15 @@ async function publishSite() {
     setPubStatus('⚠️ Önce GitHub erişim anahtarını kaydedin (aşağıdaki alan).', true);
     return;
   }
+  // Yayindan once sitenin en guncel halini cek (baska yerden yapilan degisiklikler ezilmesin)
+  setPubStatus('⏳ Güncel site alınıyor...');
+  try {
+    const fres = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${MAIN_FILE}?ref=${GH_BRANCH}`, {
+      headers: { 'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github.raw+json' }, cache: 'no-store'
+    });
+    if (fres.ok) mainSource = await fres.text();
+  } catch (e) { /* eldeki kopya ile devam edilir */ }
+
   let html;
   try { html = buildSiteHtml(); }
   catch (e) { setPubStatus('⚠️ Site oluşturulamadı — yayınlanmadı. (' + e.message + ')', true); return; }
