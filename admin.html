@@ -188,16 +188,56 @@
   .admin-prod-info .min {
     font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-top: 2px;
   }
-  .admin-prod-del {
+  .admin-prod-actions {
     position: absolute; top: 6px; right: 6px;
-    background: rgba(192,57,43,0.85); color: #fff;
-    border: none; border-radius: 50%; width: 24px; height: 24px;
-    font-size: 0.75rem; cursor: pointer; display: flex;
-    align-items: center; justify-content: center;
-    transition: background 0.2s; opacity: 0;
+    display: flex; gap: 6px; opacity: 0; transition: opacity 0.2s;
   }
-  .admin-prod-item:hover .admin-prod-del { opacity: 1; }
-  .admin-prod-item.custom { border-color: rgba(120,136,107,0.4); }
+  .admin-prod-item:hover .admin-prod-actions { opacity: 1; }
+  .admin-prod-act {
+    border: none; border-radius: 50%; width: 26px; height: 26px;
+    font-size: 0.8rem; cursor: pointer; display: flex;
+    align-items: center; justify-content: center; color: #fff;
+    transition: transform 0.15s;
+  }
+  .admin-prod-act:hover { transform: scale(1.12); }
+  .admin-prod-act.edit { background: rgba(120,136,107,0.95); }
+  .admin-prod-act.del { background: rgba(192,57,43,0.9); }
+  @media (hover: none) { .admin-prod-actions { opacity: 1; } }
+
+  .admin-radio-row { display: flex; gap: 8px; margin-bottom: 14px; }
+  .admin-radio-btn {
+    flex: 1; padding: 11px 10px; border-radius: 10px;
+    border: 1.5px solid rgba(120,136,107,0.3);
+    background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.6);
+    font-size: 0.85rem; font-family: 'DM Sans', sans-serif;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .admin-radio-btn.selected {
+    background: #78886b; color: #fff; border-color: #78886b;
+  }
+
+  .admin-topbtn.publish {
+    background: linear-gradient(135deg, #4f5f42, #78886b); color: #fff;
+    font-weight: 600;
+  }
+  .admin-topbtn.publish:hover { filter: brightness(1.15); }
+  .admin-topbtn.publish.attention {
+    background: linear-gradient(135deg, #b7791f, #d69e2e);
+    animation: pubPulse 1.6s ease-in-out infinite;
+  }
+  @keyframes pubPulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(214,158,46,0.5); }
+    50% { box-shadow: 0 0 0 7px rgba(214,158,46,0); }
+  }
+  .pub-status {
+    margin: 14px 24px 0; padding: 12px 16px; border-radius: 10px;
+    background: rgba(39,174,96,0.15); color: #27ae60;
+    border: 1px solid rgba(39,174,96,0.3); font-size: 0.87rem;
+  }
+  .pub-status.error {
+    background: rgba(192,57,43,0.14); color: #e74c3c;
+    border-color: rgba(192,57,43,0.35);
+  }
 
   /* Add product form */
   .add-prod-grid {
@@ -347,17 +387,19 @@
   <div class="admin-topbar">
     <h1>🌼 Daisy Admin</h1>
     <div class="admin-topbar-right">
-      <button class="admin-topbtn" onclick="exportSite()">⬇️ Siteyi İndir</button>
-      <button class="admin-topbtn exit" onclick="location.href='daisy-patisserie.html'">← Siteye Dön</button>
+      <button class="admin-topbtn publish" id="publishTopBtn" onclick="publishSite()">🚀 Yayınla</button>
+      <button class="admin-topbtn exit" onclick="location.href='index.html'">← Siteye Dön</button>
     </div>
   </div>
 
   <div class="admin-tabs">
-    <button class="admin-tab active" onclick="switchTab('popup')">📢 Popup Yönetimi</button>
-    <button class="admin-tab" onclick="switchTab('products')">🍰 Ürünler</button>
-    <button class="admin-tab" onclick="switchTab('addprod')">➕ Yeni Ürün</button>
-    <button class="admin-tab" onclick="switchTab('settings')">⚙️ Ayarlar</button>
+    <button class="admin-tab active" id="tabbtn-popup" onclick="switchTab('popup', this)">📢 Popup Yönetimi</button>
+    <button class="admin-tab" id="tabbtn-products" onclick="switchTab('products', this)">🍰 Ürünler</button>
+    <button class="admin-tab" id="tabbtn-addprod" onclick="switchTab('addprod', this)">➕ Yeni Ürün</button>
+    <button class="admin-tab" id="tabbtn-settings" onclick="switchTab('settings', this)">⚙️ Ayarlar</button>
   </div>
+
+  <div class="pub-status" style="display:none;"></div>
 
   <div class="admin-content">
 
@@ -381,7 +423,7 @@
         <label class="admin-label">Buton Yazısı</label>
         <input type="text" class="admin-input" id="popupBtnInput" placeholder="İncele" oninput="updatePopupPreview()">
         <button class="admin-btn" onclick="savePopupSettings()" style="margin-top:8px;">💾 Ayarları Kaydet</button>
-        <div class="admin-success" id="popupSaveSuccess">✅ Kaydedildi! "Siteyi İndir" ile kalıcı hale getirin.</div>
+        <div class="admin-success" id="popupSaveSuccess">✅ Kaydedildi! Üstteki "🚀 Yayınla" ile siteye gönderin.</div>
         <div class="popup-preview-box" id="popupPreview">
           <div style="font-size:0.72rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;">Önizleme</div>
           <div class="prev-title" id="prevTitle">Yeni Ürün!</div>
@@ -396,7 +438,7 @@
       <div class="admin-card">
         <h3>🍰 Tüm Ürünler (<span id="prodCount">0</span>)</h3>
         <p style="font-size:0.82rem;color:rgba(255,255,255,0.4);margin-bottom:16px;">
-          Bu oturumda eklediğiniz yeni ürünleri (✕ ile) kaldırabilirsiniz. Mevcut sitedeki ürünleri silmek için siteyi indirip HTML üzerinden düzenleyin.
+          Ürünün üzerine gelin: ✎ ile düzenleyin, ✕ ile silin. Değişiklikler üstteki "🚀 Yayınla" butonuyla siteye gönderilir.
         </p>
         <div class="admin-prod-grid" id="adminProdGrid"></div>
       </div>
@@ -405,7 +447,7 @@
     <!-- ADD PRODUCT TAB -->
     <div class="admin-panel" id="tab-addprod">
       <div class="admin-card">
-        <h3>➕ Yeni Ürün Ekle</h3>
+        <h3 id="addProdTitle">➕ Yeni Ürün Ekle</h3>
         <div class="add-prod-grid">
           <div>
             <label class="admin-label">Ürün Adı *</label>
@@ -443,8 +485,9 @@
         <label class="admin-file-label" for="newProdImg">📷 Görsel seç (JPG/PNG)</label>
         <input type="file" id="newProdImg" accept="image/*" style="display:none;" onchange="previewNewProdImg(this)">
         <img id="newProdImgPreview" class="admin-img-preview" src="" alt="">
-        <button class="admin-btn" onclick="addNewProduct()" style="margin-top:16px;">✅ Ürünü Ekle</button>
-        <div class="admin-success" id="addProdSuccess">✅ Ürün eklendi! "Siteyi İndir" ile kalıcı hale getirin.</div>
+        <button class="admin-btn" id="saveProdBtn" onclick="saveProduct()" style="margin-top:16px;">✅ Ürünü Ekle</button>
+        <button class="admin-btn secondary" id="cancelEditBtn" onclick="cancelEdit()" style="display:none;">Vazgeç</button>
+        <div class="admin-success" id="addProdSuccess">✅ Kaydedildi! Üstteki "🚀 Yayınla" ile siteye gönderin.</div>
       </div>
     </div>
 
@@ -459,13 +502,25 @@
         <label class="admin-label">Yeni Şifre (Tekrar)</label>
         <input type="password" class="admin-input" id="newPass2" placeholder="Yeni şifre tekrar">
         <button class="admin-btn" onclick="changeAdminPass()">Şifreyi Güncelle</button>
-        <div class="admin-success" id="passChangeSuccess">✅ Şifre güncellendi! "Siteyi İndir" ile kalıcı hale getirin.</div>
+        <div class="admin-success" id="passChangeSuccess">✅ Şifre güncellendi! Üstteki "🚀 Yayınla" ile siteye gönderin.</div>
         <div class="admin-error" id="passChangeError"></div>
       </div>
       <div class="admin-card">
-        <h3>⬇️ Siteyi Dışa Aktar</h3>
+        <h3>🔗 GitHub Bağlantısı (tek seferlik kurulum)</h3>
+        <p style="font-size:0.85rem;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:14px;">
+          "🚀 Yayınla" butonunun çalışması için GitHub erişim anahtarı gerekir. Anahtar yalnızca bu tarayıcıda saklanır, siteye eklenmez.
+          <br>Anahtar almak için: github.com &gt; sağ üst profil &gt; Settings &gt; Developer settings &gt; Personal access tokens &gt; <b>Fine-grained tokens</b> &gt; Generate new token. Repository access olarak <b>daisy-patisserie</b>'yi seçin, Permissions &gt; Contents: <b>Read and write</b> verin.
+        </p>
+        <label class="admin-label">GitHub Erişim Anahtarı</label>
+        <input type="password" class="admin-input" id="ghTokenInput" placeholder="github_pat_...">
+        <button class="admin-btn" onclick="saveGhToken()">💾 Anahtarı Kaydet</button>
+        <div class="admin-success" id="tokenSaveSuccess">✅ Anahtar bu tarayıcıya kaydedildi.</div>
+        <div class="pub-status" style="display:none;margin-top:12px;"></div>
+      </div>
+      <div class="admin-card">
+        <h3>⬇️ Yedek İndir</h3>
         <p style="font-size:0.85rem;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:20px;">
-          Yaptığınız tüm değişiklikleri (yeni ürünler, popup ayarları, şifre) kalıcı hale getirmek için siteyi indirin ve GitHub deposundaki index.html dosyasının üzerine yükleyin (github.com &gt; repo &gt; index.html &gt; kalem simgesi yerine "Upload files" ile).
+          Sitenin güncel halini bilgisayarına indirir. GitHub bağlantısı çalışmazsa bu dosyayı GitHub deposuna elle yükleyebilirsin (repo &gt; Add file &gt; Upload files).
         </p>
         <button class="export-btn" onclick="exportSite()">⬇️ Güncel Siteyi İndir (index.html)</button>
       </div>
@@ -477,71 +532,96 @@
 <script>
 // ══════════════════════════════
 // DAISY ADMIN PANEL — standalone page
-// Fetches index.html (same folder) to read/write site data
+// index.html'i okur, düzenler; GitHub'a yayınlar veya indirir
 // ══════════════════════════════
 
-let mainSource = null;       // raw HTML text of the live site
-let baseProducts = [];       // PRODUCT_DATA parsed from mainSource
-let pendingProducts = [];    // new products added this session (not yet baked in)
+let mainSource = null;       // canlı sitenin ham HTML'i
+let products = [];           // düzenlenebilir tam ürün listesi
 let currentPopupConfig = { enabled: false, productIdx: 0, title: '', message: '', btnText: '' };
 let currentPassHash = '';
-let _newProdFrozen = false;
-let _newProdWhole = false;
+let _prodFrozen = false;
+let _prodWhole = false;
+let _editIndex = -1;         // -1 = yeni ürün modu
+let _dirty = false;
 
 const MAIN_FILE = 'index.html';
+const GH_OWNER = 'brtcnklyn';
+const GH_REPO = 'daisy-patisserie';
+const GH_BRANCH = 'main';
 
+// ── YARDIMCILAR ──
 async function sha256(message) {
   const msgBuffer = new TextEncoder().encode(message);
   const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-  const hashArray = Array.from(new Uint8Array(hashBuffer));
-  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+  return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
 }
 
-function getCustomProducts() {
-  try { return JSON.parse(localStorage.getItem('daisy_custom_products') || '[]'); } catch { return []; }
+function escapeHtml(s) {
+  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
-function getAllProducts() {
-  return [...baseProducts, ...getCustomProducts(), ...pendingProducts];
+function toB64(str) {
+  const bytes = new TextEncoder().encode(str);
+  let bin = '';
+  const chunk = 0x8000;
+  for (let i = 0; i < bytes.length; i += chunk) {
+    bin += String.fromCharCode.apply(null, bytes.subarray(i, i + chunk));
+  }
+  return btoa(bin);
 }
 
-// ── FETCH & PARSE MAIN SITE ──
+function getToken() { return localStorage.getItem('daisy_gh_token') || ''; }
+
+function markDirty() {
+  _dirty = true;
+  const btn = document.getElementById('publishTopBtn');
+  if (btn) btn.classList.add('attention');
+}
+
+window.addEventListener('beforeunload', e => {
+  if (_dirty) { e.preventDefault(); e.returnValue = ''; }
+});
+
+// ── SİTEYİ YÜKLE & AYRIŞTIR ──
 async function loadMainSite() {
   const statusEl = document.getElementById('fetchStatus');
   try {
-    const res = await fetch(MAIN_FILE, { cache: 'no-store' });
+    const token = getToken();
+    let res;
+    if (token) {
+      res = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${MAIN_FILE}?ref=${GH_BRANCH}`, {
+        headers: { 'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github.raw+json' }, cache: 'no-store'
+      });
+      if (!res.ok) res = await fetch(MAIN_FILE, { cache: 'no-store' });
+    } else {
+      res = await fetch(MAIN_FILE, { cache: 'no-store' });
+    }
     if (!res.ok) throw new Error('HTTP ' + res.status);
     mainSource = await res.text();
 
-    // Parse PRODUCT_DATA
-    const prodMatch = mainSource.match(/const PRODUCT_DATA = (\[[\s\S]*?\]);/);
-    if (prodMatch) {
-      baseProducts = new Function('return ' + prodMatch[1])();
-    }
+    const prodMatch = mainSource.match(/const PRODUCT_DATA = (\[[\s\S]*?\n\]);/);
+    if (!prodMatch) throw new Error('PRODUCT_DATA bulunamadı');
+    products = new Function('return ' + prodMatch[1])();
 
-    // Parse POPUP_CONFIG
     const popupMatch = mainSource.match(/window\.POPUP_CONFIG\s*=\s*(\{[\s\S]*?\});/);
-    if (popupMatch) {
-      currentPopupConfig = new Function('return ' + popupMatch[1])();
-    }
+    if (popupMatch) currentPopupConfig = new Function('return ' + popupMatch[1])();
 
-    // Parse ADMIN_PASS_HASH
     const hashMatch = mainSource.match(/window\.ADMIN_PASS_HASH\s*=\s*"([a-f0-9]+)"/);
     if (hashMatch) currentPassHash = hashMatch[1];
 
-    statusEl.textContent = '✅ Site verileri yüklendi (' + baseProducts.length + ' ürün)';
+    statusEl.textContent = '✅ Site verileri yüklendi (' + products.length + ' ürün)';
     statusEl.classList.remove('error');
     setTimeout(() => statusEl.style.display = 'none', 2500);
     return true;
   } catch (err) {
-    statusEl.textContent = '⚠️ Site dosyası okunamadı. Bu panel canlı sitenizle (index.html) aynı klasörde olmalı.';
+    statusEl.textContent = '⚠️ Site dosyası okunamadı: ' + err.message;
     statusEl.classList.add('error');
     console.error(err);
     return false;
   }
 }
 
-// ── LOGIN ──
+// ── GİRİŞ ──
 async function doAdminLogin() {
   const input = document.getElementById('adminPassInput').value;
   if (!mainSource) {
@@ -558,37 +638,40 @@ async function doAdminLogin() {
   }
 }
 
-// ── DASHBOARD INIT ──
+// ── PANEL BAŞLAT ──
 function initAdminDash() {
-  const sel = document.getElementById('popupProductSelect');
-  const all = getAllProducts();
-  sel.innerHTML = all.map((p, i) => `<option value="${i}">${p.name}</option>`).join('');
-  sel.value = currentPopupConfig.productIdx || 0;
+  refreshPopupSelect();
   document.getElementById('popupEnabled').checked = currentPopupConfig.enabled || false;
   document.getElementById('popupTitleInput').value = currentPopupConfig.title || '';
   document.getElementById('popupMsgInput').value = currentPopupConfig.message || '';
   document.getElementById('popupBtnInput').value = currentPopupConfig.btnText || '';
+  document.getElementById('ghTokenInput').value = getToken();
   updatePopupPreview();
   renderAdminProducts();
 }
 
-// ── TABS ──
-function switchTab(name) {
+function refreshPopupSelect() {
+  const sel = document.getElementById('popupProductSelect');
+  sel.innerHTML = products.map((p, i) => `<option value="${i}">${escapeHtml(p.name)}</option>`).join('');
+  if (currentPopupConfig.productIdx >= products.length) currentPopupConfig.productIdx = 0;
+  sel.value = currentPopupConfig.productIdx || 0;
+}
+
+// ── SEKMELER ──
+function switchTab(name, btn) {
   document.querySelectorAll('.admin-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
   document.getElementById('tab-' + name).classList.add('active');
-  event.target.classList.add('active');
+  if (!btn) btn = document.getElementById('tabbtn-' + name);
+  if (btn) btn.classList.add('active');
   if (name === 'products') renderAdminProducts();
 }
 
-// ── POPUP PREVIEW / SAVE ──
+// ── POPUP ──
 function updatePopupPreview() {
-  const title = document.getElementById('popupTitleInput').value || 'Yeni Ürün!';
-  const msg = document.getElementById('popupMsgInput').value || 'Yeni ürünümüzü keşfetmek için tıklayın.';
-  const btn = document.getElementById('popupBtnInput').value || 'İncele';
-  document.getElementById('prevTitle').textContent = title;
-  document.getElementById('prevMsg').textContent = msg;
-  document.getElementById('prevBtn').textContent = btn;
+  document.getElementById('prevTitle').textContent = document.getElementById('popupTitleInput').value || 'Yeni Ürün!';
+  document.getElementById('prevMsg').textContent = document.getElementById('popupMsgInput').value || 'Yeni ürünümüzü keşfetmek için tıklayın.';
+  document.getElementById('prevBtn').textContent = document.getElementById('popupBtnInput').value || 'İncele';
 }
 
 function savePopupSettings() {
@@ -599,93 +682,139 @@ function savePopupSettings() {
     message: document.getElementById('popupMsgInput').value,
     btnText: document.getElementById('popupBtnInput').value
   };
+  markDirty();
   const s = document.getElementById('popupSaveSuccess');
   s.style.display = 'block';
   setTimeout(() => s.style.display = 'none', 4000);
 }
 
-// ── PRODUCTS LIST ──
+// ── ÜRÜN LİSTESİ ──
 function renderAdminProducts() {
-  const all = getAllProducts();
-  document.getElementById('prodCount').textContent = all.length;
+  document.getElementById('prodCount').textContent = products.length;
   const grid = document.getElementById('adminProdGrid');
-  const baseCount = baseProducts.length + getCustomProducts().length;
-  grid.innerHTML = all.map((p, i) => {
-    const isPending = i >= baseCount;
-    const pendingIdx = i - baseCount;
-    return `<div class="admin-prod-item${isPending ? ' custom' : ''}">
-      <img src="${p.img}" alt="${p.name}">
-      ${isPending ? `<button class="admin-prod-del" onclick="deletePendingProduct(${pendingIdx})">✕</button>` : ''}
+  grid.innerHTML = products.map((p, i) => `<div class="admin-prod-item">
+      <img src="${p.img}" alt="${escapeHtml(p.name)}">
+      <div class="admin-prod-actions">
+        <button class="admin-prod-act edit" onclick="editProduct(${i})" title="Düzenle">✎</button>
+        <button class="admin-prod-act del" onclick="deleteProduct(${i})" title="Sil">✕</button>
+      </div>
       <div class="admin-prod-info">
-        <div class="name">${p.name}</div>
+        <div class="name">${escapeHtml(p.name)}</div>
         <div class="min">${p.isWhole ? '🎂 1 bütün' : (p.frozen ? '❄️ Donuk' : '🌿 Taze')}</div>
       </div>
-    </div>`;
-  }).join('');
+    </div>`).join('');
 }
 
-function deletePendingProduct(idx) {
-  if (!confirm('Bu ürünü kaldırmak istediğinizden emin misiniz?')) return;
-  pendingProducts.splice(idx, 1);
+function deleteProduct(i) {
+  if (!confirm('"' + products[i].name + '" ürününü silmek istediğinizden emin misiniz?')) return;
+  products.splice(i, 1);
+  if (_editIndex === i) cancelEdit();
+  markDirty();
   renderAdminProducts();
-  const sel = document.getElementById('popupProductSelect');
-  sel.innerHTML = getAllProducts().map((p, i) => `<option value="${i}">${p.name}</option>`).join('');
+  refreshPopupSelect();
 }
 
-// ── ADD PRODUCT ──
+// ── ÜRÜN EKLE / DÜZENLE ──
 function setFrozen(val) {
-  _newProdFrozen = val;
+  _prodFrozen = val;
   document.getElementById('btnTaze').classList.toggle('selected', !val);
   document.getElementById('btnDonuk').classList.toggle('selected', val);
 }
 function setWhole(val) {
-  _newProdWhole = val;
+  _prodWhole = val;
   document.getElementById('btnAdet').classList.toggle('selected', !val);
   document.getElementById('btnButun').classList.toggle('selected', val);
 }
+
 function previewNewProdImg(input) {
   const file = input.files[0];
   if (!file) return;
   const reader = new FileReader();
   reader.onload = e => {
-    const preview = document.getElementById('newProdImgPreview');
-    preview.src = e.target.result;
-    preview.style.display = 'block';
+    const img = new Image();
+    img.onload = () => {
+      const max = 1000;
+      let w = img.width, h = img.height;
+      if (w > max || h > max) { const s = max / Math.max(w, h); w = Math.round(w * s); h = Math.round(h * s); }
+      const c = document.createElement('canvas');
+      c.width = w; c.height = h;
+      const ctx = c.getContext('2d');
+      ctx.fillStyle = '#fff';
+      ctx.fillRect(0, 0, w, h);
+      ctx.drawImage(img, 0, 0, w, h);
+      const preview = document.getElementById('newProdImgPreview');
+      preview.src = c.toDataURL('image/jpeg', 0.82);
+      preview.style.display = 'block';
+    };
+    img.src = e.target.result;
   };
   reader.readAsDataURL(file);
 }
 
-function addNewProduct() {
+function editProduct(i) {
+  const p = products[i];
+  _editIndex = i;
+  document.getElementById('newProdName').value = p.name;
+  document.getElementById('newProdTag').value = p.tag;
+  document.getElementById('newProdDesc').value = p.desc;
+  setFrozen(!!p.frozen);
+  setWhole(!!p.isWhole);
+  const preview = document.getElementById('newProdImgPreview');
+  preview.src = p.img;
+  preview.style.display = 'block';
+  document.getElementById('addProdTitle').textContent = '✏️ Ürünü Düzenle: ' + p.name;
+  document.getElementById('saveProdBtn').textContent = '💾 Değişiklikleri Kaydet';
+  document.getElementById('cancelEditBtn').style.display = 'block';
+  switchTab('addprod');
+}
+
+function cancelEdit() {
+  _editIndex = -1;
+  document.getElementById('newProdName').value = '';
+  document.getElementById('newProdDesc').value = '';
+  document.getElementById('newProdTag').value = 'Cup Dessert';
+  const preview = document.getElementById('newProdImgPreview');
+  preview.src = ''; preview.style.display = 'none';
+  document.getElementById('newProdImg').value = '';
+  setFrozen(false); setWhole(false);
+  document.getElementById('addProdTitle').textContent = '➕ Yeni Ürün Ekle';
+  document.getElementById('saveProdBtn').textContent = '✅ Ürünü Ekle';
+  document.getElementById('cancelEditBtn').style.display = 'none';
+}
+
+function saveProduct() {
   const name = document.getElementById('newProdName').value.trim();
   const tag = document.getElementById('newProdTag').value;
   const desc = document.getElementById('newProdDesc').value.trim();
-  const img = document.getElementById('newProdImgPreview').src;
+  const preview = document.getElementById('newProdImgPreview');
+  const imgOk = preview.src && preview.src.startsWith('data:image');
 
-  if (!name || !desc || !img || !img.startsWith('data:image')) {
-    alert('Lütfen ürün adı, açıklama ve görsel ekleyin!');
-    return;
-  }
+  if (!name || !desc) { alert('Lütfen ürün adı ve açıklama girin!'); return; }
+  if (_editIndex < 0 && !imgOk) { alert('Lütfen bir ürün görseli seçin!'); return; }
 
   const wa = `https://wa.me/905318575258?text=Merhaba%2C%20${encodeURIComponent(name)}%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.`;
-  pendingProducts.push({ img, tag, name, frozen: _newProdFrozen, isWhole: _newProdWhole, desc, wa });
+  const p = {
+    img: imgOk ? preview.src : products[_editIndex].img,
+    tag, name,
+    frozen: _prodFrozen,
+    isWhole: _prodWhole,
+    desc, wa
+  };
 
-  document.getElementById('newProdName').value = '';
-  document.getElementById('newProdDesc').value = '';
-  document.getElementById('newProdImgPreview').style.display = 'none';
-  document.getElementById('newProdImg').value = '';
-  document.getElementById('newProdTag').value = 'Cup Dessert';
-  setFrozen(false);
-  setWhole(false);
+  if (_editIndex >= 0) products[_editIndex] = p;
+  else products.push(p);
 
+  markDirty();
+  cancelEdit();
+  renderAdminProducts();
+  refreshPopupSelect();
   const s = document.getElementById('addProdSuccess');
   s.style.display = 'block';
   setTimeout(() => s.style.display = 'none', 4000);
-  renderAdminProducts();
-  const sel = document.getElementById('popupProductSelect');
-  sel.innerHTML = getAllProducts().map((p, i) => `<option value="${i}">${p.name}</option>`).join('');
+  switchTab('products');
 }
 
-// ── PASSWORD CHANGE ──
+// ── ŞİFRE DEĞİŞTİR ──
 async function changeAdminPass() {
   const oldP = document.getElementById('oldPass').value;
   const newP = document.getElementById('newPass').value;
@@ -702,6 +831,7 @@ async function changeAdminPass() {
   if (oldHash !== currentPassHash) { errEl.textContent = 'Mevcut şifre hatalı!'; return; }
 
   currentPassHash = await sha256(newP);
+  markDirty();
   document.getElementById('oldPass').value = '';
   document.getElementById('newPass').value = '';
   document.getElementById('newPass2').value = '';
@@ -709,66 +839,139 @@ async function changeAdminPass() {
   setTimeout(() => sucEl.style.display = 'none', 4000);
 }
 
-// ── SVG ICONS (for generated cards) ──
+// ── SİTE HTML'İNİ ÜRET ──
 const CART_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>';
 const WA_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.104 1.523 5.827L0 24l6.341-1.508A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.01-1.374l-.359-.214-3.767.896.958-3.668-.234-.374A9.818 9.818 0 012.182 12C2.182 6.578 6.578 2.182 12 2.182S21.818 6.578 21.818 12 17.422 21.818 12 21.818z"/></svg>';
 
-// ── EXPORT SITE ──
-function exportSite() {
-  if (!mainSource) { alert('Site verileri henüz yüklenmedi, lütfen bekleyin ve tekrar deneyin.'); return; }
-
-  let src = mainSource;
-
-  // 1. Update POPUP_CONFIG (function replacer: '$' iceren metinler dosyayi bozmasin)
-  const newCfgStr = 'window.POPUP_CONFIG = ' + JSON.stringify(currentPopupConfig, null, 2) + ';';
-  src = src.replace(/window\.POPUP_CONFIG\s*=\s*\{[\s\S]*?\};/, () => newCfgStr);
-
-  // 2. Update ADMIN_PASS_HASH
-  src = src.replace(/window\.ADMIN_PASS_HASH\s*=\s*"[a-f0-9]+";/, () => `window.ADMIN_PASS_HASH = "${currentPassHash}";`);
-
-  // 3. Append pending products to PRODUCT_DATA array + grid cards
-  if (pendingProducts.length > 0) {
-    const startIdx = baseProducts.length + getCustomProducts().length;
-
-    // 3a. PRODUCT_DATA entries
-    const newEntries = pendingProducts.map(p =>
-      `  { img: "${p.img}", tag: "${p.tag}", name: "${p.name}", frozen: ${p.frozen}, isWhole: ${p.isWhole}, desc: "${p.desc.replace(/"/g,'\\"')}", wa: "${p.wa}" },`
-    ).join('\n');
-    src = src.replace(/(const PRODUCT_DATA = \[[\s\S]*?)(\n\];)/, (m, body, end) => body + '\n' + newEntries + end);
-    if (!src.includes(newEntries)) { alert('Ürün eklenirken bir sorun oluştu, dosya indirilmedi. Lütfen tekrar deneyin.'); return; }
-
-    // 3b. Grid card HTML
-    const newCards = pendingProducts.map((p, i) => {
-      const idx = startIdx + i;
-      const frozenBadge = p.frozen ? '<span class="frozen-badge">❄️ Donuk</span>' : '<span class="fresh-badge">🌿 Taze</span>';
-      const wholeBadge = p.isWhole ? '<div class="whole-badge">🎂 1 bütün · ~10-12 dilim</div>' : '';
-      return `
-    <div class="product-card reveal" onclick="openProduct(${idx})" data-frozen="${p.frozen}">
+function cardHtml(p, i) {
+  const delay = i % 3 === 1 ? ' reveal-delay-1' : (i % 3 === 2 ? ' reveal-delay-2' : '');
+  const badge = p.frozen ? '<span class="frozen-badge">❄️ Donuk</span>' : '<span class="fresh-badge">🌿 Taze</span>';
+  const whole = p.isWhole ? '\n        <div class="whole-badge">🎂 1 bütün · ~10-12 dilim</div>' : '';
+  return `    <div class="product-card reveal${delay}" onclick="openProduct(${i})" data-frozen="${!!p.frozen}">
       <div class="product-img">
-        <img src="${p.img}" alt="${p.name}" loading="lazy">
+        <img src="${p.img}" alt="${escapeHtml(p.name)}" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
-        ${frozenBadge}
+        ${badge}
       </div>
       <div class="product-body">
-        <span class="product-tag-inline">${p.tag}</span>
-        <h4>${p.name}</h4>
-        <p>${p.desc}</p>
-        ${wholeBadge}
+        <span class="product-tag-inline">${escapeHtml(p.tag)}</span>
+        <h4>${escapeHtml(p.name)}</h4>
+        <p>${escapeHtml(p.desc)}</p>${whole}
       </div>
       <div class="product-cta-row">
-        <button class="btn-cart" onclick="addToCart(event, this)">${CART_SVG} Sepete Ekle</button>
-        <a class="btn-order-direct" onclick="orderDirect(event, this)" href="#">${WA_SVG} Sipariş Ver</a>
+        <button class="btn-cart" onclick="addToCart(event, this)">
+          ${CART_SVG}
+          Sepete Ekle
+        </button>
+        <a class="btn-order-direct" onclick="orderDirect(event, this)" href="#">
+          ${WA_SVG}
+          Sipariş Ver
+        </a>
       </div>
     </div>`;
-    }).join('');
+}
 
-    // Insert before closing of products-grid: find last occurrence of closing pattern
-    const gridCloseMarker = /(<div class="products-grid">[\s\S]*?)(\n\s*<\/div>\s*\n\s*<\/section>)/;
-    src = src.replace(gridCloseMarker, (m, body, end) => body + newCards + end);
+function buildSiteHtml() {
+  if (!mainSource) throw new Error('Site verileri yüklenmedi');
+  let src = mainSource;
+
+  // 1. PRODUCT_DATA bloğunu tamamen yeniden üret
+  const entries = products.map(p =>
+    `  { img: ${JSON.stringify(p.img)}, tag: ${JSON.stringify(p.tag)}, name: ${JSON.stringify(p.name)}, frozen: ${!!p.frozen}, isWhole: ${!!p.isWhole}, desc: ${JSON.stringify(p.desc)}, wa: ${JSON.stringify(p.wa)} },`
+  ).join('\n');
+  src = src.replace(/const PRODUCT_DATA = \[[\s\S]*?\n\];/, () => 'const PRODUCT_DATA = [\n' + entries + '\n];');
+
+  // 2. Ürün kartlarını tamamen yeniden üret
+  const cards = products.map((p, i) => cardHtml(p, i)).join('\n');
+  src = src.replace(/(<div class="products-grid">)[\s\S]*?(\n\s*<\/div>\s*\n\s*<\/section>)/, (m, open, close) => open + '\n' + cards + close);
+
+  // 3. Popup ayarları
+  const cfgStr = 'window.POPUP_CONFIG = ' + JSON.stringify(currentPopupConfig, null, 2) + ';';
+  src = src.replace(/window\.POPUP_CONFIG\s*=\s*\{[\s\S]*?\};/, () => cfgStr);
+
+  // 4. Şifre hash'i
+  src = src.replace(/window\.ADMIN_PASS_HASH\s*=\s*"[a-f0-9]+";/, () => `window.ADMIN_PASS_HASH = "${currentPassHash}";`);
+
+  // 5. Doğrulama — bozuk dosya yayınlamayı engelle
+  const checkMatch = src.match(/const PRODUCT_DATA = (\[[\s\S]*?\n\]);/);
+  if (!checkMatch) throw new Error('doğrulama: PRODUCT_DATA üretilemedi');
+  const parsed = new Function('return ' + checkMatch[1])();
+  if (parsed.length !== products.length) throw new Error('doğrulama: ürün sayısı uyuşmuyor');
+  const cardCount = (src.match(/onclick="openProduct\(/g) || []).length;
+  if (cardCount !== products.length) throw new Error('doğrulama: kart sayısı uyuşmuyor (' + cardCount + '/' + products.length + ')');
+  if (!src.trimEnd().endsWith('</html>')) throw new Error('doğrulama: dosya sonu bozuk');
+
+  return src;
+}
+
+// ── GITHUB'A YAYINLA ──
+function saveGhToken() {
+  const v = document.getElementById('ghTokenInput').value.trim();
+  if (v) localStorage.setItem('daisy_gh_token', v);
+  else localStorage.removeItem('daisy_gh_token');
+  const s = document.getElementById('tokenSaveSuccess');
+  s.style.display = 'block';
+  setTimeout(() => s.style.display = 'none', 3000);
+}
+
+function setPubStatus(msg, isError) {
+  document.querySelectorAll('.pub-status').forEach(el => {
+    el.textContent = msg;
+    el.style.display = msg ? 'block' : 'none';
+    el.classList.toggle('error', !!isError);
+  });
+}
+
+async function publishSite() {
+  const token = getToken();
+  if (!token) {
+    switchTab('settings');
+    setPubStatus('⚠️ Önce GitHub erişim anahtarını kaydedin (aşağıdaki alan).', true);
+    return;
   }
+  let html;
+  try { html = buildSiteHtml(); }
+  catch (e) { setPubStatus('⚠️ Site oluşturulamadı — yayınlanmadı. (' + e.message + ')', true); return; }
 
-  // Download
-  const blob = new Blob([src], { type: 'text/html' });
+  setPubStatus('⏳ Yayınlanıyor, lütfen bekleyin...');
+  const headers = {
+    'Authorization': 'Bearer ' + token,
+    'Accept': 'application/vnd.github+json',
+    'X-GitHub-Api-Version': '2022-11-28'
+  };
+  try {
+    const treeRes = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/git/trees/${GH_BRANCH}`, { headers });
+    if (treeRes.status === 401) throw new Error('GitHub anahtarı geçersiz. Ayarlar sekmesinden yeni anahtar girin.');
+    if (!treeRes.ok) throw new Error('GitHub bağlantı hatası (' + treeRes.status + ')');
+    const tree = await treeRes.json();
+    const entry = (tree.tree || []).find(t => t.path === MAIN_FILE);
+
+    const body = { message: 'Site güncellendi (admin paneli)', content: toB64(html), branch: GH_BRANCH };
+    if (entry) body.sha = entry.sha;
+
+    const putRes = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${MAIN_FILE}`, {
+      method: 'PUT', headers, body: JSON.stringify(body)
+    });
+    if (!putRes.ok) {
+      const err = await putRes.json().catch(() => ({}));
+      throw new Error('Yükleme hatası: ' + (err.message || putRes.status));
+    }
+    mainSource = html;
+    _dirty = false;
+    const btn = document.getElementById('publishTopBtn');
+    if (btn) btn.classList.remove('attention');
+    setPubStatus('✅ Yayınlandı! Değişiklikler 1-2 dakika içinde sitede görünür.');
+  } catch (e) {
+    setPubStatus('⚠️ ' + e.message, true);
+  }
+}
+
+// ── YEDEK İNDİR ──
+function exportSite() {
+  let html;
+  try { html = buildSiteHtml(); }
+  catch (e) { alert('Site oluşturulamadı: ' + e.message); return; }
+  const blob = new Blob([html], { type: 'text/html' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
   a.download = 'index.html';
@@ -777,7 +980,7 @@ function exportSite() {
   document.body.removeChild(a);
 }
 
-// ── INIT ──
+// ── BAŞLAT ──
 document.addEventListener('DOMContentLoaded', loadMainSite);
 
 </script>
