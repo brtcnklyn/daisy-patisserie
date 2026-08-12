@@ -420,6 +420,19 @@
     line-height:1.8; font-weight:300; margin-bottom:28px;
   }
   .modal-actions { display:flex; gap:12px; flex-wrap:wrap; }
+  .modal-cart-btn {
+    flex:1; background:var(--sage-deep); color:#fff;
+    padding:16px 24px; border-radius:50px;
+    font-size:0.9rem; font-weight:500; border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    transition:all 0.25s; min-width:160px;
+    font-family:'DM Sans',sans-serif;
+  }
+  .modal-cart-btn:hover { background:var(--sage); transform:translateY(-2px); box-shadow:0 8px 24px rgba(74,103,65,0.3); }
+  .product-card.popup-highlight {
+    box-shadow:0 0 0 3px var(--daisy-yellow), 0 20px 50px rgba(74,103,65,0.25);
+    transform:translateY(-4px);
+  }
   .modal-wa {
     flex:1; background:var(--whatsapp); color:#fff;
     padding:16px 24px; border-radius:50px;
@@ -1838,6 +1851,10 @@
       <div id="modalMinOrder" class="modal-min-order">📦 <span></span></div>
       <p id="modalDesc" class="modal-desc"></p>
       <div class="modal-actions">
+        <button class="modal-cart-btn" onclick="addToCartFromModal()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          Sepete Ekle
+        </button>
         <a id="modalWa" href="#" target="_blank" class="modal-wa">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.104 1.523 5.827L0 24l6.341-1.508A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.01-1.374l-.359-.214-3.767.896.958-3.668-.234-.374A9.818 9.818 0 012.182 12C2.182 6.578 6.578 2.182 12 2.182S21.818 6.578 21.818 12 17.422 21.818 12 21.818z"/></svg>
           WhatsApp ile Sipariş Ver
@@ -1924,14 +1941,34 @@ function closePopup() {
 function popupGoProduct() {
   closePopup();
   const cfg = window.POPUP_CONFIG;
-  if (cfg) openProduct(cfg.productIdx);
+  if (!cfg) return;
+  const card = document.querySelector('.products-grid .product-card[onclick="openProduct(' + cfg.productIdx + ')"]');
+  if (card) {
+    card.classList.add('popup-highlight');
+    setTimeout(() => card.classList.remove('popup-highlight'), 3000);
+    let opened = false;
+    const openNow = () => { if (!opened) { opened = true; openProduct(cfg.productIdx); } };
+    const rect = card.getBoundingClientRect();
+    if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+      // Kart zaten görünürde: kısa vurgudan sonra aç
+      setTimeout(openNow, 600);
+    } else {
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      if ('onscrollend' in window) window.addEventListener('scrollend', openNow, { once: true });
+      setTimeout(openNow, 1500); // güvence: scrollend gelmezse yine aç
+    }
+  } else {
+    openProduct(cfg.productIdx);
+  }
 }
 window.addEventListener('load', initPopup);
 
 // ── PRODUCT MODAL ──
+let _modalIdx = -1;
 function openProduct(i) {
   const d = getAllProducts()[i];
   if (!d) return;
+  _modalIdx = i;
   document.getElementById('modalImg').src = d.img;
   document.getElementById('modalImg').alt = d.name;
   document.getElementById('modalTag').textContent = d.tag;
@@ -2230,23 +2267,30 @@ document.addEventListener('DOMContentLoaded', updateFilterCounts);
 let _qtyPendingIdx = -1;
 let _qtyValue = 1;
 
-function addToCart(e, btn) {
-  e.stopPropagation();
-  const idx = getProductIdx(btn);
-  if (idx < 0) return;
-  const all = getAllProducts();
-  const p = all[idx];
+function openQtyDialogFor(idx) {
+  const p = getAllProducts()[idx];
   if (!p) return;
-
-  // Open qty dialog
   _qtyPendingIdx = idx;
-  _qtyValue = p.isWhole ? 1 : 1;
+  _qtyValue = 1;
   document.getElementById('qtyDialogImg').src = p.img;
   document.getElementById('qtyDialogName').textContent = p.name;
   document.getElementById('qtyDialogWhole').style.display = p.isWhole ? 'block' : 'none';
   document.getElementById('qtyDialogNum').textContent = _qtyValue;
   document.getElementById('qtyDialog').classList.add('open');
   document.body.style.overflow = 'hidden';
+}
+
+function addToCart(e, btn) {
+  e.stopPropagation();
+  const idx = getProductIdx(btn);
+  if (idx < 0) return;
+  openQtyDialogFor(idx);
+}
+
+function addToCartFromModal() {
+  const idx = _modalIdx;
+  closeModal();
+  if (idx >= 0) openQtyDialogFor(idx);
 }
 
 function adjustQtyDialog(delta) {
