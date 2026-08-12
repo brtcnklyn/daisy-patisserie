@@ -988,14 +988,42 @@ async function publishSite() {
     'X-GitHub-Api-Version': '2022-11-28'
   };
   try {
-    const treeRes = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/git/trees/${GH_BRANCH}`, { headers });
+    const treeRes = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/git/trees/${GH_BRANCH}?recursive=1`, { headers });
     if (treeRes.status === 401) throw new Error('GitHub anahtarı geçersiz. Ayarlar sekmesinden yeni anahtar girin.');
     if (!treeRes.ok) throw new Error('GitHub bağlantı hatası (' + treeRes.status + ')');
     const tree = await treeRes.json();
-    const entry = (tree.tree || []).find(t => t.path === MAIN_FILE);
+    const byPath = {};
+    (tree.tree || []).forEach(t => { byPath[t.path] = t.sha; });
 
+    // 1) Yeni/degisen urun gorsellerini ayri kucuk dosyalar olarak yukle
+    let imgNo = 0;
+    for (const p of products) {
+      if (p.img && p.img.startsWith('data:image')) {
+        imgNo++;
+        setPubStatus('⏳ Görsel yükleniyor (' + imgNo + ')...');
+        const m = p.img.match(/^data:image\/([a-z+]+);base64,(.+)$/);
+        if (!m) throw new Error('"' + p.name + '" ürününün görseli okunamadı');
+        const b64 = m[2];
+        const name = 'img/urun-' + (await sha256(b64)).slice(0, 10) + '.jpg';
+        if (!byPath[name]) {
+          const r = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${name}`, {
+            method: 'PUT', headers,
+            body: JSON.stringify({ message: 'Ürün görseli eklendi (admin paneli)', content: b64, branch: GH_BRANCH })
+          });
+          if (!r.ok && r.status !== 422) {
+            const e = await r.json().catch(() => ({}));
+            throw new Error('Görsel yüklenemedi (HTTP ' + r.status + '): ' + (e.message || ''));
+          }
+        }
+        p.img = name;
+      }
+    }
+
+    // 2) index.html (artik kucuk bir dosya)
+    setPubStatus('⏳ Site dosyası yükleniyor...');
+    html = buildSiteHtml();
     const body = { message: 'Site güncellendi (admin paneli)', content: toB64(html), branch: GH_BRANCH };
-    if (entry) body.sha = entry.sha;
+    if (byPath[MAIN_FILE]) body.sha = byPath[MAIN_FILE];
 
     const putRes = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${MAIN_FILE}`, {
       method: 'PUT', headers, body: JSON.stringify(body)
@@ -1004,8 +1032,23 @@ async function publishSite() {
       const err = await putRes.json().catch(() => ({}));
       throw new Error('Yükleme hatası (HTTP ' + putRes.status + '): ' + (err.message || '') + ' — Ayarlar sekmesindeki "🔍 Bağlantıyı Test Et" ile sorunu görün.');
     }
+
+    // 3) Artik kullanilmayan urun gorsellerini temizle (hata olursa sorun degil)
+    const used = new Set(products.map(p => p.img));
+    for (const pth in byPath) {
+      if (pth.indexOf('img/urun-') === 0 && !used.has(pth)) {
+        try {
+          await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${pth}`, {
+            method: 'DELETE', headers,
+            body: JSON.stringify({ message: 'Kullanılmayan görsel silindi (admin paneli)', sha: byPath[pth], branch: GH_BRANCH })
+          });
+        } catch (e) { /* temizlik hatasi yayini engellemez */ }
+      }
+    }
+
     mainSource = html;
     _dirty = false;
+    renderAdminProducts();
     const btn = document.getElementById('publishTopBtn');
     if (btn) btn.classList.remove('attention');
     setPubStatus('✅ Yayınlandı! Değişiklikler 1-2 dakika içinde sitede görünür.');
