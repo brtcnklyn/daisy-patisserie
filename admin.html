@@ -204,6 +204,21 @@
   .admin-prod-act.del { background: rgba(192,57,43,0.9); }
   @media (hover: none) { .admin-prod-actions { opacity: 1; } }
 
+  .admin-prod-order {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 6px 10px; border-top: 1px solid rgba(120,136,107,0.15);
+  }
+  .admin-order-btn {
+    background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.7);
+    border: none; border-radius: 8px; width: 30px; height: 24px;
+    font-size: 0.7rem; cursor: pointer; transition: all 0.15s;
+  }
+  .admin-order-btn:hover:not(:disabled) { background: #78886b; color: #fff; }
+  .admin-order-btn:disabled { opacity: 0.25; cursor: default; }
+  .admin-order-num {
+    font-size: 0.72rem; color: rgba(255,255,255,0.35); font-weight: 500;
+  }
+
   .admin-radio-row { display: flex; gap: 8px; margin-bottom: 14px; }
   .admin-radio-btn {
     flex: 1; padding: 11px 10px; border-radius: 10px;
@@ -706,7 +721,26 @@ function renderAdminProducts() {
         <div class="name">${escapeHtml(p.name)}</div>
         <div class="min">${p.isWhole ? '🎂 1 bütün' : (p.frozen ? '❄️ Donuk' : '🌿 Taze')}</div>
       </div>
+      <div class="admin-prod-order">
+        <button class="admin-order-btn" onclick="moveProduct(${i}, -1)" title="Öne al" ${i === 0 ? 'disabled' : ''}>◀</button>
+        <span class="admin-order-num">${i + 1}</span>
+        <button class="admin-order-btn" onclick="moveProduct(${i}, 1)" title="Arkaya al" ${i === products.length - 1 ? 'disabled' : ''}>▶</button>
+      </div>
     </div>`).join('');
+}
+
+function moveProduct(i, dir) {
+  const j = i + dir;
+  if (j < 0 || j >= products.length) return;
+  const tmp = products[i];
+  products[i] = products[j];
+  products[j] = tmp;
+  // Popup secili urunu takip etsin
+  if (currentPopupConfig.productIdx === i) currentPopupConfig.productIdx = j;
+  else if (currentPopupConfig.productIdx === j) currentPopupConfig.productIdx = i;
+  markDirty();
+  renderAdminProducts();
+  refreshPopupSelect();
 }
 
 function deleteProduct(i) {
@@ -1035,9 +1069,22 @@ async function publishSite() {
     const body = { message: 'Site güncellendi (admin paneli)', content: toB64(html), branch: GH_BRANCH };
     if (byPath[MAIN_FILE]) body.sha = byPath[MAIN_FILE];
 
-    const putRes = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${MAIN_FILE}`, {
+    let putRes = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${MAIN_FILE}`, {
       method: 'PUT', headers, body: JSON.stringify(body)
     });
+    if (putRes.status === 409) {
+      // Surum cakismasi: guncel sha'yi tazeleyip bir kez daha dene
+      setPubStatus('⏳ Sürüm çakışması, yeniden deneniyor...');
+      const t2 = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/git/trees/${GH_BRANCH}?recursive=1&_=${Date.now()}`, { headers, cache: 'no-store' });
+      if (t2.ok) {
+        const tr2 = await t2.json();
+        const e2 = (tr2.tree || []).find(t => t.path === MAIN_FILE);
+        if (e2) body.sha = e2.sha; else delete body.sha;
+        putRes = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${MAIN_FILE}`, {
+          method: 'PUT', headers, body: JSON.stringify(body)
+        });
+      }
+    }
     if (!putRes.ok) {
       const err = await putRes.json().catch(() => ({}));
       throw new Error('Yükleme hatası (HTTP ' + putRes.status + '): ' + (err.message || '') + ' — Ayarlar sekmesindeki "🔍 Bağlantıyı Test Et" ile sorunu görün.');
