@@ -1706,6 +1706,31 @@
         </a>
       </div>
     </div>
+    <div class="product-card reveal reveal-delay-2" onclick="openProduct(17)" data-frozen="true">
+      <div class="product-img">
+        <img src="img/urun-8aff152345.jpg" alt="Mozaik Pasta" loading="lazy">
+        <div class="product-overlay"><span>Detay Gör</span></div>
+        <span class="frozen-badge">❄️ Donuk</span>
+      </div>
+      <div class="product-body">
+        <span class="product-tag-inline">Pasta</span>
+        <h4>Mozaik Pasta</h4>
+        <p>Her lokmasıyla sizi çocukluğunuza, o en güzel aile sofralarına götürecek bir lezzet yolculuğuna hazır mısınız? 🍫
+
+Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye taşıdık. Kıyır kıyır bisküvi parçalarının, kaliteli kakao ve taze krema ile hazırlanan o efsanevi karışımla buluşması... Üzerini kaplayan ipeksi çikolata sosu ise bu lezzet şöleninin finalinde damaklarınızda unutulmaz bir iz bırakıyor.</p>
+        <div class="whole-badge">🎂 1 bütün · ~10-12 dilim</div>
+      </div>
+      <div class="product-cta-row">
+        <button class="btn-cart" onclick="addToCart(event, this)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          Sepete Ekle
+        </button>
+        <a class="btn-order-direct" onclick="orderDirect(event, this)" href="#">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.104 1.523 5.827L0 24l6.341-1.508A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.01-1.374l-.359-.214-3.767.896.958-3.668-.234-.374A9.818 9.818 0 012.182 12C2.182 6.578 6.578 2.182 12 2.182S21.818 6.578 21.818 12 17.422 21.818 12 21.818z"/></svg>
+          Sipariş Ver
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1884,6 +1909,7 @@ const PRODUCT_DATA = [
   { img: "img/urun-9529ee0a44.jpg", tag: "Cup Dessert", name: "Çilekli Magnolya", frozen: false, isWhole: false, desc: "Hafiflik arayanlara! Taze meyveler, ipeksi muhallebi ve bebe bisküvisinin nostaljik dokunuşu.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Çilekli%20Magnolya%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
   { img: "img/urun-446fcb43dd.jpg", tag: "Cup Dessert", name: "Kadayıflı Muhallebi", frozen: false, isWhole: false, desc: "Tereyağının eşsiz kokusu, şekerin karamelize tadı... Sabırla kavrulan çıtır kadayıflar ile ipeksi muhallebinin buluşması. Geleneksel lezzet, en çıtır haliyle burada.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Kadayıflı%20Muhallebi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
   { img: "img/urun-c01508dce2.jpg", tag: "Sütlaç", name: "Fırın Sütlaç", frozen: false, isWhole: false, desc: "Geleneksel lezzetin en saf formu! Taze süt ve tam kıvamında pirinçle hazırlanan sütlaç, çocukluğumuzun o unutulmaz tadını sofralarınıza taşıyor.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Fırın%20Sütlaç%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-8aff152345.jpg", tag: "Pasta", name: "Mozaik Pasta", frozen: true, isWhole: true, desc: "Her lokmasıyla sizi çocukluğunuza, o en güzel aile sofralarına götürecek bir lezzet yolculuğuna hazır mısınız? 🍫\n\nKlasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye taşıdık. Kıyır kıyır bisküvi parçalarının, kaliteli kakao ve taze krema ile hazırlanan o efsanevi karışımla buluşması... Üzerini kaplayan ipeksi çikolata sosu ise bu lezzet şöleninin finalinde damaklarınızda unutulmaz bir iz bırakıyor.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Mozaik%20Pasta%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
 ];
 
 // ══════════════════════════════
@@ -1891,7 +1917,7 @@ const PRODUCT_DATA = [
 // ══════════════════════════════
 window.POPUP_CONFIG = {
   "enabled": false,
-  "productIdx": 0,
+  "productIdx": 17,
   "title": "Yeni Ürün!",
   "message": "Yeni ürünümüzü keşfetmek için tıklayın.",
   "btnText": "İncele"
