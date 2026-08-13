@@ -901,7 +901,8 @@ function buildSiteHtml() {
   if (!checkMatch) throw new Error('doğrulama: PRODUCT_DATA üretilemedi');
   const parsed = new Function('return ' + checkMatch[1])();
   if (parsed.length !== products.length) throw new Error('doğrulama: ürün sayısı uyuşmuyor');
-  const cardCount = (src.match(/onclick="openProduct\(/g) || []).length;
+  const gridMatch = src.match(/<div class="products-grid">[\s\S]*?\n\s*<\/div>\s*\n\s*<\/section>/);
+  const cardCount = gridMatch ? (gridMatch[0].match(/class="product-card/g) || []).length : -1;
   if (cardCount !== products.length) throw new Error('doğrulama: kart sayısı uyuşmuyor (' + cardCount + '/' + products.length + ')');
   if (!src.trimEnd().endsWith('</html>')) throw new Error('doğrulama: dosya sonu bozuk');
 
