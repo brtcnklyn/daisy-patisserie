@@ -1081,6 +1081,38 @@
   }
   .filter-btn.active .filter-count { background: rgba(255,255,255,0.2); }
 
+  /* Ürün arama kutusu */
+  .product-search {
+    display: flex; align-items: center; gap: 8px;
+    border: 1.5px solid rgba(107,143,107,0.25); border-radius: 50px;
+    padding: 0 8px 0 16px; background: var(--white);
+    transition: border-color 0.25s, box-shadow 0.25s;
+    flex: 1; min-width: 200px; max-width: 320px;
+    color: var(--text-light);
+  }
+  .product-search:focus-within {
+    border-color: var(--sage);
+    box-shadow: 0 4px 14px rgba(79,95,66,0.12);
+  }
+  .product-search input {
+    border: none; outline: none; background: transparent;
+    padding: 10px 0; font-size: 0.85rem; width: 100%;
+    font-family: 'DM Sans', sans-serif; color: var(--text-dark);
+  }
+  .product-search input::placeholder { color: var(--text-light); }
+  .product-search-clear {
+    background: none; border: none; cursor: pointer; color: var(--text-light);
+    font-size: 0.8rem; padding: 6px; display: none; line-height: 1;
+  }
+  .product-search-clear:hover { color: var(--text-dark); }
+  .product-card.hidden-by-search { display: none !important; }
+  .no-results-msg {
+    display: none; text-align: center; padding: 36px 20px;
+    color: var(--text-light); font-size: 0.95rem;
+    background: rgba(107,143,107,0.05); border-radius: 16px;
+    border: 1px dashed rgba(107,143,107,0.25); margin-bottom: 24px;
+  }
+
   /* Frozen / Fresh badges on cards */
   .frozen-badge, .fresh-badge {
     position: absolute; top: 10px; left: 10px;
@@ -1315,6 +1347,11 @@
   </div>
   
   <div class="product-filter-bar" id="productFilterBar">
+    <div class="product-search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="productSearch" placeholder="Ürün ara..." oninput="searchProducts(this.value)" autocomplete="off">
+      <button class="product-search-clear" id="productSearchClear" onclick="clearProductSearch()" aria-label="Aramayı temizle">✕</button>
+    </div>
     <button class="filter-btn active" onclick="filterProducts('all', this)">
       🌼 Tümünü Göster <span class="filter-count" id="fcAll">17</span>
     </button>
@@ -1325,6 +1362,8 @@
       🌿 Taze Ürünler <span class="filter-count" id="fcFresh">9</span>
     </button>
   </div>
+
+  <div class="no-results-msg" id="noResultsMsg">🌼 Aradığınız isimde bir ürün bulunamadı. Farklı bir kelime deneyin.</div>
 
   <div class="products-grid">
     <div class="product-card reveal" onclick="openProduct(0)" data-frozen="true">
@@ -2341,6 +2380,36 @@ function filterProducts(type, btn) {
     else if (type === 'frozen') card.classList.toggle('hidden-by-filter', !isFrozen);
     else if (type === 'fresh') card.classList.toggle('hidden-by-filter', isFrozen);
   });
+  _applySearch();
+}
+
+// ── ÜRÜN ARAMA ──
+let _searchQ = '';
+function _applySearch() {
+  const cards = document.querySelectorAll('.products-grid .product-card');
+  let visible = 0;
+  cards.forEach(card => {
+    const name = (card.querySelector('h4') || {}).textContent || '';
+    const tag = (card.querySelector('.product-tag-inline') || {}).textContent || '';
+    const desc = (card.querySelector('.product-body p') || {}).textContent || '';
+    const match = !_searchQ || (name + ' ' + tag + ' ' + desc).toLocaleLowerCase('tr').includes(_searchQ);
+    card.classList.toggle('hidden-by-search', !match);
+    if (match && !card.classList.contains('hidden-by-filter')) visible++;
+  });
+  const msg = document.getElementById('noResultsMsg');
+  if (msg) msg.style.display = (_searchQ && visible === 0) ? 'block' : 'none';
+  const clearBtn = document.getElementById('productSearchClear');
+  if (clearBtn) clearBtn.style.display = _searchQ ? 'block' : 'none';
+}
+function searchProducts(q) {
+  _searchQ = (q || '').trim().toLocaleLowerCase('tr');
+  _applySearch();
+}
+function clearProductSearch() {
+  const inp = document.getElementById('productSearch');
+  inp.value = '';
+  searchProducts('');
+  inp.focus();
 }
 
 function updateFilterCounts() {
