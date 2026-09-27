@@ -379,6 +379,36 @@
   }
   .fetch-status.error { background: rgba(192,57,43,0.15); color: #e74c3c; }
 
+  /* ── Davet sekmesi ── */
+  .admin-tabs { overflow-x: auto; scrollbar-width: none; }
+  .admin-tabs::-webkit-scrollbar { display: none; }
+  .admin-tab { white-space: nowrap; }
+  .davet-link-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 0.85rem; color: rgba(255,255,255,0.55); margin-bottom: 18px; }
+  .davet-link-row a { color: #E8D07A; text-decoration: none; font-weight: 500; }
+  .davet-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 18px; }
+  .davet-stat { background: rgba(255,255,255,0.04); border: 1px solid rgba(120,136,107,0.2); border-radius: 14px; padding: 16px; }
+  .davet-stat b { display: block; font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: #fff; line-height: 1.1; }
+  .davet-stat span { font-size: 0.74rem; color: rgba(255,255,255,0.5); }
+  .davet-stat.main { background: linear-gradient(135deg, #4f5f42, #78886b); border-color: transparent; }
+  .davet-stat.main b { color: #E8D07A; font-size: 2.4rem; }
+  .davet-stat.main span { color: rgba(255,255,255,0.8); }
+  .davet-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
+  .davet-status { font-size: 0.85rem; color: #95a882; min-height: 1.2em; margin-bottom: 10px; }
+  .davet-status.error { color: #e74c3c; }
+  .davet-empty { padding: 26px; text-align: center; color: rgba(255,255,255,0.45); font-size: 0.88rem; border: 1px dashed rgba(120,136,107,0.3); border-radius: 12px; }
+  .davet-table-wrap { overflow-x: auto; }
+  .davet-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; min-width: 520px; }
+  .davet-table th { text-align: left; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.4); font-weight: 500; padding: 8px 10px; border-bottom: 1px solid rgba(120,136,107,0.25); }
+  .davet-table td { padding: 11px 10px; border-bottom: 1px solid rgba(120,136,107,0.12); color: rgba(255,255,255,0.85); vertical-align: top; }
+  .davet-table td.nm { color: #fff; font-weight: 500; }
+  .davet-table .nt { font-weight: 400; font-size: 0.78rem; color: rgba(255,255,255,0.5); margin-top: 3px; }
+  .davet-table td.ct { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: #E8D07A; }
+  .davet-table td.dt { font-size: 0.76rem; color: rgba(255,255,255,0.45); white-space: nowrap; }
+  .davet-table .admin-prod-act { width: 24px; height: 24px; font-size: 0.7rem; }
+  .dv-badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 0.72rem; font-weight: 500; white-space: nowrap; }
+  .dv-badge.yes { background: rgba(149,168,130,0.25); color: #b9cba6; }
+  .dv-badge.no { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); }
+  @media (max-width: 600px) { .davet-stats { grid-template-columns: 1fr 1fr; } .davet-stat.main { grid-column: 1 / -1; } }
 </style>
 </head>
 <body>
@@ -411,6 +441,7 @@
     <button class="admin-tab active" id="tabbtn-popup" onclick="switchTab('popup', this)">📢 Popup Yönetimi</button>
     <button class="admin-tab" id="tabbtn-products" onclick="switchTab('products', this)">🍰 Ürünler</button>
     <button class="admin-tab" id="tabbtn-addprod" onclick="switchTab('addprod', this)">➕ Yeni Ürün</button>
+    <button class="admin-tab" id="tabbtn-davet" onclick="switchTab('davet', this)">🎉 Davet</button>
     <button class="admin-tab" id="tabbtn-settings" onclick="switchTab('settings', this)">⚙️ Ayarlar</button>
   </div>
 
@@ -506,6 +537,29 @@
       </div>
     </div>
 
+    <!-- DAVET TAB -->
+    <div class="admin-panel" id="tab-davet">
+      <div class="admin-card">
+        <h3>🎉 Açılış Daveti — Katılım Listesi</h3>
+        <div class="davet-link-row">
+          <span>Davet linki:</span>
+          <a href="davet/" target="_blank">daisypatisserie.com/davet</a>
+          <button class="admin-topbtn" onclick="copyDavetLink(this)">📋 Kopyala</button>
+        </div>
+        <div class="davet-stats">
+          <div class="davet-stat main"><b id="dvTotal">–</b><span>Gelecek toplam kişi</span></div>
+          <div class="davet-stat"><b id="dvYes">–</b><span>"Katılıyorum" yanıtı</span></div>
+          <div class="davet-stat"><b id="dvNo">–</b><span>"Katılamıyorum" yanıtı</span></div>
+        </div>
+        <div class="davet-actions">
+          <button class="admin-btn" style="width:auto;padding:11px 22px;" onclick="loadDavet()">🔄 Yenile</button>
+          <button class="admin-btn secondary" style="width:auto;padding:11px 22px;margin-top:0;" onclick="exportDavetCsv()">⬇️ Excel'e Aktar (CSV)</button>
+        </div>
+        <div class="davet-status" id="davetStatus"></div>
+        <div id="davetList"></div>
+      </div>
+    </div>
+
     <!-- SETTINGS TAB -->
     <div class="admin-panel" id="tab-settings">
       <div class="admin-card">
@@ -547,6 +601,7 @@
   </div>
 </div>
 
+<script src="davet/api.js"></script>
 <script>
 // ══════════════════════════════
 // DAISY ADMIN PANEL — standalone page
@@ -648,6 +703,7 @@ async function doAdminLogin() {
   }
   const hash = await sha256(input);
   if (hash === currentPassHash) {
+    _adminPass = input;
     document.getElementById('adminLoginScreen').style.display = 'none';
     document.getElementById('adminDash').classList.add('visible');
     initAdminDash();
@@ -684,6 +740,92 @@ function switchTab(name, btn) {
   if (!btn) btn = document.getElementById('tabbtn-' + name);
   if (btn) btn.classList.add('active');
   if (name === 'products') renderAdminProducts();
+  if (name === 'davet') loadDavet();
+}
+
+// ── AÇILIŞ DAVETİ ──
+let _adminPass = '';
+let _davetRows = [];
+
+async function davetApi(body) {
+  if (!window.DAVET_API) throw new Error('Davet sistemi henüz bağlanmadı (Google E-Tablo kurulumu bekleniyor).');
+  const res = await fetch(window.DAVET_API, {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(Object.assign({ p: _adminPass }, body))
+  });
+  const data = await res.json();
+  if (!data.ok) throw new Error(data.error === 'yetki' ? 'Şifre doğrulanamadı. Çıkış yapıp tekrar giriş yapın.' : (data.error || 'Bilinmeyen hata'));
+  return data;
+}
+
+async function loadDavet() {
+  const st = document.getElementById('davetStatus');
+  st.className = 'davet-status'; st.textContent = '⏳ Liste yükleniyor...';
+  try {
+    const data = await davetApi({ action: 'list' });
+    _davetRows = (data.rows || []).sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+    st.textContent = '';
+    renderDavet();
+  } catch (e) {
+    st.className = 'davet-status error'; st.textContent = '⚠️ ' + e.message;
+  }
+}
+
+function renderDavet() {
+  const yes = _davetRows.filter(r => r.attending);
+  const no = _davetRows.filter(r => !r.attending);
+  document.getElementById('dvTotal').textContent = yes.reduce((s, r) => s + (r.count || 0), 0);
+  document.getElementById('dvYes').textContent = yes.length;
+  document.getElementById('dvNo').textContent = no.length;
+  const list = document.getElementById('davetList');
+  if (!_davetRows.length) {
+    list.innerHTML = '<div class="davet-empty">Henüz yanıt yok. Davet linkini paylaştıkça yanıtlar burada görünecek.</div>';
+    return;
+  }
+  const fmt = iso => { const d = new Date(iso); return isNaN(d) ? '' : d.toLocaleString('tr-TR', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }); };
+  const row = r => `<tr>
+      <td class="nm">${escapeHtml(r.name)}${r.note ? `<div class="nt">💬 ${escapeHtml(r.note)}</div>` : ''}</td>
+      <td>${r.attending ? `<span class="dv-badge yes">Katılıyor</span>` : `<span class="dv-badge no">Katılamıyor</span>`}</td>
+      <td class="ct">${r.attending ? r.count : '–'}</td>
+      <td class="dt">${fmt(r.date)}</td>
+      <td><button class="admin-prod-act del" title="Sil" onclick="deleteDavet('${escapeHtml(r.id)}')">✕</button></td>
+    </tr>`;
+  list.innerHTML = `<div class="davet-table-wrap"><table class="davet-table">
+      <thead><tr><th>Ad Soyad</th><th>Durum</th><th>Kişi</th><th>Tarih</th><th></th></tr></thead>
+      <tbody>${yes.map(row).join('')}${no.map(row).join('')}</tbody>
+    </table></div>`;
+}
+
+async function deleteDavet(id) {
+  const r = _davetRows.find(x => x.id === id);
+  if (!r || !confirm('"' + r.name + '" yanıtını listeden silmek istiyor musunuz?')) return;
+  const st = document.getElementById('davetStatus');
+  st.className = 'davet-status'; st.textContent = '⏳ Siliniyor...';
+  try {
+    await davetApi({ action: 'delete', id: id });
+    await loadDavet();
+  } catch (e) {
+    st.className = 'davet-status error'; st.textContent = '⚠️ ' + e.message;
+  }
+}
+
+function exportDavetCsv() {
+  if (!_davetRows.length) { alert('Aktarılacak yanıt yok.'); return; }
+  const q = v => '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"';
+  const lines = [['Ad Soyad', 'Durum', 'Kişi Sayısı', 'Not', 'Tarih'].map(q).join(';')];
+  _davetRows.forEach(r => lines.push([r.name, r.attending ? 'Katılıyor' : 'Katılamıyor', r.attending ? r.count : 0, r.note, new Date(r.date).toLocaleString('tr-TR')].map(q).join(';')));
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob(['﻿' + lines.join('\r\n')], { type: 'text/csv;charset=utf-8' }));
+  a.download = 'daisy-acilis-katilim.csv';
+  document.body.appendChild(a); a.click(); a.remove();
+}
+
+function copyDavetLink(btn) {
+  const url = 'https://www.daisypatisserie.com/davet/';
+  const done = () => { const t = btn.textContent; btn.textContent = '✅ Kopyalandı'; setTimeout(() => btn.textContent = t, 2000); };
+  if (navigator.clipboard) navigator.clipboard.writeText(url).then(done, () => prompt('Linki kopyalayın:', url));
+  else prompt('Linki kopyalayın:', url);
 }
 
 // ── POPUP ──

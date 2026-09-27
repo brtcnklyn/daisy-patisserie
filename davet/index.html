@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Açılışımıza Davetlisiniz · Daisy Patisserie</title>
+<meta name="description" content="Daisy Patisserie açılışına davetlisiniz! 4 Ekim 2026 Pazar, 14:00 – 19:00 · Kayaşehir, Başakşehir.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#4f5f42">
+<meta property="og:type" content="website">
+<meta property="og:title" content="🌼 Açılışımıza Davetlisiniz · Daisy Patisserie">
+<meta property="og:description" content="4 Ekim Pazar · 14:00 – 19:00 · Kayaşehir, Başakşehir. Katılım durumunuzu bildirmek için tıklayın.">
+<meta property="og:image" content="https://www.daisypatisserie.com/davet/kapak.jpg">
+<meta property="og:url" content="https://www.daisypatisserie.com/davet/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sage: #78886b;
+    --sage-light: #95a882;
+    --sage-deep: #4f5f42;
+    --sage-ink: #3d4a33;
+    --cream: #FAF6EF;
+    --cream-dark: #F0E9DB;
+    --white: #FFFFFF;
+    --text-dark: #2a332a;
+    --text-mid: #4D5E4D;
+    --text-light: #6f806f;
+    --daisy-yellow: #E8D07A;
+    --daisy-gold: #b8962e;
+    --whatsapp: #25D366;
+    --danger: #b0413e;
+    --line: rgba(107,143,107,0.18);
+    --ease: cubic-bezier(0.22,0.61,0.36,1);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: var(--cream); color: var(--text-dark);
+    line-height: 1.6; overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+  button, input, textarea { font: inherit; color: inherit; }
+  ::selection { background: var(--sage); color: #fff; }
+  :focus-visible { outline: 2px solid var(--sage-deep); outline-offset: 3px; border-radius: 6px; }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+  .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+  /* ── Arka plan papatyaları ── */
+  .bg-daisies { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+  .bg-daisies svg { position: absolute; color: var(--sage); opacity: 0.08; animation: sway 9s ease-in-out infinite; }
+  .bg-daisies svg:nth-child(1) { width: 150px; top: 6%;  right: -40px; }
+  .bg-daisies svg:nth-child(2) { width: 90px;  top: 46%; left: -30px; animation-delay: -3s; }
+  .bg-daisies svg:nth-child(3) { width: 70px;  bottom: 8%; right: 8%; animation-delay: -6s; opacity: 0.06; }
+  @keyframes sway { 0%,100% { transform: rotate(0deg) translateY(0); } 50% { transform: rotate(12deg) translateY(-10px); } }
+
+  main, header, footer { position: relative; z-index: 1; }
+
+  /* ── Üst ── */
+  .top { padding: 22px 0 0; }
+  .top .wrap { display: flex; align-items: center; justify-content: space-between; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brand img { width: 48px; height: 40px; object-fit: cover; border-radius: 10px; }
+  .brand span { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; letter-spacing: 0.02em; color: var(--sage-deep); }
+  .top-link { font-size: 0.82rem; color: var(--text-mid); text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 2px; }
+  .top-link:hover { color: var(--sage-deep); border-color: var(--sage); }
+
+  /* ── Hero ── */
+  .hero { padding: 40px 0 56px; }
+  .hero .wrap { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 0.74rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--sage); font-weight: 600; margin-bottom: 18px;
+  }
+  .eyebrow::before, .eyebrow::after { content: ''; width: 26px; height: 1.5px; background: var(--daisy-yellow); }
+  h1 {
+    font-family: 'Cormorant Garamond', serif; font-weight: 300;
+    font-size: clamp(2.8rem, 7vw, 4.8rem); line-height: 1.02; letter-spacing: -0.015em;
+    color: var(--text-dark);
+  }
+  h1 em { font-style: italic; color: var(--sage-deep); display: block; }
+  .lead { margin-top: 22px; font-size: 1.05rem; font-weight: 300; color: var(--text-mid); max-width: 30em; }
+  .countdown {
+    margin-top: 26px; display: inline-flex; align-items: center; gap: 10px;
+    background: var(--white); border: 1px solid var(--line); border-radius: 50px;
+    padding: 9px 18px 9px 10px; font-size: 0.88rem; color: var(--text-mid);
+    box-shadow: 0 6px 20px rgba(79,95,66,0.07);
+  }
+  .countdown b { color: var(--sage-deep); font-weight: 600; }
+  .countdown .dot {
+    width: 28px; height: 28px; border-radius: 50%; background: rgba(232,208,122,0.3);
+    display: grid; place-items: center; color: var(--daisy-gold);
+  }
+  .hero-actions { margin-top: 30px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 15px 30px; border-radius: 50px; border: 1.5px solid transparent;
+    font-size: 0.92rem; font-weight: 500; letter-spacing: 0.02em;
+    text-decoration: none; cursor: pointer; transition: transform 0.25s var(--ease), box-shadow 0.25s, background 0.25s, color 0.25s, border-color 0.25s;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--sage-deep); color: #fff; }
+  .btn-primary:hover { background: var(--sage-ink); box-shadow: 0 10px 28px rgba(79,95,66,0.3); }
+  .btn-ghost { background: transparent; color: var(--sage-deep); border-color: rgba(107,143,107,0.4); }
+  .btn-ghost:hover { background: rgba(107,143,107,0.08); border-color: var(--sage); }
+
+  .hero-visual { position: relative; }
+  .arch {
+    position: relative; aspect-ratio: 4 / 5; border-radius: 999px 999px 28px 28px; overflow: hidden;
+    box-shadow: 0 30px 70px rgba(79,95,66,0.22);
+    border: 8px solid var(--white);
+  }
+  .arch img { width: 100%; height: 100%; object-fit: cover; }
+  .stamp {
+    position: absolute; left: -26px; bottom: 34px;
+    width: 116px; height: 116px; border-radius: 50%;
+    background: var(--sage-deep); color: #fff;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+    box-shadow: 0 14px 34px rgba(61,74,51,0.35);
+    border: 3px solid var(--daisy-yellow);
+  }
+  .stamp .d { font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; font-weight: 600; line-height: 0.9; }
+  .stamp .m { font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; margin-top: 4px; }
+  .stamp .w { font-size: 0.66rem; opacity: 0.75; margin-top: 2px; }
+
+  /* ── Bilgi kartları ── */
+  .section-head { text-align: center; margin-bottom: 34px; }
+  .section-head .eyebrow { margin-bottom: 10px; }
+  .section-head h2 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2rem, 4.6vw, 2.9rem); line-height: 1.1; }
+  .section-head h2 em { font-style: italic; color: var(--sage-deep); }
+
+  .details { padding: 20px 0 60px; }
+  .detail-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .detail {
+    background: var(--white); border: 1px solid var(--line); border-radius: 22px;
+    padding: 26px 24px; display: flex; gap: 16px; align-items: flex-start;
+    transition: transform 0.3s var(--ease), box-shadow 0.3s;
+  }
+  .detail:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(79,95,66,0.1); }
+  .detail .ico {
+    flex-shrink: 0; width: 48px; height: 48px; border-radius: 50%;
+    background: rgba(149,168,130,0.16); color: var(--sage-deep);
+    display: grid; place-items: center;
+  }
+  .detail small { display: block; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-light); font-weight: 600; }
+  .detail strong { display: block; font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; font-weight: 600; color: var(--text-dark); line-height: 1.2; margin-top: 4px; }
+  .detail span { display: block; font-size: 0.86rem; color: var(--text-mid); margin-top: 2px; }
+  .cal-links { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 10px; }
+  .cal-links a, .cal-links button {
+    background: none; border: none; cursor: pointer; padding: 0;
+    font-size: 0.8rem; font-weight: 500; color: var(--sage-deep);
+    text-decoration: underline; text-decoration-color: rgba(107,143,107,0.4); text-underline-offset: 3px;
+  }
+  .cal-links a:hover, .cal-links button:hover { text-decoration-color: var(--sage-deep); }
+
+  /* ── Harita ── */
+  .location { padding: 10px 0 70px; }
+  .map-card {
+    display: grid; grid-template-columns: 1.4fr 1fr; background: var(--white);
+    border: 1px solid var(--line); border-radius: 26px; overflow: hidden;
+    box-shadow: 0 20px 50px rgba(79,95,66,0.08);
+  }
+  .map-frame { min-height: 340px; background: var(--cream-dark); }
+  .map-frame iframe { width: 100%; height: 100%; min-height: 340px; border: 0; display: block; filter: saturate(0.85); }
+  .map-info { padding: 34px 32px; display: flex; flex-direction: column; justify-content: center; }
+  .map-info h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 600; color: var(--text-dark); margin-bottom: 12px; }
+  .map-info address { font-style: normal; font-size: 0.95rem; color: var(--text-mid); line-height: 1.7; }
+  .map-info .btn { margin-top: 22px; align-self: flex-start; }
+  .map-info .sub-link { margin-top: 14px; font-size: 0.82rem; color: var(--text-light); }
+
+  /* ── Katılım (RSVP) ── */
+  .rsvp { background: var(--sage-deep); padding: 80px 0; position: relative; overflow: hidden; }
+  .rsvp::before {
+    content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0.06;
+    background-image: radial-gradient(rgba(255,255,255,0.9) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  .rsvp .section-head h2 { color: #fff; }
+  .rsvp .section-head h2 em { color: var(--daisy-yellow); }
+  .rsvp .section-head p { color: rgba(255,255,255,0.72); margin-top: 12px; font-weight: 300; }
+  .rsvp .eyebrow { color: var(--daisy-yellow); }
+
+  .rsvp-card {
+    position: relative; max-width: 560px; margin: 0 auto;
+    background: var(--cream); border-radius: 28px; padding: 34px 32px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+  }
+  .q-label { display: block; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-light); font-weight: 600; margin-bottom: 10px; }
+  .choice-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .choice {
+    display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center;
+    padding: 20px 12px; border-radius: 18px; cursor: pointer;
+    background: var(--white); border: 2px solid var(--line);
+    transition: all 0.25s var(--ease);
+  }
+  .choice .em { font-size: 1.7rem; line-height: 1; }
+  .choice .t { font-weight: 600; font-size: 0.98rem; color: var(--text-dark); }
+  .choice .s { font-size: 0.76rem; color: var(--text-light); }
+  .choice:hover { border-color: var(--sage-light); transform: translateY(-2px); }
+  .choice[aria-pressed="true"].yes { border-color: var(--sage-deep); background: rgba(149,168,130,0.14); box-shadow: 0 8px 22px rgba(79,95,66,0.14); }
+  .choice[aria-pressed="true"].no { border-color: var(--text-light); background: var(--cream-dark); }
+
+  .fields { display: none; margin-top: 24px; }
+  .fields.show { display: block; animation: rise 0.4s var(--ease); }
+  @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  .field { margin-bottom: 18px; }
+  .field label { display: block; font-size: 0.86rem; font-weight: 500; color: var(--text-dark); margin-bottom: 7px; }
+  .field label i { font-style: normal; font-weight: 400; color: var(--text-light); }
+  .input {
+    width: 100%; padding: 14px 16px; border-radius: 14px;
+    background: var(--white); border: 1.5px solid rgba(107,143,107,0.25);
+    font-size: 1rem; outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .input:focus { border-color: var(--sage); box-shadow: 0 0 0 4px rgba(149,168,130,0.18); }
+  textarea.input { resize: vertical; min-height: 84px; }
+  .input.err { border-color: var(--danger); }
+
+  .stepper { display: inline-flex; align-items: center; background: var(--white); border: 1.5px solid rgba(107,143,107,0.25); border-radius: 50px; padding: 5px; }
+  .stepper button {
+    width: 42px; height: 42px; border-radius: 50%; border: none; cursor: pointer;
+    background: rgba(149,168,130,0.16); color: var(--sage-deep); font-size: 1.3rem; line-height: 1;
+    transition: background 0.2s, color 0.2s;
+  }
+  .stepper button:hover:not(:disabled) { background: var(--sage-deep); color: #fff; }
+  .stepper button:disabled { opacity: 0.35; cursor: default; }
+  .stepper output { min-width: 64px; text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 600; color: var(--text-dark); }
+  .stepper-hint { display: block; font-size: 0.78rem; color: var(--text-light); margin-top: 6px; }
+
+  .submit { width: 100%; margin-top: 8px; padding: 17px; font-size: 1rem; }
+  .submit[disabled] { opacity: 0.7; cursor: progress; transform: none; }
+  .form-msg { display: none; margin-top: 14px; padding: 12px 14px; border-radius: 12px; font-size: 0.88rem; }
+  .form-msg.show { display: block; }
+  .form-msg.error { background: rgba(176,65,62,0.1); color: var(--danger); border: 1px solid rgba(176,65,62,0.25); }
+  .privacy { margin-top: 16px; font-size: 0.74rem; color: var(--text-light); text-align: center; }
+
+  .done { display: none; text-align: center; }
+  .done.show { display: block; animation: rise 0.5s var(--ease); }
+  .done .big { width: 84px; height: 84px; margin: 0 auto 16px; border-radius: 50%; display: grid; place-items: center; background: rgba(232,208,122,0.28); color: var(--daisy-gold); }
+  .done h3 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; line-height: 1.15; }
+  .done p { margin-top: 10px; color: var(--text-mid); font-size: 0.96rem; }
+  .done .summary { margin: 18px auto 0; display: inline-block; background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 12px 18px; font-size: 0.9rem; color: var(--text-mid); }
+  .done .summary b { color: var(--text-dark); }
+  .done .cal-links { justify-content: center; margin-top: 18px; }
+  .done .change { margin-top: 22px; background: none; border: none; cursor: pointer; font-size: 0.84rem; color: var(--text-light); text-decoration: underline; text-underline-offset: 3px; }
+  .done .change:hover { color: var(--text-dark); }
+
+  .closed { display: none; text-align: center; color: var(--text-mid); }
+  .closed.show { display: block; }
+
+  /* ── Alt ── */
+  footer { padding: 46px 0 40px; text-align: center; }
+  footer .brand { justify-content: center; }
+  footer p { margin-top: 12px; font-size: 0.86rem; color: var(--text-mid); }
+  .foot-links { margin-top: 16px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+  .foot-links a {
+    display: inline-flex; align-items: center; gap: 7px; text-decoration: none;
+    padding: 10px 18px; border-radius: 50px; font-size: 0.84rem; font-weight: 500;
+    background: var(--white); border: 1px solid var(--line); color: var(--text-dark);
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .foot-links a:hover { border-color: var(--sage); transform: translateY(-2px); }
+  .foot-links a.wa svg { color: var(--whatsapp); }
+  .copy { margin-top: 22px; font-size: 0.74rem; color: var(--text-light); }
+
+  /* ── Konfeti papatyalar ── */
+  .confetti { position: fixed; inset: 0; pointer-events: none; z-index: 50; overflow: hidden; }
+  .confetti svg { position: absolute; top: -40px; animation: fall linear forwards; color: var(--daisy-yellow); }
+  @keyframes fall { to { transform: translateY(110vh) rotate(540deg); opacity: 0.2; } }
+
+  /* ── Duyarlı düzen ── */
+  @media (max-width: 860px) {
+    .hero { padding: 26px 0 44px; }
+    .hero .wrap { grid-template-columns: 1fr; gap: 34px; }
+    .hero-visual { order: -1; max-width: 230px; margin: 0 auto; width: 64%; }
+    .arch { border-width: 6px; }
+    .hero-text { text-align: center; }
+    .lead { margin-left: auto; margin-right: auto; }
+    .hero-actions { justify-content: center; }
+    .stamp { left: -30px; bottom: 18px; width: 84px; height: 84px; }
+    .stamp .d { font-size: 1.9rem; }
+    .stamp .m { font-size: 0.6rem; }
+    .detail-grid { grid-template-columns: 1fr; }
+    .map-card { grid-template-columns: 1fr; }
+    .map-frame, .map-frame iframe { min-height: 260px; }
+    .map-info { padding: 26px 22px; }
+  }
+  @media (max-width: 480px) {
+    .rsvp { padding: 60px 0; }
+    .rsvp-card { padding: 26px 18px; border-radius: 22px; }
+    .choice { padding: 16px 8px; }
+    .hero-actions { flex-direction: column; }
+    .hero-actions .btn { width: 100%; white-space: nowrap; }
+    .top-link { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="daisy" viewBox="0 0 100 100">
+    <g fill="none" stroke="currentColor" stroke-width="3.2">
+      <ellipse cx="50" cy="22" rx="9" ry="20"/>
+      <ellipse cx="50" cy="22" rx="9" ry="20" transform="rotate(40 50 50)"/>
+      <ellipse cx="50" cy="22" rx="9" ry="20" transform="rotate(80 50 50)"/>
+      <ellipse cx="50" cy="22" rx="9" ry="20" transform="rotate(120 50 50)"/>
+      <ellipse cx="50" cy="22" rx="9" ry="20" transform="rotate(160 50 50)"/>
+      <ellipse cx="50" cy="22" rx="9" ry="20" transform="rotate(200 50 50)"/>
+      <ellipse cx="50" cy="22" rx="9" ry="20" transform="rotate(240 50 50)"/>
+      <ellipse cx="50" cy="22" rx="9" ry="20" transform="rotate(280 50 50)"/>
+      <ellipse cx="50" cy="22" rx="9" ry="20" transform="rotate(320 50 50)"/>
+    </g>
+    <circle cx="50" cy="50" r="10" fill="currentColor"/>
+  </symbol>
+</svg>
+
+<div class="bg-daisies" aria-hidden="true">
+  <svg viewBox="0 0 100 100"><use href="#daisy"/></svg>
+  <svg viewBox="0 0 100 100"><use href="#daisy"/></svg>
+  <svg viewBox="0 0 100 100"><use href="#daisy"/></svg>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="https://www.daisypatisserie.com/">
+      <img src="logo.png" alt="">
+      <span>Daisy Patisserie</span>
+    </a>
+    <a class="top-link" href="https://www.daisypatisserie.com/">Siteyi ziyaret et →</a>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-text">
+        <div class="eyebrow">Açılış Daveti</div>
+        <h1>Açılışımıza <em>Davetlisiniz</em></h1>
+        <p class="lead">Daisy Patisserie kapılarını açıyor! Bu özel günü sizinle kutlamak, el yapımı tatlılarımızı birlikte tatmak için sabırsızlanıyoruz.</p>
+        <div class="countdown" id="countdown">
+          <span class="dot"><svg width="18" height="18" viewBox="0 0 100 100"><use href="#daisy"/></svg></span>
+          <span id="countdownText">4 Ekim Pazar · 14:00 – 19:00</span>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#katilim">Katılımımı Bildir</a>
+          <a class="btn btn-ghost" href="#konum">Konumu Gör</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="arch"><img src="kapak.jpg" alt="Papatyalar arasında Lotus cheesecake dilimi" width="700" height="499"></div>
+        <div class="stamp" aria-hidden="true">
+          <span class="d">4</span>
+          <span class="m">Ekim</span>
+          <span class="w">Pazar</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DETAYLAR -->
+  <section class="details" aria-label="Etkinlik bilgileri">
+    <div class="wrap">
+      <div class="detail-grid">
+        <div class="detail">
+          <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4.5" width="18" height="16.5" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg></div>
+          <div>
+            <small>Tarih</small>
+            <strong>4 Ekim 2026</strong>
+            <span>Pazar</span>
+            <div class="cal-links">
+              <a id="gcalLink" href="#" target="_blank" rel="noopener">Google Takvim'e ekle</a>
+              <button type="button" onclick="downloadIcs()">Apple/Outlook</button>
+            </div>
+          </div>
+        </div>
+        <div class="detail">
+          <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg></div>
+          <div>
+            <small>Saat</small>
+            <strong>14:00 – 19:00</strong>
+            <span>Dilediğiniz saatte uğrayabilirsiniz</span>
+          </div>
+        </div>
+        <div class="detail">
+          <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></div>
+          <div>
+            <small>Konum</small>
+            <strong>Kayaşehir</strong>
+            <span>Başakşehir / İstanbul</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONUM -->
+  <section class="location" id="konum">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Konum</div>
+        <h2>Bizi <em>Nerede</em> Bulabilirsiniz</h2>
+      </div>
+      <div class="map-card">
+        <div class="map-frame">
+          <iframe id="mapFrame" title="Daisy Patisserie konumu" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="map-info">
+          <h3>Daisy Patisserie</h3>
+          <address>
+            Kayabaşı Mah. Albayrak Sok. No:2K<br>
+            İnci Sitesi 15. Bölge, Kayaşehir<br>
+            Başakşehir / İstanbul
+          </address>
+          <a class="btn btn-primary" id="dirLink" href="#" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>
+            Yol Tarifi Al
+          </a>
+          <div class="sub-link">Harita uygulamanızda açılır.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KATILIM -->
+  <section class="rsvp" id="katilim">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Katılım</div>
+        <h2>Bizimle <em>misiniz?</em></h2>
+        <p>Hazırlıklarımızı planlayabilmemiz için lütfen katılım durumunuzu bildirin.</p>
+      </div>
+
+      <div class="rsvp-card">
+        <!-- Form -->
+        <form id="rsvpForm" novalidate>
+          <span class="q-label" id="choiceLabel">Katılım durumunuz</span>
+          <div class="choice-row" role="group" aria-labelledby="choiceLabel">
+            <button type="button" class="choice yes" id="btnYes" aria-pressed="false" onclick="choose(true)">
+              <span class="em">🌼</span>
+              <span class="t">Katılıyorum</span>
+              <span class="s">Orada olacağım</span>
+            </button>
+            <button type="button" class="choice no" id="btnNo" aria-pressed="false" onclick="choose(false)">
+              <span class="em">💌</span>
+              <span class="t">Katılamıyorum</span>
+              <span class="s">Bu sefer olmayacak</span>
+            </button>
+          </div>
+
+          <div class="fields" id="fields">
+            <div class="field">
+              <label for="fName">Adınız Soyadınız</label>
+              <input class="input" id="fName" type="text" autocomplete="name" maxlength="80" placeholder="Örn. Ayşe Yılmaz">
+            </div>
+            <div class="field" id="countField">
+              <label>Kaç kişi geleceksiniz? <i>(siz dahil)</i></label>
+              <div class="stepper">
+                <button type="button" id="minusBtn" onclick="stepCount(-1)" aria-label="Azalt">−</button>
+                <output id="countOut" aria-live="polite">1</output>
+                <button type="button" id="plusBtn" onclick="stepCount(1)" aria-label="Arttır">+</button>
+              </div>
+              <span class="stepper-hint" id="countHint">Sadece siz</span>
+            </div>
+            <div class="field">
+              <label for="fNote">Eklemek istediğiniz bir not <i>(isteğe bağlı)</i></label>
+              <textarea class="input" id="fNote" maxlength="400" placeholder="Örn. Saat 16:00 gibi geleceğiz"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary submit" id="submitBtn">Yanıtımı Gönder</button>
+            <div class="form-msg" id="formMsg" role="alert"></div>
+            <p class="privacy">Bilgileriniz yalnızca açılış organizasyonu için kullanılır ve kimseyle paylaşılmaz.</p>
+          </div>
+        </form>
+
+        <!-- Teşekkür -->
+        <div class="done" id="doneView" aria-live="polite">
+          <div class="big"><svg width="48" height="48" viewBox="0 0 100 100"><use href="#daisy"/></svg></div>
+          <h3 id="doneTitle">Teşekkürler!</h3>
+          <p id="doneText"></p>
+          <div class="summary" id="doneSummary"></div>
+          <div class="cal-links" id="doneCal">
+            <a id="gcalLink2" href="#" target="_blank" rel="noopener">Google Takvim'e ekle</a>
+            <button type="button" onclick="downloadIcs()">Apple/Outlook takvimine ekle</button>
+          </div>
+          <button type="button" class="change" onclick="editAnswer()">Yanıtımı değiştir</button>
+        </div>
+
+        <!-- Etkinlik bitti -->
+        <div class="closed" id="closedView">
+          <div class="done show" style="animation:none">
+            <div class="big"><svg width="48" height="48" viewBox="0 0 100 100"><use href="#daisy"/></svg></div>
+            <h3>Açılışımız gerçekleşti</h3>
+            <p>Bu güzel günü bizimle paylaşan herkese teşekkür ederiz. Sizi Daisy'de ağırlamaya devam etmek için sabırsızlanıyoruz!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="https://www.daisypatisserie.com/">
+      <img src="logo.png" alt="">
+      <span>Daisy Patisserie</span>
+    </a>
+    <p>Sorunuz mu var? Bize her zaman ulaşabilirsiniz.</p>
+    <div class="foot-links">
+      <a class="wa" href="https://wa.me/905318575258?text=Merhaba%2C%20a%C3%A7%C4%B1l%C4%B1%C5%9F%20daveti%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12 0C5.37 0 0 5.37 0 12c0 2.12.55 4.1 1.52 5.83L0 24l6.34-1.51A11.96 11.96 0 0 0 12 24c6.63 0 12-5.37 12-12S18.63 0 12 0zm0 21.82a9.82 9.82 0 0 1-5.01-1.37l-.36-.22-3.77.9.96-3.67-.24-.37A9.82 9.82 0 0 1 2.18 12C2.18 6.58 6.58 2.18 12 2.18S21.82 6.58 21.82 12 17.42 21.82 12 21.82z"/></svg>
+        WhatsApp
+      </a>
+      <a href="https://www.instagram.com/daisypatisserie_/" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+        Instagram
+      </a>
+      <a href="tel:+905318575258">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+        Ara
+      </a>
+    </div>
+    <div class="copy">© 2026 Daisy Patisserie · İstanbul</div>
+  </div>
+</footer>
+
+<script src="api.js"></script>
+<script>
+(function () {
+  const EVENT_START = new Date('2026-10-04T14:00:00+03:00');
+  const EVENT_END = new Date('2026-10-04T19:00:00+03:00');
+  const ADDRESS = 'Kayabaşı Mah. Albayrak Sok. No:2K, İnci Sitesi 15. Bölge, Kayaşehir, Başakşehir, İstanbul';
+  const MAP_Q = 'Daisy Patisserie, Kayaşehir, Başakşehir, İstanbul';
+  const STORE_KEY = 'daisy_davet_2026';
+
+  let attending = null;
+  let count = 1;
+
+  // ── Harita & yol tarifi ──
+  document.getElementById('mapFrame').src = 'https://maps.google.com/maps?q=' + encodeURIComponent(MAP_Q) + '&z=16&hl=tr&output=embed';
+  document.getElementById('dirLink').href = 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(MAP_Q);
+
+  // ── Takvim ──
+  const gcal = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
+    + '&text=' + encodeURIComponent('Daisy Patisserie Açılışı 🌼')
+    + '&dates=20261004T110000Z/20261004T160000Z'
+    + '&location=' + encodeURIComponent(ADDRESS)
+    + '&details=' + encodeURIComponent('Daisy Patisserie açılışına davetlisiniz! https://www.daisypatisserie.com/davet/');
+  document.getElementById('gcalLink').href = gcal;
+  document.getElementById('gcalLink2').href = gcal;
+
+  window.downloadIcs = function () {
+    const ics = [
+      'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Daisy Patisserie//Davet//TR', 'CALSCALE:GREGORIAN',
+      'BEGIN:VEVENT',
+      'UID:daisy-acilis-20261004@daisypatisserie.com',
+      'DTSTAMP:' + new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, ''),
+      'DTSTART:20261004T110000Z', 'DTEND:20261004T160000Z',
+      'SUMMARY:Daisy Patisserie Açılışı',
+      'LOCATION:' + ADDRESS.replace(/,/g, '\\,'),
+      'DESCRIPTION:Daisy Patisserie açılışına davetlisiniz!',
+      'BEGIN:VALARM', 'TRIGGER:-PT3H', 'ACTION:DISPLAY', 'DESCRIPTION:Daisy Patisserie açılışı bugün', 'END:VALARM',
+      'END:VEVENT', 'END:VCALENDAR'
+    ].join('\r\n');
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([ics], { type: 'text/calendar;charset=utf-8' }));
+    a.download = 'daisy-patisserie-acilis.ics';
+    document.body.appendChild(a); a.click(); a.remove();
+  };
+
+  // ── Geri sayım ──
+  function updateCountdown() {
+    const now = new Date();
+    const el = document.getElementById('countdownText');
+    if (now > EVENT_END) {
+      el.innerHTML = 'Açılışımız gerçekleşti — <b>teşekkürler!</b>';
+      return;
+    }
+    if (now >= EVENT_START) { el.innerHTML = '<b>Şu an açığız!</b> 19:00\'a kadar sizi bekliyoruz'; return; }
+    const startOfToday = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const startOfEvent = new Date(2026, 9, 4);
+    const days = Math.round((startOfEvent - startOfToday) / 86400000);
+    if (days <= 0) el.innerHTML = '<b>Açılış bugün!</b> 14:00 – 19:00';
+    else if (days === 1) el.innerHTML = '<b>Açılış yarın!</b> 14:00 – 19:00';
+    else el.innerHTML = 'Açılışa <b>' + days + ' gün</b> kaldı · 4 Ekim Pazar';
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 60000);
+
+  // ── Depolama ──
+  function loadSaved() { try { return JSON.parse(localStorage.getItem(STORE_KEY) || 'null'); } catch (e) { return null; } }
+  function save(v) { try { localStorage.setItem(STORE_KEY, JSON.stringify(v)); } catch (e) {} }
+  function newId() {
+    try { if (crypto.randomUUID) return crypto.randomUUID(); } catch (e) {}
+    return 'id-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10);
+  }
+
+  // ── Seçim ──
+  window.choose = function (yes) {
+    attending = yes;
+    document.getElementById('btnYes').setAttribute('aria-pressed', String(yes));
+    document.getElementById('btnNo').setAttribute('aria-pressed', String(!yes));
+    document.getElementById('fields').classList.add('show');
+    document.getElementById('countField').style.display = yes ? '' : 'none';
+    document.getElementById('fNote').placeholder = yes ? 'Örn. Saat 16:00 gibi geleceğiz' : 'Örn. Başarılar dilerim, en kısa zamanda uğrayacağım!';
+    hideMsg();
+    setTimeout(() => document.getElementById('fName').focus({ preventScroll: true }), 50);
+  };
+
+  window.stepCount = function (d) {
+    count = Math.max(1, Math.min(10, count + d));
+    document.getElementById('countOut').textContent = count;
+    document.getElementById('minusBtn').disabled = count <= 1;
+    document.getElementById('plusBtn').disabled = count >= 10;
+    document.getElementById('countHint').textContent = count === 1 ? 'Sadece siz' : 'Siz ve ' + (count - 1) + ' kişi daha';
+  };
+  stepCount(0);
+
+  function showMsg(t) { const m = document.getElementById('formMsg'); m.textContent = t; m.className = 'form-msg show error'; }
+  function hideMsg() { document.getElementById('formMsg').className = 'form-msg'; }
+
+  // ── Gönder ──
+  document.getElementById('rsvpForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    hideMsg();
+    const nameEl = document.getElementById('fName');
+    const name = nameEl.value.replace(/\s+/g, ' ').trim();
+    if (attending === null) { showMsg('Lütfen önce katılım durumunuzu seçin.'); return; }
+    if (name.length < 2) { nameEl.classList.add('err'); nameEl.focus(); showMsg('Lütfen adınızı ve soyadınızı yazın.'); return; }
+    nameEl.classList.remove('err');
+    if (!window.DAVET_API) { showMsg('Katılım sistemi kısa süre içinde aktif olacak. Lütfen biraz sonra tekrar deneyin.'); return; }
+
+    const saved = loadSaved();
+    const payload = {
+      id: (saved && saved.id) || newId(),
+      name: name,
+      attending: attending,
+      count: attending ? count : 0,
+      note: document.getElementById('fNote').value.trim()
+    };
+
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true; btn.textContent = 'Gönderiliyor...';
+    try {
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), 20000);
+      const res = await fetch(window.DAVET_API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload),
+        signal: ctrl.signal
+      });
+      clearTimeout(timer);
+      const data = await res.json();
+      if (!data.ok) throw new Error(data.error || 'Kayıt yapılamadı');
+      save({ id: data.id || payload.id, name: payload.name, attending: payload.attending, count: payload.count, note: payload.note });
+      showDone(true);
+    } catch (err) {
+      showMsg('Yanıtınız gönderilemedi. İnternet bağlantınızı kontrol edip tekrar deneyin' + (err && err.message && err.name !== 'AbortError' && !/fetch|JSON|network/i.test(err.message) ? ' (' + err.message + ')' : '') + '.');
+    } finally {
+      btn.disabled = false; btn.textContent = 'Yanıtımı Gönder';
+    }
+  });
+
+  // ── Teşekkür görünümü ──
+  function showDone(celebrate) {
+    const s = loadSaved();
+    if (!s) return;
+    document.getElementById('rsvpForm').style.display = 'none';
+    const v = document.getElementById('doneView');
+    const first = s.name.split(' ')[0];
+    if (s.attending) {
+      document.getElementById('doneTitle').textContent = 'Harika, ' + first + '!';
+      document.getElementById('doneText').textContent = 'Sizi 4 Ekim Pazar günü aramızda görmek için sabırsızlanıyoruz.';
+      document.getElementById('doneSummary').innerHTML = '🌼 <b>' + (s.count === 1 ? '1 kişi' : s.count + ' kişi') + '</b> olarak kaydınız alındı';
+      document.getElementById('doneSummary').style.display = '';
+      document.getElementById('doneCal').style.display = '';
+      if (celebrate) confetti();
+    } else {
+      document.getElementById('doneTitle').textContent = 'Teşekkürler, ' + first + '!';
+      document.getElementById('doneText').textContent = 'Yanıtınız bize ulaştı. Sizi en kısa zamanda Daisy\'de ağırlamayı umuyoruz.';
+      document.getElementById('doneSummary').style.display = 'none';
+      document.getElementById('doneCal').style.display = 'none';
+    }
+    v.classList.add('show');
+  }
+
+  window.editAnswer = function () {
+    const s = loadSaved();
+    document.getElementById('doneView').classList.remove('show');
+    document.getElementById('rsvpForm').style.display = '';
+    if (s) {
+      document.getElementById('fName').value = s.name || '';
+      document.getElementById('fNote').value = s.note || '';
+      count = s.count || 1; stepCount(0);
+      choose(!!s.attending);
+    }
+  };
+
+  function confetti() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const box = document.createElement('div');
+    box.className = 'confetti';
+    const colors = ['#E8D07A', '#ffffff', '#95a882', '#E8D07A'];
+    for (let i = 0; i < 26; i++) {
+      const s = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      s.setAttribute('viewBox', '0 0 100 100');
+      const size = 16 + Math.random() * 22;
+      s.style.width = s.style.height = size + 'px';
+      s.style.left = (Math.random() * 100) + 'vw';
+      s.style.color = colors[i % colors.length];
+      s.style.animationDuration = (2.6 + Math.random() * 2.2) + 's';
+      s.style.animationDelay = (Math.random() * 0.8) + 's';
+      s.innerHTML = '<use href="#daisy"/>';
+      box.appendChild(s);
+    }
+    document.body.appendChild(box);
+    setTimeout(() => box.remove(), 6000);
+  }
+
+  // ── Başlangıç durumu ──
+  if (new Date() > EVENT_END) {
+    document.getElementById('rsvpForm').style.display = 'none';
+    document.getElementById('closedView').classList.add('show');
+    document.querySelector('.rsvp .section-head p').textContent = 'Katılım bildirimleri kapandı.';
+  } else if (loadSaved()) {
+    showDone(false);
+  }
+})();
+</script>
+</body>
+</html>
