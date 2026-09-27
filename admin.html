@@ -749,12 +749,17 @@ let _davetRows = [];
 
 async function davetApi(body) {
   if (!window.DAVET_API) throw new Error('Davet sistemi henüz bağlanmadı (Google E-Tablo kurulumu bekleniyor).');
-  const res = await fetch(window.DAVET_API, {
-    method: 'POST',
-    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-    body: JSON.stringify(Object.assign({ p: _adminPass }, body))
-  });
-  const data = await res.json();
+  const send = async () => {
+    const res = await fetch(window.DAVET_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(Object.assign({ p: _adminPass }, body))
+    });
+    return res.json();
+  };
+  let data;
+  try { data = await send(); }
+  catch (first) { await new Promise(r => setTimeout(r, 1200)); data = await send(); }
   if (!data.ok) throw new Error(data.error === 'yetki' ? 'Şifre doğrulanamadı. Çıkış yapıp tekrar giriş yapın.' : (data.error || 'Bilinmeyen hata'));
   return data;
 }

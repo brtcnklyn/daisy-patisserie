@@ -652,16 +652,23 @@
     const btn = document.getElementById('submitBtn');
     btn.disabled = true; btn.textContent = 'Gönderiliyor...';
     try {
-      const ctrl = new AbortController();
-      const timer = setTimeout(() => ctrl.abort(), 20000);
-      const res = await fetch(window.DAVET_API, {
-        method: 'POST',
-        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-        body: JSON.stringify(payload),
-        signal: ctrl.signal
-      });
-      clearTimeout(timer);
-      const data = await res.json();
+      // Aynı kayıt no ile tekrar göndermek güvenli (sunucu satırı günceller), bu yüzden bir kez yeniden denenir
+      const send = async () => {
+        const ctrl = new AbortController();
+        const timer = setTimeout(() => ctrl.abort(), 20000);
+        try {
+          const res = await fetch(window.DAVET_API, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify(payload),
+            signal: ctrl.signal
+          });
+          return await res.json();
+        } finally { clearTimeout(timer); }
+      };
+      let data;
+      try { data = await send(); }
+      catch (first) { await new Promise(r => setTimeout(r, 1200)); data = await send(); }
       if (!data.ok) throw new Error(data.error || 'Kayıt yapılamadı');
       save({ id: data.id || payload.id, name: payload.name, attending: payload.attending, count: payload.count, note: payload.note });
       showDone(true);
