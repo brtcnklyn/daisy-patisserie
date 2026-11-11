@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Daisy Patisserie | Toptan Tatlı ve Sandviç · İstanbul</title>
 <meta name="description" content="Kafe, restoran ve işletmeler için el yapımı tatlılar, sandviç ve tost çeşitleri, etkinlik catering. İstanbul genelinde teslimat.">
-<link rel="icon" href="img/site-2d6177c98d.png?v=2">
+<link rel="icon" href="img/site-2d6177c98d.png?v=3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -743,13 +743,24 @@
   .product-search { border-radius:0; background:#fff; }
   .no-results-msg { border-radius:0; margin:24px 0 0; }
 
+  /* Üst bant: logonun zeminiyle aynı yeşil */
+  .site-header { background:var(--sage); }
+  .site-header.scrolled { border-bottom-color:transparent; box-shadow:0 2px 18px rgba(61,74,51,.22); }
+  .hdr { padding-top:6px; padding-bottom:6px; }
+  .hdr-nav a { color:#fff; }
+  .hdr-nav a:hover { color:rgba(255,255,255,.72); }
+  .hdr-nav a.hdr-cta { background:#fff; color:var(--sage-deep); }
+  .hdr-nav a.hdr-cta:hover { background:var(--cream); color:var(--sage-deep); }
+  .hdr-logo img { height:76px; }
+
   @media (max-width: 1000px) {
     .hdr { grid-template-columns:44px 1fr 44px; padding:8px 16px; }
     .hdr-nav { display:none; }
     .hdr-logo { justify-self:center; }
     .hdr-logo img { height:54px; }
     .hamburger-btn { display:flex; position:static; background:none; box-shadow:none; }
-    .hamburger-btn span { background:var(--sage-deep); }
+    .hamburger-btn span { background:#fff; }
+    .hdr-logo img { height:60px; }
     .cat-grid, .products-grid, .why-grid { grid-template-columns:repeat(2,1fr); }
     .services-grid { grid-template-columns:repeat(2,1fr); }
     .foot-grid { grid-template-columns:1fr 1fr; }
@@ -795,7 +806,7 @@
 <!-- SIDE MENU -->
 <div class="side-menu" id="sideMenu">
   <div class="side-menu-header">
-    <img src="img/site-2d6177c98d.png?v=2" alt="Daisy Patisserie">
+    <img src="img/site-2d6177c98d.png?v=3" alt="Daisy Patisserie">
     <button class="menu-close" onclick="closeMenu()" aria-label="Menüyü kapat">✕</button>
   </div>
   <nav>
@@ -821,7 +832,7 @@
       <a href="#hizmetler">Hizmetler</a>
       <a href="#catering">Catering</a>
     </nav>
-    <a class="hdr-logo" href="#hero" aria-label="Daisy Patisserie ana sayfa"><img src="img/site-2d6177c98d.png?v=2" alt="Daisy Patisserie"></a>
+    <a class="hdr-logo" href="#hero" aria-label="Daisy Patisserie ana sayfa"><img src="img/site-logo-yesil.png?v=3" alt="Daisy Patisserie"></a>
     <nav class="hdr-nav hdr-nav-r" aria-label="Kurumsal">
       <a href="#kariyer">Hakkımızda</a>
       <a href="#iletisim">İletişim</a>
@@ -833,9 +844,9 @@
 <!-- HERO -->
 <section class="hero" id="hero">
   <div class="hero-slides" aria-hidden="true">
-    <img class="hero-slide active" src="img/site-hero-1.jpg?v=2" alt="">
-    <img class="hero-slide" src="img/site-hero-2.jpg?v=2" alt="">
-    <img class="hero-slide" src="img/site-hero-3.jpg?v=2" alt="">
+    <img class="hero-slide active" src="img/site-hero-1.jpg?v=3" alt="">
+    <img class="hero-slide" src="img/site-hero-2.jpg?v=3" alt="">
+    <img class="hero-slide" src="img/site-hero-3.jpg?v=3" alt="">
   </div>
   <div class="hero-content">
     <div class="eyebrow">İstanbul'un Toptan Tatlı ve Sandviç Tedarikçisi</div>
@@ -858,10 +869,10 @@
 <section class="cats">
   <h2 class="sec-title center">Koleksiyonumuzu Keşfedin</h2>
   <div class="cat-grid">
-    <a class="cat-tile" href="#urunler" onclick="goCat('tatli','cheesecake')"><img src="img/site-kat-cheesecake.jpg?v=2" alt="" loading="lazy"><span>Cheesecake</span></a>
-    <a class="cat-tile" href="#urunler" onclick="goCat('tatli','cup')"><img src="img/site-kat-cup.jpg?v=2" alt="" loading="lazy"><span>Cup Tatlılar</span></a>
-    <a class="cat-tile" href="#urunler" onclick="goCat('tatli','brownie')"><img src="img/site-kat-brownie.jpg?v=2" alt="" loading="lazy"><span>Brownie</span></a>
-    <a class="cat-tile cat-tile-light" href="#urunler" onclick="goCat('sandvic')"><img src="img/site-kat-sandvic.jpg?v=2" alt="" loading="lazy"><span>Sandviç &amp; Tost</span></a>
+    <a class="cat-tile" href="#urunler" onclick="goCat('tatli','cheesecake')"><img src="img/site-kat-cheesecake.jpg?v=3" alt="" loading="lazy"><span>Cheesecake</span></a>
+    <a class="cat-tile" href="#urunler" onclick="goCat('tatli','cup')"><img src="img/site-kat-cup.jpg?v=3" alt="" loading="lazy"><span>Cup Tatlılar</span></a>
+    <a class="cat-tile" href="#urunler" onclick="goCat('tatli','brownie')"><img src="img/site-kat-brownie.jpg?v=3" alt="" loading="lazy"><span>Brownie</span></a>
+    <a class="cat-tile cat-tile-light" href="#urunler" onclick="goCat('sandvic')"><img src="img/site-kat-sandvic.jpg?v=3" alt="" loading="lazy"><span>Sandviç &amp; Tost</span></a>
   </div>
 </section>
 
@@ -927,7 +938,7 @@
   <div class="products-grid">
     <div class="product-card reveal" onclick="openProduct(0)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-8a7d85d8f0.jpg?v=2" alt="San Sebastian" loading="lazy">
+        <img src="img/urun-8a7d85d8f0.jpg?v=3" alt="San Sebastian" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -950,7 +961,7 @@
     </div>
     <div class="product-card reveal reveal-delay-1" onclick="openProduct(1)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-f91de0e63a.jpg?v=2" alt="Lotus Cheesecake" loading="lazy">
+        <img src="img/urun-f91de0e63a.jpg?v=3" alt="Lotus Cheesecake" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -973,7 +984,7 @@
     </div>
     <div class="product-card reveal reveal-delay-2" onclick="openProduct(2)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-4271f82fbd.jpg?v=2" alt="Yaban Mersinli San Sebastian" loading="lazy">
+        <img src="img/urun-4271f82fbd.jpg?v=3" alt="Yaban Mersinli San Sebastian" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -996,7 +1007,7 @@
     </div>
     <div class="product-card reveal" onclick="openProduct(3)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-1f1d100256.jpg?v=2" alt="Çikolatalı Cheesecake" loading="lazy">
+        <img src="img/urun-1f1d100256.jpg?v=3" alt="Çikolatalı Cheesecake" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -1019,7 +1030,7 @@
     </div>
     <div class="product-card reveal reveal-delay-1" onclick="openProduct(4)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-58fca0e9eb.jpg?v=2" alt="Medovik" loading="lazy">
+        <img src="img/urun-58fca0e9eb.jpg?v=3" alt="Medovik" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -1042,7 +1053,7 @@
     </div>
     <div class="product-card reveal reveal-delay-2" onclick="openProduct(5)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-8aff152345.jpg?v=2" alt="Mozaik Pasta" loading="lazy">
+        <img src="img/urun-8aff152345.jpg?v=3" alt="Mozaik Pasta" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -1067,7 +1078,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal" onclick="openProduct(6)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-73a0260073.jpg?v=2" alt="Brownie" loading="lazy">
+        <img src="img/urun-73a0260073.jpg?v=3" alt="Brownie" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -1089,7 +1100,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-1" onclick="openProduct(7)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-8d3fd7ed2c.jpg?v=2" alt="Vişneli Brownie" loading="lazy">
+        <img src="img/urun-8d3fd7ed2c.jpg?v=3" alt="Vişneli Brownie" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -1111,7 +1122,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-2" onclick="openProduct(8)" data-frozen="false">
       <div class="product-img">
-        <img src="img/urun-57aadb0bb8.jpg?v=2" alt="Spoonful" loading="lazy">
+        <img src="img/urun-57aadb0bb8.jpg?v=3" alt="Spoonful" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="fresh-badge">Taze</span>
       </div>
@@ -1133,7 +1144,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal" onclick="openProduct(9)" data-frozen="false">
       <div class="product-img">
-        <img src="img/urun-302fa683c3.jpg?v=2" alt="Spoonful of Dubai" loading="lazy">
+        <img src="img/urun-302fa683c3.jpg?v=3" alt="Spoonful of Dubai" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="fresh-badge">Taze</span>
       </div>
@@ -1155,7 +1166,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-1" onclick="openProduct(10)" data-frozen="false">
       <div class="product-img">
-        <img src="img/urun-79a3b8369e.jpg?v=2" alt="Oreo Cup" loading="lazy">
+        <img src="img/urun-79a3b8369e.jpg?v=3" alt="Oreo Cup" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="fresh-badge">Taze</span>
       </div>
@@ -1177,7 +1188,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-2" onclick="openProduct(11)" data-frozen="false">
       <div class="product-img">
-        <img src="img/urun-6e80d5453d.jpg?v=2" alt="Lotus Cup" loading="lazy">
+        <img src="img/urun-6e80d5453d.jpg?v=3" alt="Lotus Cup" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="fresh-badge">Taze</span>
       </div>
@@ -1199,7 +1210,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal" onclick="openProduct(12)" data-frozen="false">
       <div class="product-img">
-        <img src="img/urun-0f530b0766.jpg?v=2" alt="Medovik Cup" loading="lazy">
+        <img src="img/urun-0f530b0766.jpg?v=3" alt="Medovik Cup" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="fresh-badge">Taze</span>
       </div>
@@ -1221,7 +1232,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-1" onclick="openProduct(13)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-6652e4d5f3.jpg?v=2" alt="Red Velvet Cup" loading="lazy">
+        <img src="img/urun-6652e4d5f3.jpg?v=3" alt="Red Velvet Cup" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -1243,7 +1254,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-2" onclick="openProduct(14)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-725e277952.jpg?v=2" alt="Marki" loading="lazy">
+        <img src="img/urun-725e277952.jpg?v=3" alt="Marki" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -1265,7 +1276,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal" onclick="openProduct(15)" data-frozen="false">
       <div class="product-img">
-        <img src="img/urun-c95b3bdf8e.jpg?v=2" alt="Tiramisu" loading="lazy">
+        <img src="img/urun-c95b3bdf8e.jpg?v=3" alt="Tiramisu" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="fresh-badge">Taze</span>
       </div>
@@ -1287,7 +1298,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-1" onclick="openProduct(16)" data-frozen="false">
       <div class="product-img">
-        <img src="img/urun-9529ee0a44.jpg?v=2" alt="Çilekli Magnolya" loading="lazy">
+        <img src="img/urun-9529ee0a44.jpg?v=3" alt="Çilekli Magnolya" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="fresh-badge">Taze</span>
       </div>
@@ -1309,7 +1320,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-2" onclick="openProduct(17)" data-frozen="false">
       <div class="product-img">
-        <img src="img/urun-04172de2a7.jpg?v=2" alt="Muzlu Magnolya" loading="lazy">
+        <img src="img/urun-04172de2a7.jpg?v=3" alt="Muzlu Magnolya" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="fresh-badge">Taze</span>
       </div>
@@ -1331,7 +1342,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal" onclick="openProduct(18)" data-frozen="false">
       <div class="product-img">
-        <img src="img/urun-6ae2fa7b82.jpg?v=2" alt="Oreolu Magnolya" loading="lazy">
+        <img src="img/urun-6ae2fa7b82.jpg?v=3" alt="Oreolu Magnolya" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="fresh-badge">Taze</span>
       </div>
@@ -1353,7 +1364,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-1" onclick="openProduct(19)" data-frozen="false">
       <div class="product-img">
-        <img src="img/urun-53e4ed2d9f.jpg?v=2" alt="Lotuslu Magnolya" loading="lazy">
+        <img src="img/urun-53e4ed2d9f.jpg?v=3" alt="Lotuslu Magnolya" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="fresh-badge">Taze</span>
       </div>
@@ -1375,7 +1386,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-2" onclick="openProduct(20)" data-frozen="false">
       <div class="product-img">
-        <img src="img/urun-446fcb43dd.jpg?v=2" alt="Kadayıflı Muhallebi" loading="lazy">
+        <img src="img/urun-446fcb43dd.jpg?v=3" alt="Kadayıflı Muhallebi" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="fresh-badge">Taze</span>
       </div>
@@ -1397,7 +1408,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal" onclick="openProduct(21)" data-frozen="false">
       <div class="product-img">
-        <img src="img/urun-c01508dce2.jpg?v=2" alt="Fırın Sütlaç" loading="lazy">
+        <img src="img/urun-c01508dce2.jpg?v=3" alt="Fırın Sütlaç" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="fresh-badge">Taze</span>
       </div>
@@ -1419,7 +1430,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-1" onclick="openProduct(22)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-edc15cdbfa.jpg?v=2" alt="Panini Dana Jambon" loading="lazy">
+        <img src="img/urun-edc15cdbfa.jpg?v=3" alt="Panini Dana Jambon" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -1441,7 +1452,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-2" onclick="openProduct(23)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-ba7df2b805.jpg?v=2" alt="Panini Mozzarella" loading="lazy">
+        <img src="img/urun-ba7df2b805.jpg?v=3" alt="Panini Mozzarella" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -1463,7 +1474,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal" onclick="openProduct(24)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-142237475d.jpg?v=2" alt="Panini Hindi Füme" loading="lazy">
+        <img src="img/urun-142237475d.jpg?v=3" alt="Panini Hindi Füme" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -1485,7 +1496,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-1" onclick="openProduct(25)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-ade4bac815.jpg?v=2" alt="Panini 5 Peynirli" loading="lazy">
+        <img src="img/urun-ade4bac815.jpg?v=3" alt="Panini 5 Peynirli" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -1507,7 +1518,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-2" onclick="openProduct(26)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-96cde879f7.jpg?v=2" alt="Panini Tavuk Fileto" loading="lazy">
+        <img src="img/urun-96cde879f7.jpg?v=3" alt="Panini Tavuk Fileto" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -1529,7 +1540,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal" onclick="openProduct(27)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-ce5743e026.jpg?v=2" alt="Panini Roastbeef" loading="lazy">
+        <img src="img/urun-ce5743e026.jpg?v=3" alt="Panini Roastbeef" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -1551,7 +1562,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-1" onclick="openProduct(28)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-cc007cca17.jpg?v=2" alt="Panini Beyaz Peynirli" loading="lazy">
+        <img src="img/urun-cc007cca17.jpg?v=3" alt="Panini Beyaz Peynirli" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -1573,7 +1584,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-2" onclick="openProduct(29)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-23349ffbf3.jpg?v=2" alt="Aperto Bella" loading="lazy">
+        <img src="img/urun-23349ffbf3.jpg?v=3" alt="Aperto Bella" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -1595,7 +1606,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal" onclick="openProduct(30)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-07af6c6a0c.jpg?v=2" alt="Aperto Rosso" loading="lazy">
+        <img src="img/urun-07af6c6a0c.jpg?v=3" alt="Aperto Rosso" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -1617,7 +1628,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-1" onclick="openProduct(31)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-b425b633e8.jpg?v=2" alt="Aperto Bianca" loading="lazy">
+        <img src="img/urun-b425b633e8.jpg?v=3" alt="Aperto Bianca" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -1639,7 +1650,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-2" onclick="openProduct(32)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-2f517c9775.jpg?v=2" alt="Bagel Üç Peynirli" loading="lazy">
+        <img src="img/urun-2f517c9775.jpg?v=3" alt="Bagel Üç Peynirli" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -1661,7 +1672,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal" onclick="openProduct(33)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-2c577be9ce.jpg?v=2" alt="Bagel Dana Jambon" loading="lazy">
+        <img src="img/urun-2c577be9ce.jpg?v=3" alt="Bagel Dana Jambon" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -1683,7 +1694,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-1" onclick="openProduct(34)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-6c5bd5e796.jpg?v=2" alt="Bagel Hindi Füme" loading="lazy">
+        <img src="img/urun-6c5bd5e796.jpg?v=3" alt="Bagel Hindi Füme" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -1705,7 +1716,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-2" onclick="openProduct(35)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-f32eac3573.jpg?v=2" alt="Bagel Roastbeef" loading="lazy">
+        <img src="img/urun-f32eac3573.jpg?v=3" alt="Bagel Roastbeef" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -1727,7 +1738,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal" onclick="openProduct(36)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-3c37a2f0d3.jpg?v=2" alt="Bunwich Mozzarella" loading="lazy">
+        <img src="img/urun-3c37a2f0d3.jpg?v=3" alt="Bunwich Mozzarella" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -1749,7 +1760,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-1" onclick="openProduct(37)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-f93b1e013f.jpg?v=2" alt="Bunwich Hindi Füme" loading="lazy">
+        <img src="img/urun-f93b1e013f.jpg?v=3" alt="Bunwich Hindi Füme" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -1771,7 +1782,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-2" onclick="openProduct(38)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-9503b73134.jpg?v=2" alt="Bunwich Çıtır Tavuk" loading="lazy">
+        <img src="img/urun-9503b73134.jpg?v=3" alt="Bunwich Çıtır Tavuk" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -1793,7 +1804,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal" onclick="openProduct(39)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-08196299cd.jpg?v=2" alt="Bunwich Roastbeef" loading="lazy">
+        <img src="img/urun-08196299cd.jpg?v=3" alt="Bunwich Roastbeef" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -1815,7 +1826,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-1" onclick="openProduct(40)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-8eab0c4fd2.jpg?v=2" alt="Hamburger Füme Jambonlu" loading="lazy">
+        <img src="img/urun-8eab0c4fd2.jpg?v=3" alt="Hamburger Füme Jambonlu" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -1837,7 +1848,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-2" onclick="openProduct(41)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-6c6706ca74.jpg?v=2" alt="Deluxe Beef" loading="lazy">
+        <img src="img/urun-6c6706ca74.jpg?v=3" alt="Deluxe Beef" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -1859,7 +1870,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal" onclick="openProduct(42)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-640371b136.jpg?v=2" alt="Deluxe İsli" loading="lazy">
+        <img src="img/urun-640371b136.jpg?v=3" alt="Deluxe İsli" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -1881,7 +1892,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-1" onclick="openProduct(43)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-3c597ad31d.jpg?v=2" alt="Üç Peynir Kruvasan" loading="lazy">
+        <img src="img/urun-3c597ad31d.jpg?v=3" alt="Üç Peynir Kruvasan" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -1903,7 +1914,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-2" onclick="openProduct(44)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-29147ed1eb.jpg?v=2" alt="Hindi Füme Kruvasan" loading="lazy">
+        <img src="img/urun-29147ed1eb.jpg?v=3" alt="Hindi Füme Kruvasan" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -1925,7 +1936,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal" onclick="openProduct(45)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-56a281118f.jpg?v=2" alt="Gurme Fiesta" loading="lazy">
+        <img src="img/urun-56a281118f.jpg?v=3" alt="Gurme Fiesta" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -1947,7 +1958,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-1" onclick="openProduct(46)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-2ad801a6b2.jpg?v=2" alt="Gurme Beef" loading="lazy">
+        <img src="img/urun-2ad801a6b2.jpg?v=3" alt="Gurme Beef" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -1969,7 +1980,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-2" onclick="openProduct(47)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-801d80243f.jpg?v=2" alt="Gurme Çıtır" loading="lazy">
+        <img src="img/urun-801d80243f.jpg?v=3" alt="Gurme Çıtır" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -1991,7 +2002,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal" onclick="openProduct(48)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-a19d6aba4d.jpg?v=2" alt="Gurme Barbekü" loading="lazy">
+        <img src="img/urun-a19d6aba4d.jpg?v=3" alt="Gurme Barbekü" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -2013,7 +2024,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-1" onclick="openProduct(49)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-a48dc77677.jpg?v=2" alt="Klasik Ayvalık Tost" loading="lazy">
+        <img src="img/urun-a48dc77677.jpg?v=3" alt="Klasik Ayvalık Tost" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -2035,7 +2046,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-2" onclick="openProduct(50)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-a48dc77677.jpg?v=2" alt="Klasik Ayvalık Tost (Dana)" loading="lazy">
+        <img src="img/urun-a48dc77677.jpg?v=3" alt="Klasik Ayvalık Tost (Dana)" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -2057,7 +2068,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal" onclick="openProduct(51)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-d262049808.jpg?v=2" alt="Tost Kare Peynirli" loading="lazy">
+        <img src="img/urun-d262049808.jpg?v=3" alt="Tost Kare Peynirli" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -2079,7 +2090,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-1" onclick="openProduct(52)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-127c74e295.jpg?v=2" alt="Tost Kare Karışık" loading="lazy">
+        <img src="img/urun-127c74e295.jpg?v=3" alt="Tost Kare Karışık" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -2101,7 +2112,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-2" onclick="openProduct(53)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-127c74e295.jpg?v=2" alt="Tost Kare Karışık (Dana)" loading="lazy">
+        <img src="img/urun-127c74e295.jpg?v=3" alt="Tost Kare Karışık (Dana)" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -2123,7 +2134,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal" onclick="openProduct(54)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-cbe71b3df3.jpg?v=2" alt="Acukalı Bazlama" loading="lazy">
+        <img src="img/urun-cbe71b3df3.jpg?v=3" alt="Acukalı Bazlama" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -2145,7 +2156,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-1" onclick="openProduct(55)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-cbe71b3df3.jpg?v=2" alt="Acukalı Bazlama (Dana)" loading="lazy">
+        <img src="img/urun-cbe71b3df3.jpg?v=3" alt="Acukalı Bazlama (Dana)" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -2167,7 +2178,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-2" onclick="openProduct(56)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-bbf2b09763.jpg?v=2" alt="Kumru Tost" loading="lazy">
+        <img src="img/urun-bbf2b09763.jpg?v=3" alt="Kumru Tost" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -2189,7 +2200,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal" onclick="openProduct(57)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-8dc1af4f4c.jpg?v=2" alt="Pizza Tost" loading="lazy">
+        <img src="img/urun-8dc1af4f4c.jpg?v=3" alt="Pizza Tost" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -2211,7 +2222,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-1" onclick="openProduct(58)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-73c0ebc7db.jpg?v=2" alt="Tereyağlı Kruvasan" loading="lazy">
+        <img src="img/urun-73c0ebc7db.jpg?v=3" alt="Tereyağlı Kruvasan" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -2233,7 +2244,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
     </div>
     <div class="product-card reveal reveal-delay-2" onclick="openProduct(59)" data-frozen="true">
       <div class="product-img">
-        <img src="img/urun-559b59252c.jpg?v=2" alt="Çikolatalı Kruvasan" loading="lazy">
+        <img src="img/urun-559b59252c.jpg?v=3" alt="Çikolatalı Kruvasan" loading="lazy">
         <div class="product-overlay"><span>Detay Gör</span></div>
         <span class="frozen-badge">Donuk</span>
       </div>
@@ -2287,7 +2298,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
 
 <!-- CATERING -->
 <section class="catering-section" id="catering">
-  <div class="catering-img reveal"><img src="img/site-a02a0bdadb.jpg?v=2" alt="Daisy Patisserie etkinlik standı" loading="lazy"></div>
+  <div class="catering-img reveal"><img src="img/site-a02a0bdadb.jpg?v=3" alt="Daisy Patisserie etkinlik standı" loading="lazy"></div>
   <div class="catering-text">
     <div class="eyebrow">Catering &amp; Etkinlik</div>
     <h2 class="sec-title">Etkinliğinize Tatlı Bir Dokunuş</h2>
@@ -2322,14 +2333,14 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
   <p class="sec-sub center">Daisy Patisserie, profesyonel pastacılık eğitimi almış kadrosuyla lezzeti ve estetiği bir araya getiriyor.</p>
   <div class="career-grid">
     <article class="career-card reveal">
-      <img src="img/site-9516e59a8b.jpg?v=2" alt="Daisy Patisserie kurucusu" loading="lazy">
+      <img src="img/site-9516e59a8b.jpg?v=3" alt="Daisy Patisserie kurucusu" loading="lazy">
       <h3>Merhaba, ben Nur.</h3>
       <p>Hayalini kurduğum bu tatlı dünyada artık sizinle buluşma zamanı geldi!</p>
       <p>Profesyonel aşçılık eğitimimi Mehmet Yalçınkaya'nın yönetimindeki MYK Gastro Arena'da tamamladım. Yani mutfağa olan tutkum yalnızca bir hobi değil; üzerine emek verdiğim, disiplinle geliştirdiğim gerçek bir meslek.</p>
       <p>Şimdi bu birikimi Daisy ile sizlere sunuyorum. Lezzet, her zaman birinci önceliğim. Ama sunum? İşte o bizim kırmızı çizgimiz.</p>
     </article>
     <article class="career-card reveal reveal-delay-1">
-      <img src="img/site-a02a0bdadb.jpg?v=2" alt="Daisy Patisserie sunumu" loading="lazy">
+      <img src="img/site-a02a0bdadb.jpg?v=3" alt="Daisy Patisserie sunumu" loading="lazy">
       <h3>Daisy'nin Felsefesi</h3>
       <p>Daisy'de yalnızca güzel tatlar değil, estetik dokunuşlarla hazırlanmış zarif sunumlar da sizi bekliyor.</p>
       <p>Misafirlerinizi şaşırtmak, sofralarınıza zarafet ve lezzet katmak istiyorsanız, doğru yerdesiniz.</p>
@@ -2361,7 +2372,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
 <footer class="site-footer">
   <div class="foot-grid">
     <div class="foot-brand">
-      <img src="img/site-2d6177c98d.png?v=2" alt="Daisy Patisserie">
+      <img src="img/site-2d6177c98d.png?v=3" alt="Daisy Patisserie">
       <p>Seviyor… Çünkü Daisy'den.</p>
     </div>
     <div>
@@ -2425,66 +2436,66 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
 
 <script>
 const PRODUCT_DATA = [
-  { img: "img/urun-8a7d85d8f0.jpg?v=2", tag: "Cheesecake", name: "San Sebastian", frozen: true, isWhole: true, desc: "Dışı yanık ve karamelize, içi tam kıvamında akışkan. San Sebastian ile cheesecake deneyimini en saf haliyle yaşayın. 1 bütün (~10-12 dilim) olarak sipariş alınır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20San%20Sebastian%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-f91de0e63a.jpg?v=2", tag: "Cheesecake", name: "Lotus Cheesecake", frozen: true, isWhole: true, desc: "Üç farklı formda Lotus tek bir dilimde! Kıtır tabanı, Lotuslu peynir dolgusu ve üzerindeki akışkan kremasıyla bu cheesecake, karamel severlerin yeni tutkusu olacak. 1 bütün (~10-12 dilim).", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Lotus%20Cheesecake%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-4271f82fbd.jpg?v=2", tag: "Cheesecake", name: "Yaban Mersinli San Sebastian", frozen: true, isWhole: true, desc: "San Sebastian'ın o meşhur akışkanlığı, yaban mersininin canlı rengiyle buluştu! Her kaşıkta meyve ferahlığı ve peynir zarafeti bir arada. Bu mor rüyaya hazır mısınız? 1 bütün (~10-12 dilim).", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Yaban%20Mersinli%20San%20Sebastian%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-1f1d100256.jpg?v=2", tag: "Cheesecake", name: "Çikolatalı Cheesecake", frozen: true, isWhole: true, desc: "Yoğun çikolata lezzeti ve ipeksi cheesecake dokusunun mükemmel uyumu... Kakaolu tabanı, yumuşacık çikolatalı dolgusu ve parlak ganaj kaplamasıyla her lokmada eşsiz bir tat deneyimi sunar. Çikolata tutkunları için özel olarak hazırlandı. 1 bütün (~10-12 dilim).", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Çikolatalı%20Cheesecake%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-58fca0e9eb.jpg?v=2", tag: "Pasta", name: "Medovik", frozen: true, isWhole: true, desc: "Klasik Medovik, süt reçeli dokunuşuyla yeniden yorumlandı! Balın doğallığı ve süt reçelinin karamelize lezzeti, kat kat yükselen bir lezzet şölenine dönüşüyor. 1 bütün (~10-12 dilim).", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Medovik%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-8aff152345.jpg?v=2", tag: "Pasta", name: "Mozaik Pasta", frozen: true, isWhole: true, desc: "Her lokmasıyla sizi çocukluğunuza, o en güzel aile sofralarına götürecek bir lezzet yolculuğuna hazır mısınız? 🍫\n\nKlasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye taşıdık. Kıyır kıyır bisküvi parçalarının, kaliteli kakao ve taze krema ile hazırlanan o efsanevi karışımla buluşması... Üzerini kaplayan ipeksi çikolata sosu ise bu lezzet şöleninin finalinde damaklarınızda unutulmaz bir iz bırakıyor.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Mozaik%20Pasta%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-73a0260073.jpg?v=2", tag: "Brownie", name: "Brownie", frozen: true, isWhole: false, desc: "Bitter ve beyazın en tatlı karşılaşması! Yoğun çikolatalı brownie'nin içinde saklı beyaz çikolata sürpriziyle tanışın. Her lokmada iki kat mutluluk.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Brownie%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-8d3fd7ed2c.jpg?v=2", tag: "Brownie", name: "Vişneli Brownie", frozen: true, isWhole: false, desc: "Yoğun çikolatalı brownie ile bütün vişnelerin buluşması! Parlak, çatlak kabuğu ve yumuşacık içiyle her lokmada çikolata ve vişne dengesi.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Vi%C5%9Fneli%20Brownie%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-57aadb0bb8.jpg?v=2", tag: "Cup Dessert", name: "Spoonful", frozen: false, isWhole: false, desc: "Üç katlı lezzet dengesi: En altta çıtır fındıklı kakaolu kek, ortada ipeksi sütlü muhallebi ve üzerinde yoğun çikolata sosu. Spoonful ile her kaşıkta tam uyum.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Spoonful%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-302fa683c3.jpg?v=2", tag: "Cup Dessert", name: "Spoonful of Dubai", frozen: false, isWhole: false, desc: "Dubai lezzetlerinden ilham alan bu eşsiz tatlı; en altta çıtır kadayıf ve Antep fıstıklı kıtır katmanı, ortada ipeksi muhallebisi ve en üstte pürüzsüz çikolata sosuyla tam bir doku ve lezzet uyumu sunuyor.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Spoonful%20of%20Dubai%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-79a3b8369e.jpg?v=2", tag: "Cup Dessert", name: "Oreo Cup", frozen: false, isWhole: false, desc: "Siyah ve beyazın en tatlı uyumu! Oreo'nun çıtırtısı, yoğun çikolatalı muhallebi ile birleşti. Oreo Cup ile tatlı krizlerine son.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Oreo%20Cup%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-6e80d5453d.jpg?v=2", tag: "Cup Dessert", name: "Lotus Cup", frozen: false, isWhole: false, desc: "Karamel aşkına! Lotus bisküvisinin kıtırlığı ile Lotus aromalı ipeksi muhallebinin buluştuğu bu cup, tatlı molalarınızın yeni favorisi olacak.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Lotus%20Cup%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-0f530b0766.jpg?v=2", tag: "Cup Dessert", name: "Medovik Cup", frozen: false, isWhole: false, desc: "Balın en zarif hali! Karamelize ballı kek katmanları ile hafif muhallebinin muazzam dengesi. Medovik Cup ile her kaşıkta yumuşacık bir yolculuğa çıkın.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Medovik%20Cup%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-6652e4d5f3.jpg?v=2", tag: "Cup Dessert", name: "Red Velvet Cup", frozen: true, isWhole: false, desc: "Kadife dokulu kek, hafif peynirli muhallebi ve aralara gizlenmiş sürpriz vişne lezzeti... Red Velvet Cup ile tatlı, ekşi ve kremsi dokuların kusursuz uyumunu keşfedin.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Red%20Velvet%20Cup%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-725e277952.jpg?v=2", tag: "Cup Dessert", name: "Marki", frozen: true, isWhole: false, desc: "Çikolataya doyuran bir başyapıt! Kakaolu kekin nemli dokusu, akışkan ganaj ve aralardaki çikolata parçalarıyla Marki, tatlı tanımlarınızı değiştirmeye geliyor.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Marki%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-c95b3bdf8e.jpg?v=2", tag: "Tiramisu", name: "Tiramisu", frozen: false, isWhole: false, desc: "Kahve molalarınızın en şık eşlikçisi! Kahveyle ıslatılmış kedi dili bisküvileri ve ipeksi kremasıyla Tiramisu.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Tiramisu%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-9529ee0a44.jpg?v=2", tag: "Cup Dessert", name: "Çilekli Magnolya", frozen: false, isWhole: false, desc: "Hafiflik arayanlara! Taze meyveler, ipeksi muhallebi ve bebe bisküvisinin nostaljik dokunuşu.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Çilekli%20Magnolya%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-04172de2a7.jpg?v=2", tag: "Cup Dessert", name: "Muzlu Magnolya", frozen: false, isWhole: false, desc: "İpeksi kreması, taze muz dilimleri ve kıtır bisküvi katmanlarıyla hazırlanan, şık sunumuyla hem göze hem damağa hitap eden hafif ve nefis bir muzlu magnolya.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Muzlu%20Magnolya%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-6ae2fa7b82.jpg?v=2", tag: "Cup Dessert", name: "Oreolu Magnolya", frozen: false, isWhole: false, desc: "Oreo kırıntıları ve ipeksi kremanın nefis katmanlarıyla hazırlanan, yoğun çikolata ve krema lezzetini şık bir sunumla buluşturan karşı konulmaz bir oreolu magnolya.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Oreolu%20Magnolya%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-53e4ed2d9f.jpg?v=2", tag: "Cup Dessert", name: "Lotuslu Magnolya", frozen: false, isWhole: false, desc: "İpeksi krema ve kıtır Lotus bisküvi parçalarının mükemmel uyumuyla hazırlanan, karamelimsi lezzetiyle baş döndüren, şık sunumlu nefis bir Lotuslu magnolya.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Lotuslu%20Magnolya%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-446fcb43dd.jpg?v=2", tag: "Cup Dessert", name: "Kadayıflı Muhallebi", frozen: false, isWhole: false, desc: "Tereyağının eşsiz kokusu, şekerin karamelize tadı... Sabırla kavrulan çıtır kadayıflar ile ipeksi muhallebinin buluşması. Geleneksel lezzet, en çıtır haliyle burada.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Kadayıflı%20Muhallebi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-c01508dce2.jpg?v=2", tag: "Sütlaç", name: "Fırın Sütlaç", frozen: false, isWhole: false, desc: "Geleneksel lezzetin en saf formu! Taze süt ve tam kıvamında pirinçle hazırlanan sütlaç, çocukluğumuzun o unutulmaz tadını sofralarınıza taşıyor.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Fırın%20Sütlaç%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-edc15cdbfa.jpg?v=2", tag: "Panini", name: "Panini Dana Jambon", frozen: true, isWhole: false, desc: "155 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Panini%20Dana%20Jambon%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-ba7df2b805.jpg?v=2", tag: "Panini", name: "Panini Mozzarella", frozen: true, isWhole: false, desc: "165 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Panini%20Mozzarella%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-142237475d.jpg?v=2", tag: "Panini", name: "Panini Hindi Füme", frozen: true, isWhole: false, desc: "165 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Panini%20Hindi%20F%C3%BCme%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-ade4bac815.jpg?v=2", tag: "Panini", name: "Panini 5 Peynirli", frozen: true, isWhole: false, desc: "160 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Panini%205%20Peynirli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-96cde879f7.jpg?v=2", tag: "Panini", name: "Panini Tavuk Fileto", frozen: true, isWhole: false, desc: "170 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Panini%20Tavuk%20Fileto%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-ce5743e026.jpg?v=2", tag: "Panini", name: "Panini Roastbeef", frozen: true, isWhole: false, desc: "165 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Panini%20Roastbeef%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-cc007cca17.jpg?v=2", tag: "Panini", name: "Panini Beyaz Peynirli", frozen: true, isWhole: false, desc: "165 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Panini%20Beyaz%20Peynirli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-23349ffbf3.jpg?v=2", tag: "Aperto", name: "Aperto Bella", frozen: true, isWhole: false, desc: "230 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Aperto%20Bella%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-07af6c6a0c.jpg?v=2", tag: "Aperto", name: "Aperto Rosso", frozen: true, isWhole: false, desc: "260 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Aperto%20Rosso%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-b425b633e8.jpg?v=2", tag: "Aperto", name: "Aperto Bianca", frozen: true, isWhole: false, desc: "235 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Aperto%20Bianca%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-2f517c9775.jpg?v=2", tag: "Bagel", name: "Bagel Üç Peynirli", frozen: true, isWhole: false, desc: "150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Bagel%20%C3%9C%C3%A7%20Peynirli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-2c577be9ce.jpg?v=2", tag: "Bagel", name: "Bagel Dana Jambon", frozen: true, isWhole: false, desc: "155 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Bagel%20Dana%20Jambon%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-6c5bd5e796.jpg?v=2", tag: "Bagel", name: "Bagel Hindi Füme", frozen: true, isWhole: false, desc: "155 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Bagel%20Hindi%20F%C3%BCme%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-f32eac3573.jpg?v=2", tag: "Bagel", name: "Bagel Roastbeef", frozen: true, isWhole: false, desc: "160 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Bagel%20Roastbeef%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-3c37a2f0d3.jpg?v=2", tag: "Bunwich", name: "Bunwich Mozzarella", frozen: true, isWhole: false, desc: "145 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Bunwich%20Mozzarella%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-f93b1e013f.jpg?v=2", tag: "Bunwich", name: "Bunwich Hindi Füme", frozen: true, isWhole: false, desc: "145 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Bunwich%20Hindi%20F%C3%BCme%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-9503b73134.jpg?v=2", tag: "Bunwich", name: "Bunwich Çıtır Tavuk", frozen: true, isWhole: false, desc: "130 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Bunwich%20%C3%87%C4%B1t%C4%B1r%20Tavuk%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-08196299cd.jpg?v=2", tag: "Bunwich", name: "Bunwich Roastbeef", frozen: true, isWhole: false, desc: "130 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Bunwich%20Roastbeef%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-8eab0c4fd2.jpg?v=2", tag: "Gurme Sandviç", name: "Hamburger Füme Jambonlu", frozen: true, isWhole: false, desc: "175 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Hamburger%20F%C3%BCme%20Jambonlu%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-6c6706ca74.jpg?v=2", tag: "Gurme Sandviç", name: "Deluxe Beef", frozen: true, isWhole: false, desc: "185 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Deluxe%20Beef%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-640371b136.jpg?v=2", tag: "Gurme Sandviç", name: "Deluxe İsli", frozen: true, isWhole: false, desc: "195 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Deluxe%20%C4%B0sli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-3c597ad31d.jpg?v=2", tag: "Gurme Sandviç", name: "Üç Peynir Kruvasan", frozen: true, isWhole: false, desc: "150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20%C3%9C%C3%A7%20Peynir%20Kruvasan%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-29147ed1eb.jpg?v=2", tag: "Gurme Sandviç", name: "Hindi Füme Kruvasan", frozen: true, isWhole: false, desc: "150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Hindi%20F%C3%BCme%20Kruvasan%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-56a281118f.jpg?v=2", tag: "Gurme Sandviç", name: "Gurme Fiesta", frozen: true, isWhole: false, desc: "190 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Gurme%20Fiesta%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-2ad801a6b2.jpg?v=2", tag: "Gurme Sandviç", name: "Gurme Beef", frozen: true, isWhole: false, desc: "165 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Gurme%20Beef%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-801d80243f.jpg?v=2", tag: "Gurme Sandviç", name: "Gurme Çıtır", frozen: true, isWhole: false, desc: "175 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Gurme%20%C3%87%C4%B1t%C4%B1r%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-a19d6aba4d.jpg?v=2", tag: "Gurme Sandviç", name: "Gurme Barbekü", frozen: true, isWhole: false, desc: "185 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Gurme%20Barbek%C3%BC%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-a48dc77677.jpg?v=2", tag: "Tost", name: "Klasik Ayvalık Tost", frozen: true, isWhole: false, desc: "150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Klasik%20Ayval%C4%B1k%20Tost%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-a48dc77677.jpg?v=2", tag: "Tost", name: "Klasik Ayvalık Tost (Dana)", frozen: true, isWhole: false, desc: "150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Klasik%20Ayval%C4%B1k%20Tost%20%28Dana%29%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-d262049808.jpg?v=2", tag: "Tost", name: "Tost Kare Peynirli", frozen: true, isWhole: false, desc: "145 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Tost%20Kare%20Peynirli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-127c74e295.jpg?v=2", tag: "Tost", name: "Tost Kare Karışık", frozen: true, isWhole: false, desc: "150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Tost%20Kare%20Kar%C4%B1%C5%9F%C4%B1k%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-127c74e295.jpg?v=2", tag: "Tost", name: "Tost Kare Karışık (Dana)", frozen: true, isWhole: false, desc: "150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Tost%20Kare%20Kar%C4%B1%C5%9F%C4%B1k%20%28Dana%29%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-cbe71b3df3.jpg?v=2", tag: "Tost", name: "Acukalı Bazlama", frozen: true, isWhole: false, desc: "150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Acukal%C4%B1%20Bazlama%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-cbe71b3df3.jpg?v=2", tag: "Tost", name: "Acukalı Bazlama (Dana)", frozen: true, isWhole: false, desc: "150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Acukal%C4%B1%20Bazlama%20%28Dana%29%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-bbf2b09763.jpg?v=2", tag: "Tost", name: "Kumru Tost", frozen: true, isWhole: false, desc: "150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Kumru%20Tost%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-8dc1af4f4c.jpg?v=2", tag: "Tost", name: "Pizza Tost", frozen: true, isWhole: false, desc: "200 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Pizza%20Tost%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-73c0ebc7db.jpg?v=2", tag: "Unlu Mamul", name: "Tereyağlı Kruvasan", frozen: true, isWhole: false, desc: "90 gr. Pişmiş ve donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Tereya%C4%9Fl%C4%B1%20Kruvasan%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-559b59252c.jpg?v=2", tag: "Unlu Mamul", name: "Çikolatalı Kruvasan", frozen: true, isWhole: false, desc: "90 gr. Pişmiş ve donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20%C3%87ikolatal%C4%B1%20Kruvasan%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-8a7d85d8f0.jpg?v=3", tag: "Cheesecake", name: "San Sebastian", frozen: true, isWhole: true, desc: "Dışı yanık ve karamelize, içi tam kıvamında akışkan. San Sebastian ile cheesecake deneyimini en saf haliyle yaşayın. 1 bütün (~10-12 dilim) olarak sipariş alınır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20San%20Sebastian%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-f91de0e63a.jpg?v=3", tag: "Cheesecake", name: "Lotus Cheesecake", frozen: true, isWhole: true, desc: "Üç farklı formda Lotus tek bir dilimde! Kıtır tabanı, Lotuslu peynir dolgusu ve üzerindeki akışkan kremasıyla bu cheesecake, karamel severlerin yeni tutkusu olacak. 1 bütün (~10-12 dilim).", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Lotus%20Cheesecake%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-4271f82fbd.jpg?v=3", tag: "Cheesecake", name: "Yaban Mersinli San Sebastian", frozen: true, isWhole: true, desc: "San Sebastian'ın o meşhur akışkanlığı, yaban mersininin canlı rengiyle buluştu! Her kaşıkta meyve ferahlığı ve peynir zarafeti bir arada. Bu mor rüyaya hazır mısınız? 1 bütün (~10-12 dilim).", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Yaban%20Mersinli%20San%20Sebastian%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-1f1d100256.jpg?v=3", tag: "Cheesecake", name: "Çikolatalı Cheesecake", frozen: true, isWhole: true, desc: "Yoğun çikolata lezzeti ve ipeksi cheesecake dokusunun mükemmel uyumu... Kakaolu tabanı, yumuşacık çikolatalı dolgusu ve parlak ganaj kaplamasıyla her lokmada eşsiz bir tat deneyimi sunar. Çikolata tutkunları için özel olarak hazırlandı. 1 bütün (~10-12 dilim).", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Çikolatalı%20Cheesecake%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-58fca0e9eb.jpg?v=3", tag: "Pasta", name: "Medovik", frozen: true, isWhole: true, desc: "Klasik Medovik, süt reçeli dokunuşuyla yeniden yorumlandı! Balın doğallığı ve süt reçelinin karamelize lezzeti, kat kat yükselen bir lezzet şölenine dönüşüyor. 1 bütün (~10-12 dilim).", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Medovik%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-8aff152345.jpg?v=3", tag: "Pasta", name: "Mozaik Pasta", frozen: true, isWhole: true, desc: "Her lokmasıyla sizi çocukluğunuza, o en güzel aile sofralarına götürecek bir lezzet yolculuğuna hazır mısınız? 🍫\n\nKlasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye taşıdık. Kıyır kıyır bisküvi parçalarının, kaliteli kakao ve taze krema ile hazırlanan o efsanevi karışımla buluşması... Üzerini kaplayan ipeksi çikolata sosu ise bu lezzet şöleninin finalinde damaklarınızda unutulmaz bir iz bırakıyor.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Mozaik%20Pasta%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-73a0260073.jpg?v=3", tag: "Brownie", name: "Brownie", frozen: true, isWhole: false, desc: "Bitter ve beyazın en tatlı karşılaşması! Yoğun çikolatalı brownie'nin içinde saklı beyaz çikolata sürpriziyle tanışın. Her lokmada iki kat mutluluk.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Brownie%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-8d3fd7ed2c.jpg?v=3", tag: "Brownie", name: "Vişneli Brownie", frozen: true, isWhole: false, desc: "Yoğun çikolatalı brownie ile bütün vişnelerin buluşması! Parlak, çatlak kabuğu ve yumuşacık içiyle her lokmada çikolata ve vişne dengesi.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Vi%C5%9Fneli%20Brownie%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-57aadb0bb8.jpg?v=3", tag: "Cup Dessert", name: "Spoonful", frozen: false, isWhole: false, desc: "Üç katlı lezzet dengesi: En altta çıtır fındıklı kakaolu kek, ortada ipeksi sütlü muhallebi ve üzerinde yoğun çikolata sosu. Spoonful ile her kaşıkta tam uyum.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Spoonful%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-302fa683c3.jpg?v=3", tag: "Cup Dessert", name: "Spoonful of Dubai", frozen: false, isWhole: false, desc: "Dubai lezzetlerinden ilham alan bu eşsiz tatlı; en altta çıtır kadayıf ve Antep fıstıklı kıtır katmanı, ortada ipeksi muhallebisi ve en üstte pürüzsüz çikolata sosuyla tam bir doku ve lezzet uyumu sunuyor.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Spoonful%20of%20Dubai%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-79a3b8369e.jpg?v=3", tag: "Cup Dessert", name: "Oreo Cup", frozen: false, isWhole: false, desc: "Siyah ve beyazın en tatlı uyumu! Oreo'nun çıtırtısı, yoğun çikolatalı muhallebi ile birleşti. Oreo Cup ile tatlı krizlerine son.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Oreo%20Cup%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-6e80d5453d.jpg?v=3", tag: "Cup Dessert", name: "Lotus Cup", frozen: false, isWhole: false, desc: "Karamel aşkına! Lotus bisküvisinin kıtırlığı ile Lotus aromalı ipeksi muhallebinin buluştuğu bu cup, tatlı molalarınızın yeni favorisi olacak.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Lotus%20Cup%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-0f530b0766.jpg?v=3", tag: "Cup Dessert", name: "Medovik Cup", frozen: false, isWhole: false, desc: "Balın en zarif hali! Karamelize ballı kek katmanları ile hafif muhallebinin muazzam dengesi. Medovik Cup ile her kaşıkta yumuşacık bir yolculuğa çıkın.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Medovik%20Cup%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-6652e4d5f3.jpg?v=3", tag: "Cup Dessert", name: "Red Velvet Cup", frozen: true, isWhole: false, desc: "Kadife dokulu kek, hafif peynirli muhallebi ve aralara gizlenmiş sürpriz vişne lezzeti... Red Velvet Cup ile tatlı, ekşi ve kremsi dokuların kusursuz uyumunu keşfedin.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Red%20Velvet%20Cup%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-725e277952.jpg?v=3", tag: "Cup Dessert", name: "Marki", frozen: true, isWhole: false, desc: "Çikolataya doyuran bir başyapıt! Kakaolu kekin nemli dokusu, akışkan ganaj ve aralardaki çikolata parçalarıyla Marki, tatlı tanımlarınızı değiştirmeye geliyor.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Marki%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-c95b3bdf8e.jpg?v=3", tag: "Tiramisu", name: "Tiramisu", frozen: false, isWhole: false, desc: "Kahve molalarınızın en şık eşlikçisi! Kahveyle ıslatılmış kedi dili bisküvileri ve ipeksi kremasıyla Tiramisu.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Tiramisu%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-9529ee0a44.jpg?v=3", tag: "Cup Dessert", name: "Çilekli Magnolya", frozen: false, isWhole: false, desc: "Hafiflik arayanlara! Taze meyveler, ipeksi muhallebi ve bebe bisküvisinin nostaljik dokunuşu.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Çilekli%20Magnolya%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-04172de2a7.jpg?v=3", tag: "Cup Dessert", name: "Muzlu Magnolya", frozen: false, isWhole: false, desc: "İpeksi kreması, taze muz dilimleri ve kıtır bisküvi katmanlarıyla hazırlanan, şık sunumuyla hem göze hem damağa hitap eden hafif ve nefis bir muzlu magnolya.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Muzlu%20Magnolya%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-6ae2fa7b82.jpg?v=3", tag: "Cup Dessert", name: "Oreolu Magnolya", frozen: false, isWhole: false, desc: "Oreo kırıntıları ve ipeksi kremanın nefis katmanlarıyla hazırlanan, yoğun çikolata ve krema lezzetini şık bir sunumla buluşturan karşı konulmaz bir oreolu magnolya.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Oreolu%20Magnolya%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-53e4ed2d9f.jpg?v=3", tag: "Cup Dessert", name: "Lotuslu Magnolya", frozen: false, isWhole: false, desc: "İpeksi krema ve kıtır Lotus bisküvi parçalarının mükemmel uyumuyla hazırlanan, karamelimsi lezzetiyle baş döndüren, şık sunumlu nefis bir Lotuslu magnolya.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Lotuslu%20Magnolya%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-446fcb43dd.jpg?v=3", tag: "Cup Dessert", name: "Kadayıflı Muhallebi", frozen: false, isWhole: false, desc: "Tereyağının eşsiz kokusu, şekerin karamelize tadı... Sabırla kavrulan çıtır kadayıflar ile ipeksi muhallebinin buluşması. Geleneksel lezzet, en çıtır haliyle burada.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Kadayıflı%20Muhallebi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-c01508dce2.jpg?v=3", tag: "Sütlaç", name: "Fırın Sütlaç", frozen: false, isWhole: false, desc: "Geleneksel lezzetin en saf formu! Taze süt ve tam kıvamında pirinçle hazırlanan sütlaç, çocukluğumuzun o unutulmaz tadını sofralarınıza taşıyor.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Fırın%20Sütlaç%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-edc15cdbfa.jpg?v=3", tag: "Panini", name: "Panini Dana Jambon", frozen: true, isWhole: false, desc: "155 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Panini%20Dana%20Jambon%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-ba7df2b805.jpg?v=3", tag: "Panini", name: "Panini Mozzarella", frozen: true, isWhole: false, desc: "165 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Panini%20Mozzarella%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-142237475d.jpg?v=3", tag: "Panini", name: "Panini Hindi Füme", frozen: true, isWhole: false, desc: "165 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Panini%20Hindi%20F%C3%BCme%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-ade4bac815.jpg?v=3", tag: "Panini", name: "Panini 5 Peynirli", frozen: true, isWhole: false, desc: "160 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Panini%205%20Peynirli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-96cde879f7.jpg?v=3", tag: "Panini", name: "Panini Tavuk Fileto", frozen: true, isWhole: false, desc: "170 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Panini%20Tavuk%20Fileto%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-ce5743e026.jpg?v=3", tag: "Panini", name: "Panini Roastbeef", frozen: true, isWhole: false, desc: "165 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Panini%20Roastbeef%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-cc007cca17.jpg?v=3", tag: "Panini", name: "Panini Beyaz Peynirli", frozen: true, isWhole: false, desc: "165 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Panini%20Beyaz%20Peynirli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-23349ffbf3.jpg?v=3", tag: "Aperto", name: "Aperto Bella", frozen: true, isWhole: false, desc: "230 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Aperto%20Bella%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-07af6c6a0c.jpg?v=3", tag: "Aperto", name: "Aperto Rosso", frozen: true, isWhole: false, desc: "260 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Aperto%20Rosso%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-b425b633e8.jpg?v=3", tag: "Aperto", name: "Aperto Bianca", frozen: true, isWhole: false, desc: "235 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Aperto%20Bianca%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-2f517c9775.jpg?v=3", tag: "Bagel", name: "Bagel Üç Peynirli", frozen: true, isWhole: false, desc: "150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Bagel%20%C3%9C%C3%A7%20Peynirli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-2c577be9ce.jpg?v=3", tag: "Bagel", name: "Bagel Dana Jambon", frozen: true, isWhole: false, desc: "155 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Bagel%20Dana%20Jambon%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-6c5bd5e796.jpg?v=3", tag: "Bagel", name: "Bagel Hindi Füme", frozen: true, isWhole: false, desc: "155 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Bagel%20Hindi%20F%C3%BCme%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-f32eac3573.jpg?v=3", tag: "Bagel", name: "Bagel Roastbeef", frozen: true, isWhole: false, desc: "160 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Bagel%20Roastbeef%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-3c37a2f0d3.jpg?v=3", tag: "Bunwich", name: "Bunwich Mozzarella", frozen: true, isWhole: false, desc: "145 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Bunwich%20Mozzarella%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-f93b1e013f.jpg?v=3", tag: "Bunwich", name: "Bunwich Hindi Füme", frozen: true, isWhole: false, desc: "145 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Bunwich%20Hindi%20F%C3%BCme%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-9503b73134.jpg?v=3", tag: "Bunwich", name: "Bunwich Çıtır Tavuk", frozen: true, isWhole: false, desc: "130 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Bunwich%20%C3%87%C4%B1t%C4%B1r%20Tavuk%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-08196299cd.jpg?v=3", tag: "Bunwich", name: "Bunwich Roastbeef", frozen: true, isWhole: false, desc: "130 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Bunwich%20Roastbeef%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-8eab0c4fd2.jpg?v=3", tag: "Gurme Sandviç", name: "Hamburger Füme Jambonlu", frozen: true, isWhole: false, desc: "175 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Hamburger%20F%C3%BCme%20Jambonlu%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-6c6706ca74.jpg?v=3", tag: "Gurme Sandviç", name: "Deluxe Beef", frozen: true, isWhole: false, desc: "185 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Deluxe%20Beef%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-640371b136.jpg?v=3", tag: "Gurme Sandviç", name: "Deluxe İsli", frozen: true, isWhole: false, desc: "195 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Deluxe%20%C4%B0sli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-3c597ad31d.jpg?v=3", tag: "Gurme Sandviç", name: "Üç Peynir Kruvasan", frozen: true, isWhole: false, desc: "150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20%C3%9C%C3%A7%20Peynir%20Kruvasan%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-29147ed1eb.jpg?v=3", tag: "Gurme Sandviç", name: "Hindi Füme Kruvasan", frozen: true, isWhole: false, desc: "150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Hindi%20F%C3%BCme%20Kruvasan%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-56a281118f.jpg?v=3", tag: "Gurme Sandviç", name: "Gurme Fiesta", frozen: true, isWhole: false, desc: "190 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Gurme%20Fiesta%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-2ad801a6b2.jpg?v=3", tag: "Gurme Sandviç", name: "Gurme Beef", frozen: true, isWhole: false, desc: "165 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Gurme%20Beef%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-801d80243f.jpg?v=3", tag: "Gurme Sandviç", name: "Gurme Çıtır", frozen: true, isWhole: false, desc: "175 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Gurme%20%C3%87%C4%B1t%C4%B1r%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-a19d6aba4d.jpg?v=3", tag: "Gurme Sandviç", name: "Gurme Barbekü", frozen: true, isWhole: false, desc: "185 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Gurme%20Barbek%C3%BC%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-a48dc77677.jpg?v=3", tag: "Tost", name: "Klasik Ayvalık Tost", frozen: true, isWhole: false, desc: "150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Klasik%20Ayval%C4%B1k%20Tost%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-a48dc77677.jpg?v=3", tag: "Tost", name: "Klasik Ayvalık Tost (Dana)", frozen: true, isWhole: false, desc: "150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Klasik%20Ayval%C4%B1k%20Tost%20%28Dana%29%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-d262049808.jpg?v=3", tag: "Tost", name: "Tost Kare Peynirli", frozen: true, isWhole: false, desc: "145 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Tost%20Kare%20Peynirli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-127c74e295.jpg?v=3", tag: "Tost", name: "Tost Kare Karışık", frozen: true, isWhole: false, desc: "150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Tost%20Kare%20Kar%C4%B1%C5%9F%C4%B1k%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-127c74e295.jpg?v=3", tag: "Tost", name: "Tost Kare Karışık (Dana)", frozen: true, isWhole: false, desc: "150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Tost%20Kare%20Kar%C4%B1%C5%9F%C4%B1k%20%28Dana%29%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-cbe71b3df3.jpg?v=3", tag: "Tost", name: "Acukalı Bazlama", frozen: true, isWhole: false, desc: "150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Acukal%C4%B1%20Bazlama%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-cbe71b3df3.jpg?v=3", tag: "Tost", name: "Acukalı Bazlama (Dana)", frozen: true, isWhole: false, desc: "150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Acukal%C4%B1%20Bazlama%20%28Dana%29%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-bbf2b09763.jpg?v=3", tag: "Tost", name: "Kumru Tost", frozen: true, isWhole: false, desc: "150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Kumru%20Tost%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-8dc1af4f4c.jpg?v=3", tag: "Tost", name: "Pizza Tost", frozen: true, isWhole: false, desc: "200 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Pizza%20Tost%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-73c0ebc7db.jpg?v=3", tag: "Unlu Mamul", name: "Tereyağlı Kruvasan", frozen: true, isWhole: false, desc: "90 gr. Pişmiş ve donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Tereya%C4%9Fl%C4%B1%20Kruvasan%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-559b59252c.jpg?v=3", tag: "Unlu Mamul", name: "Çikolatalı Kruvasan", frozen: true, isWhole: false, desc: "90 gr. Pişmiş ve donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20%C3%87ikolatal%C4%B1%20Kruvasan%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
 ];
 
 // ══════════════════════════════
