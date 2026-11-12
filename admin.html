@@ -2,6 +2,7 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Daisy Patisserie — Admin Paneli</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -508,6 +509,13 @@
               <option>Brownie</option>
               <option>Tiramisu</option>
               <option>Sütlaç</option>
+              <option>Panini</option>
+              <option>Aperto</option>
+              <option>Bagel</option>
+              <option>Bunwich</option>
+              <option>Gurme Sandviç</option>
+              <option>Tost</option>
+              <option>Unlu Mamul</option>
             </select>
           </div>
           <div>
@@ -1030,8 +1038,8 @@ const WA_SVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentCol
 
 function cardHtml(p, i) {
   const delay = i % 3 === 1 ? ' reveal-delay-1' : (i % 3 === 2 ? ' reveal-delay-2' : '');
-  const badge = p.frozen ? '<span class="frozen-badge">❄️ Donuk</span>' : '<span class="fresh-badge">🌿 Taze</span>';
-  const whole = p.isWhole ? '\n        <div class="whole-badge">🎂 1 bütün · ~10-12 dilim</div>' : '';
+  const badge = p.frozen ? '<span class="frozen-badge">Donuk</span>' : '<span class="fresh-badge">Taze</span>';
+  const whole = p.isWhole ? '\n        <div class="whole-badge">1 bütün · ~10-12 dilim</div>' : '';
   return `    <div class="product-card reveal${delay}" onclick="openProduct(${i})" data-frozen="${!!p.frozen}">
       <div class="product-img">
         <img src="${p.img}" alt="${escapeHtml(p.name)}" loading="lazy">
