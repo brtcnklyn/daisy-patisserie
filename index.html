@@ -178,6 +178,8 @@
   .btn-line { background:#fff; color:var(--sage-deep); border-color:var(--sage-deep); }
   .btn-line:hover { background:var(--sage-deep); color:#fff; }
   .btn-light { background:#fff; color:var(--sage-deep); }
+  .katalog-btn { display:inline-flex; align-items:center; gap:9px; margin-top:16px; padding:11px 18px; border:1px solid var(--sage-deep); color:var(--sage-deep); background:#fff; font-family:'DM Sans',sans-serif; font-size:0.7rem; font-weight:500; letter-spacing:0.16em; text-transform:uppercase; text-decoration:none; transition:background .25s,color .25s; }
+  .katalog-btn:hover { background:var(--sage-deep); color:#fff; }
   .btn-light:hover { background:var(--cream-dark); }
 
   /* Üst şerit + menü */
@@ -944,6 +946,7 @@
     <a href="#catering" onclick="closeMenu()">Catering</a>
     <a href="#kariyer" onclick="closeMenu()">Hakkımızda</a>
     <a href="#iletisim" onclick="closeMenu()">İletişim</a>
+    <a href="Daisy-Patisserie-Katalog.pdf" download onclick="closeMenu()">Kataloğu İndir (PDF)</a>
   </nav>
   <div class="side-menu-footer">© 2026 Daisy Patisserie · İstanbul</div>
 </div>
@@ -1022,6 +1025,7 @@
     <div>
       <h2 class="sec-title">Ürünlerimiz</h2>
       <p class="sec-sub">Fiyat bilgisi için WhatsApp'tan ulaşın.</p>
+      <a class="katalog-btn" href="Daisy-Patisserie-Katalog.pdf" download><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M4 19h16"/></svg>Tüm Kataloğu İndir (PDF)</a>
     </div>
     <div class="product-search">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -1564,7 +1568,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Panini</span>
         <h4>Panini Dana Jambon</h4>
-        <p>155 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>155 gr. Bir kutuda 18 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -1586,7 +1590,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Panini</span>
         <h4>Panini Mozzarella</h4>
-        <p>165 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>165 gr. Bir kutuda 18 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -1608,7 +1612,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Panini</span>
         <h4>Panini Hindi Füme</h4>
-        <p>165 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>165 gr. Bir kutuda 18 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -1630,7 +1634,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Panini</span>
         <h4>Panini 5 Peynirli</h4>
-        <p>160 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>160 gr. Bir kutuda 18 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -1652,7 +1656,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Panini</span>
         <h4>Panini Tavuk Fileto</h4>
-        <p>170 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>170 gr. Bir kutuda 18 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -1674,7 +1678,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Panini</span>
         <h4>Panini Roastbeef</h4>
-        <p>165 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>165 gr. Bir kutuda 18 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -1696,7 +1700,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Panini</span>
         <h4>Panini Beyaz Peynirli</h4>
-        <p>165 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>165 gr. Bir kutuda 18 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -1718,7 +1722,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Aperto</span>
         <h4>Aperto Bella</h4>
-        <p>230 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>230 gr. Bir kutuda 10 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -1740,7 +1744,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Aperto</span>
         <h4>Aperto Rosso</h4>
-        <p>260 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>260 gr. Bir kutuda 10 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -1762,7 +1766,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Aperto</span>
         <h4>Aperto Bianca</h4>
-        <p>235 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>235 gr. Bir kutuda 10 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -1784,7 +1788,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Bagel</span>
         <h4>Bagel Üç Peynirli</h4>
-        <p>150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>150 gr. Bir kutuda 18 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -1806,7 +1810,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Bagel</span>
         <h4>Bagel Dana Jambon</h4>
-        <p>155 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>155 gr. Bir kutuda 18 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -1828,7 +1832,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Bagel</span>
         <h4>Bagel Hindi Füme</h4>
-        <p>155 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>155 gr. Bir kutuda 18 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -1850,7 +1854,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Bagel</span>
         <h4>Bagel Roastbeef</h4>
-        <p>160 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>160 gr. Bir kutuda 18 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -1872,7 +1876,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Bunwich</span>
         <h4>Bunwich Mozzarella</h4>
-        <p>145 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>145 gr. Bir kutuda 16 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -1894,7 +1898,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Bunwich</span>
         <h4>Bunwich Hindi Füme</h4>
-        <p>145 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>145 gr. Bir kutuda 16 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -1916,7 +1920,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Bunwich</span>
         <h4>Bunwich Çıtır Tavuk</h4>
-        <p>130 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>130 gr. Bir kutuda 20 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -1938,7 +1942,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Bunwich</span>
         <h4>Bunwich Roastbeef</h4>
-        <p>130 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>130 gr. Bir kutuda 20 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -1960,7 +1964,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Gurme Sandviç</span>
         <h4>Hamburger Füme Jambonlu</h4>
-        <p>175 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>175 gr. Bir kutuda 12 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -1982,7 +1986,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Gurme Sandviç</span>
         <h4>Deluxe Beef</h4>
-        <p>185 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>185 gr. Bir kutuda 14 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -2004,7 +2008,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Gurme Sandviç</span>
         <h4>Deluxe İsli</h4>
-        <p>195 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>195 gr. Bir kutuda 14 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -2026,7 +2030,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Gurme Sandviç</span>
         <h4>Üç Peynir Kruvasan</h4>
-        <p>150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>150 gr. Bir kutuda 12 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -2048,7 +2052,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Gurme Sandviç</span>
         <h4>Hindi Füme Kruvasan</h4>
-        <p>150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>150 gr. Bir kutuda 12 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -2070,7 +2074,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Gurme Sandviç</span>
         <h4>Gurme Fiesta</h4>
-        <p>190 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>190 gr. Bir kutuda 12 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -2092,7 +2096,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Gurme Sandviç</span>
         <h4>Gurme Beef</h4>
-        <p>165 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>165 gr. Bir kutuda 14 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -2114,7 +2118,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Gurme Sandviç</span>
         <h4>Gurme Çıtır</h4>
-        <p>175 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>175 gr. Bir kutuda 14 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -2136,7 +2140,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Gurme Sandviç</span>
         <h4>Gurme Barbekü</h4>
-        <p>185 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>185 gr. Bir kutuda 14 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -2158,7 +2162,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Tost</span>
         <h4>Klasik Ayvalık Tost</h4>
-        <p>150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>150 gr. Bir kutuda 12 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -2180,7 +2184,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Tost</span>
         <h4>Klasik Ayvalık Tost (Dana)</h4>
-        <p>150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>150 gr. Bir kutuda 12 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -2202,7 +2206,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Tost</span>
         <h4>Tost Kare Peynirli</h4>
-        <p>145 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>145 gr. Bir kutuda 16 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -2224,7 +2228,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Tost</span>
         <h4>Tost Kare Karışık</h4>
-        <p>150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>150 gr. Bir kutuda 16 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -2246,7 +2250,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Tost</span>
         <h4>Tost Kare Karışık (Dana)</h4>
-        <p>150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>150 gr. Bir kutuda 16 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -2268,7 +2272,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Tost</span>
         <h4>Acukalı Bazlama</h4>
-        <p>150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>150 gr. Bir kutuda 16 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -2290,7 +2294,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Tost</span>
         <h4>Acukalı Bazlama (Dana)</h4>
-        <p>150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>150 gr. Bir kutuda 16 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -2312,7 +2316,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Tost</span>
         <h4>Kumru Tost</h4>
-        <p>150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>150 gr. Bir kutuda 14 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -2334,7 +2338,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Tost</span>
         <h4>Pizza Tost</h4>
-        <p>200 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>200 gr. Bir kutuda 40 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -2356,7 +2360,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Unlu Mamul</span>
         <h4>Tereyağlı Kruvasan</h4>
-        <p>90 gr. Pişmiş ve donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>90 gr. Bir kutuda 17 adet bulunur. Pişmiş ve donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -2378,7 +2382,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <div class="product-body">
         <span class="product-tag-inline">Unlu Mamul</span>
         <h4>Çikolatalı Kruvasan</h4>
-        <p>90 gr. Pişmiş ve donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
+        <p>90 gr. Bir kutuda 20 adet bulunur. Pişmiş ve donuk olarak teslim edilir, raf ömrü 9 aydır.</p>
       </div>
       <div class="product-cta-row">
         <button class="btn-cart" onclick="addToCart(event, this)">
@@ -2515,6 +2519,7 @@ Klasik mozaik pastayı, yoğun ve parlak çikolata sosuyla bir üst seviyeye ta�
       <a href="#urunler" onclick="goCat('tatli','cup')">Cup Tatlılar</a>
       <a href="#urunler" onclick="goCat('tatli','brownie')">Brownie</a>
       <a href="#urunler" onclick="goCat('sandvic')">Sandviç &amp; Tost</a>
+      <a href="Daisy-Patisserie-Katalog.pdf" download>Ürün Kataloğu (PDF)</a>
     </div>
     <div>
       <h5>İletişim</h5>
@@ -2585,44 +2590,44 @@ const PRODUCT_DATA = [
   { img: "img/urun-53e4ed2d9f.jpg", tag: "Cup Dessert", name: "Lotuslu Magnolya", frozen: false, isWhole: false, desc: "İpeksi krema ve kıtır Lotus bisküvi parçalarının mükemmel uyumuyla hazırlanan, karamelimsi lezzetiyle baş döndüren, şık sunumlu nefis bir Lotuslu magnolya.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Lotuslu%20Magnolya%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
   { img: "img/urun-446fcb43dd.jpg", tag: "Cup Dessert", name: "Kadayıflı Muhallebi", frozen: false, isWhole: false, desc: "Tereyağının eşsiz kokusu, şekerin karamelize tadı... Sabırla kavrulan çıtır kadayıflar ile ipeksi muhallebinin buluşması. Geleneksel lezzet, en çıtır haliyle burada.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Kadayıflı%20Muhallebi%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
   { img: "img/urun-c01508dce2.jpg", tag: "Sütlaç", name: "Fırın Sütlaç", frozen: false, isWhole: false, desc: "Geleneksel lezzetin en saf formu! Taze süt ve tam kıvamında pirinçle hazırlanan sütlaç, çocukluğumuzun o unutulmaz tadını sofralarınıza taşıyor.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Fırın%20Sütlaç%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-edc15cdbfa.jpg", tag: "Panini", name: "Panini Dana Jambon", frozen: true, isWhole: false, desc: "155 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Panini%20Dana%20Jambon%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-ba7df2b805.jpg", tag: "Panini", name: "Panini Mozzarella", frozen: true, isWhole: false, desc: "165 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Panini%20Mozzarella%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-142237475d.jpg", tag: "Panini", name: "Panini Hindi Füme", frozen: true, isWhole: false, desc: "165 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Panini%20Hindi%20F%C3%BCme%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-ade4bac815.jpg", tag: "Panini", name: "Panini 5 Peynirli", frozen: true, isWhole: false, desc: "160 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Panini%205%20Peynirli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-96cde879f7.jpg", tag: "Panini", name: "Panini Tavuk Fileto", frozen: true, isWhole: false, desc: "170 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Panini%20Tavuk%20Fileto%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-ce5743e026.jpg", tag: "Panini", name: "Panini Roastbeef", frozen: true, isWhole: false, desc: "165 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Panini%20Roastbeef%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-cc007cca17.jpg", tag: "Panini", name: "Panini Beyaz Peynirli", frozen: true, isWhole: false, desc: "165 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Panini%20Beyaz%20Peynirli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-23349ffbf3.jpg", tag: "Aperto", name: "Aperto Bella", frozen: true, isWhole: false, desc: "230 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Aperto%20Bella%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-07af6c6a0c.jpg", tag: "Aperto", name: "Aperto Rosso", frozen: true, isWhole: false, desc: "260 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Aperto%20Rosso%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-b425b633e8.jpg", tag: "Aperto", name: "Aperto Bianca", frozen: true, isWhole: false, desc: "235 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Aperto%20Bianca%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-2f517c9775.jpg", tag: "Bagel", name: "Bagel Üç Peynirli", frozen: true, isWhole: false, desc: "150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Bagel%20%C3%9C%C3%A7%20Peynirli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-2c577be9ce.jpg", tag: "Bagel", name: "Bagel Dana Jambon", frozen: true, isWhole: false, desc: "155 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Bagel%20Dana%20Jambon%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-6c5bd5e796.jpg", tag: "Bagel", name: "Bagel Hindi Füme", frozen: true, isWhole: false, desc: "155 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Bagel%20Hindi%20F%C3%BCme%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-f32eac3573.jpg", tag: "Bagel", name: "Bagel Roastbeef", frozen: true, isWhole: false, desc: "160 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Bagel%20Roastbeef%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-3c37a2f0d3.jpg", tag: "Bunwich", name: "Bunwich Mozzarella", frozen: true, isWhole: false, desc: "145 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Bunwich%20Mozzarella%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-f93b1e013f.jpg", tag: "Bunwich", name: "Bunwich Hindi Füme", frozen: true, isWhole: false, desc: "145 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Bunwich%20Hindi%20F%C3%BCme%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-9503b73134.jpg", tag: "Bunwich", name: "Bunwich Çıtır Tavuk", frozen: true, isWhole: false, desc: "130 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Bunwich%20%C3%87%C4%B1t%C4%B1r%20Tavuk%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-08196299cd.jpg", tag: "Bunwich", name: "Bunwich Roastbeef", frozen: true, isWhole: false, desc: "130 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Bunwich%20Roastbeef%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-8eab0c4fd2.jpg", tag: "Gurme Sandviç", name: "Hamburger Füme Jambonlu", frozen: true, isWhole: false, desc: "175 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Hamburger%20F%C3%BCme%20Jambonlu%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-6c6706ca74.jpg", tag: "Gurme Sandviç", name: "Deluxe Beef", frozen: true, isWhole: false, desc: "185 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Deluxe%20Beef%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-640371b136.jpg", tag: "Gurme Sandviç", name: "Deluxe İsli", frozen: true, isWhole: false, desc: "195 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Deluxe%20%C4%B0sli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-3c597ad31d.jpg", tag: "Gurme Sandviç", name: "Üç Peynir Kruvasan", frozen: true, isWhole: false, desc: "150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20%C3%9C%C3%A7%20Peynir%20Kruvasan%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-29147ed1eb.jpg", tag: "Gurme Sandviç", name: "Hindi Füme Kruvasan", frozen: true, isWhole: false, desc: "150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Hindi%20F%C3%BCme%20Kruvasan%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-56a281118f.jpg", tag: "Gurme Sandviç", name: "Gurme Fiesta", frozen: true, isWhole: false, desc: "190 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Gurme%20Fiesta%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-2ad801a6b2.jpg", tag: "Gurme Sandviç", name: "Gurme Beef", frozen: true, isWhole: false, desc: "165 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Gurme%20Beef%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-801d80243f.jpg", tag: "Gurme Sandviç", name: "Gurme Çıtır", frozen: true, isWhole: false, desc: "175 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Gurme%20%C3%87%C4%B1t%C4%B1r%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-a19d6aba4d.jpg", tag: "Gurme Sandviç", name: "Gurme Barbekü", frozen: true, isWhole: false, desc: "185 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Gurme%20Barbek%C3%BC%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-a48dc77677.jpg", tag: "Tost", name: "Klasik Ayvalık Tost", frozen: true, isWhole: false, desc: "150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Klasik%20Ayval%C4%B1k%20Tost%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-a48dc77677.jpg", tag: "Tost", name: "Klasik Ayvalık Tost (Dana)", frozen: true, isWhole: false, desc: "150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Klasik%20Ayval%C4%B1k%20Tost%20%28Dana%29%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-d262049808.jpg", tag: "Tost", name: "Tost Kare Peynirli", frozen: true, isWhole: false, desc: "145 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Tost%20Kare%20Peynirli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-127c74e295.jpg", tag: "Tost", name: "Tost Kare Karışık", frozen: true, isWhole: false, desc: "150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Tost%20Kare%20Kar%C4%B1%C5%9F%C4%B1k%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-127c74e295.jpg", tag: "Tost", name: "Tost Kare Karışık (Dana)", frozen: true, isWhole: false, desc: "150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Tost%20Kare%20Kar%C4%B1%C5%9F%C4%B1k%20%28Dana%29%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-cbe71b3df3.jpg", tag: "Tost", name: "Acukalı Bazlama", frozen: true, isWhole: false, desc: "150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Acukal%C4%B1%20Bazlama%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-cbe71b3df3.jpg", tag: "Tost", name: "Acukalı Bazlama (Dana)", frozen: true, isWhole: false, desc: "150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Acukal%C4%B1%20Bazlama%20%28Dana%29%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-bbf2b09763.jpg", tag: "Tost", name: "Kumru Tost", frozen: true, isWhole: false, desc: "150 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Kumru%20Tost%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-8dc1af4f4c.jpg", tag: "Tost", name: "Pizza Tost", frozen: true, isWhole: false, desc: "200 gr. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Pizza%20Tost%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-73c0ebc7db.jpg", tag: "Unlu Mamul", name: "Tereyağlı Kruvasan", frozen: true, isWhole: false, desc: "90 gr. Pişmiş ve donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Tereya%C4%9Fl%C4%B1%20Kruvasan%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
-  { img: "img/urun-559b59252c.jpg", tag: "Unlu Mamul", name: "Çikolatalı Kruvasan", frozen: true, isWhole: false, desc: "90 gr. Pişmiş ve donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20%C3%87ikolatal%C4%B1%20Kruvasan%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-edc15cdbfa.jpg", tag: "Panini", name: "Panini Dana Jambon", frozen: true, isWhole: false, desc: "155 gr. Bir kutuda 18 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Panini%20Dana%20Jambon%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-ba7df2b805.jpg", tag: "Panini", name: "Panini Mozzarella", frozen: true, isWhole: false, desc: "165 gr. Bir kutuda 18 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Panini%20Mozzarella%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-142237475d.jpg", tag: "Panini", name: "Panini Hindi Füme", frozen: true, isWhole: false, desc: "165 gr. Bir kutuda 18 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Panini%20Hindi%20F%C3%BCme%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-ade4bac815.jpg", tag: "Panini", name: "Panini 5 Peynirli", frozen: true, isWhole: false, desc: "160 gr. Bir kutuda 18 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Panini%205%20Peynirli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-96cde879f7.jpg", tag: "Panini", name: "Panini Tavuk Fileto", frozen: true, isWhole: false, desc: "170 gr. Bir kutuda 18 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Panini%20Tavuk%20Fileto%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-ce5743e026.jpg", tag: "Panini", name: "Panini Roastbeef", frozen: true, isWhole: false, desc: "165 gr. Bir kutuda 18 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Panini%20Roastbeef%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-cc007cca17.jpg", tag: "Panini", name: "Panini Beyaz Peynirli", frozen: true, isWhole: false, desc: "165 gr. Bir kutuda 18 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Panini%20Beyaz%20Peynirli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-23349ffbf3.jpg", tag: "Aperto", name: "Aperto Bella", frozen: true, isWhole: false, desc: "230 gr. Bir kutuda 10 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Aperto%20Bella%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-07af6c6a0c.jpg", tag: "Aperto", name: "Aperto Rosso", frozen: true, isWhole: false, desc: "260 gr. Bir kutuda 10 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Aperto%20Rosso%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-b425b633e8.jpg", tag: "Aperto", name: "Aperto Bianca", frozen: true, isWhole: false, desc: "235 gr. Bir kutuda 10 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Aperto%20Bianca%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-2f517c9775.jpg", tag: "Bagel", name: "Bagel Üç Peynirli", frozen: true, isWhole: false, desc: "150 gr. Bir kutuda 18 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Bagel%20%C3%9C%C3%A7%20Peynirli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-2c577be9ce.jpg", tag: "Bagel", name: "Bagel Dana Jambon", frozen: true, isWhole: false, desc: "155 gr. Bir kutuda 18 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Bagel%20Dana%20Jambon%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-6c5bd5e796.jpg", tag: "Bagel", name: "Bagel Hindi Füme", frozen: true, isWhole: false, desc: "155 gr. Bir kutuda 18 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Bagel%20Hindi%20F%C3%BCme%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-f32eac3573.jpg", tag: "Bagel", name: "Bagel Roastbeef", frozen: true, isWhole: false, desc: "160 gr. Bir kutuda 18 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Bagel%20Roastbeef%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-3c37a2f0d3.jpg", tag: "Bunwich", name: "Bunwich Mozzarella", frozen: true, isWhole: false, desc: "145 gr. Bir kutuda 16 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Bunwich%20Mozzarella%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-f93b1e013f.jpg", tag: "Bunwich", name: "Bunwich Hindi Füme", frozen: true, isWhole: false, desc: "145 gr. Bir kutuda 16 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Bunwich%20Hindi%20F%C3%BCme%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-9503b73134.jpg", tag: "Bunwich", name: "Bunwich Çıtır Tavuk", frozen: true, isWhole: false, desc: "130 gr. Bir kutuda 20 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Bunwich%20%C3%87%C4%B1t%C4%B1r%20Tavuk%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-08196299cd.jpg", tag: "Bunwich", name: "Bunwich Roastbeef", frozen: true, isWhole: false, desc: "130 gr. Bir kutuda 20 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Bunwich%20Roastbeef%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-8eab0c4fd2.jpg", tag: "Gurme Sandviç", name: "Hamburger Füme Jambonlu", frozen: true, isWhole: false, desc: "175 gr. Bir kutuda 12 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Hamburger%20F%C3%BCme%20Jambonlu%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-6c6706ca74.jpg", tag: "Gurme Sandviç", name: "Deluxe Beef", frozen: true, isWhole: false, desc: "185 gr. Bir kutuda 14 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Deluxe%20Beef%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-640371b136.jpg", tag: "Gurme Sandviç", name: "Deluxe İsli", frozen: true, isWhole: false, desc: "195 gr. Bir kutuda 14 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Deluxe%20%C4%B0sli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-3c597ad31d.jpg", tag: "Gurme Sandviç", name: "Üç Peynir Kruvasan", frozen: true, isWhole: false, desc: "150 gr. Bir kutuda 12 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20%C3%9C%C3%A7%20Peynir%20Kruvasan%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-29147ed1eb.jpg", tag: "Gurme Sandviç", name: "Hindi Füme Kruvasan", frozen: true, isWhole: false, desc: "150 gr. Bir kutuda 12 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Hindi%20F%C3%BCme%20Kruvasan%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-56a281118f.jpg", tag: "Gurme Sandviç", name: "Gurme Fiesta", frozen: true, isWhole: false, desc: "190 gr. Bir kutuda 12 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Gurme%20Fiesta%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-2ad801a6b2.jpg", tag: "Gurme Sandviç", name: "Gurme Beef", frozen: true, isWhole: false, desc: "165 gr. Bir kutuda 14 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Gurme%20Beef%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-801d80243f.jpg", tag: "Gurme Sandviç", name: "Gurme Çıtır", frozen: true, isWhole: false, desc: "175 gr. Bir kutuda 14 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Gurme%20%C3%87%C4%B1t%C4%B1r%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-a19d6aba4d.jpg", tag: "Gurme Sandviç", name: "Gurme Barbekü", frozen: true, isWhole: false, desc: "185 gr. Bir kutuda 14 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Gurme%20Barbek%C3%BC%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-a48dc77677.jpg", tag: "Tost", name: "Klasik Ayvalık Tost", frozen: true, isWhole: false, desc: "150 gr. Bir kutuda 12 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Klasik%20Ayval%C4%B1k%20Tost%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-a48dc77677.jpg", tag: "Tost", name: "Klasik Ayvalık Tost (Dana)", frozen: true, isWhole: false, desc: "150 gr. Bir kutuda 12 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Klasik%20Ayval%C4%B1k%20Tost%20%28Dana%29%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-d262049808.jpg", tag: "Tost", name: "Tost Kare Peynirli", frozen: true, isWhole: false, desc: "145 gr. Bir kutuda 16 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Tost%20Kare%20Peynirli%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-127c74e295.jpg", tag: "Tost", name: "Tost Kare Karışık", frozen: true, isWhole: false, desc: "150 gr. Bir kutuda 16 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Tost%20Kare%20Kar%C4%B1%C5%9F%C4%B1k%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-127c74e295.jpg", tag: "Tost", name: "Tost Kare Karışık (Dana)", frozen: true, isWhole: false, desc: "150 gr. Bir kutuda 16 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Tost%20Kare%20Kar%C4%B1%C5%9F%C4%B1k%20%28Dana%29%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-cbe71b3df3.jpg", tag: "Tost", name: "Acukalı Bazlama", frozen: true, isWhole: false, desc: "150 gr. Bir kutuda 16 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Acukal%C4%B1%20Bazlama%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-cbe71b3df3.jpg", tag: "Tost", name: "Acukalı Bazlama (Dana)", frozen: true, isWhole: false, desc: "150 gr. Bir kutuda 16 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Acukal%C4%B1%20Bazlama%20%28Dana%29%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-bbf2b09763.jpg", tag: "Tost", name: "Kumru Tost", frozen: true, isWhole: false, desc: "150 gr. Bir kutuda 14 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Kumru%20Tost%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-8dc1af4f4c.jpg", tag: "Tost", name: "Pizza Tost", frozen: true, isWhole: false, desc: "200 gr. Bir kutuda 40 adet bulunur. Donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Pizza%20Tost%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-73c0ebc7db.jpg", tag: "Unlu Mamul", name: "Tereyağlı Kruvasan", frozen: true, isWhole: false, desc: "90 gr. Bir kutuda 17 adet bulunur. Pişmiş ve donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20Tereya%C4%9Fl%C4%B1%20Kruvasan%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
+  { img: "img/urun-559b59252c.jpg", tag: "Unlu Mamul", name: "Çikolatalı Kruvasan", frozen: true, isWhole: false, desc: "90 gr. Bir kutuda 20 adet bulunur. Pişmiş ve donuk olarak teslim edilir, raf ömrü 9 aydır.", wa: "https://wa.me/905318575258?text=Merhaba%2C%20%C3%87ikolatal%C4%B1%20Kruvasan%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." },
 ];
 
 // ══════════════════════════════
