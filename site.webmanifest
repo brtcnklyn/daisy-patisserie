@@ -1,0 +1,20 @@
+{
+ "name": "Daisy Patisserie",
+ "short_name": "Daisy",
+ "start_url": "/",
+ "display": "browser",
+ "background_color": "#78886b",
+ "theme_color": "#78886b",
+ "icons": [
+  {
+   "src": "/img/site-ikon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "/img/site-ikon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ]
+}
