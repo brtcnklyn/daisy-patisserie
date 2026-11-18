@@ -4,7 +4,8 @@
 // Firma bilgisi, iskonto ve "listede göster" seçimleri her teklif için geçicidir, kaydedilmez.
 // PDF: yeni sekmede A4 sayfalar kurulur, tarayıcının "PDF olarak kaydet" özelliğiyle alınır.
 // ══════════════════════════════
-const FL_FILE = 'fiyat/fiyat-listesi.json';
+const FL_ENC = 'fiyat/fiyat-listesi.enc';     // admin şifresiyle şifreli (AES-GCM) kayıt
+const FL_ESKI = 'fiyat/fiyat-listesi.json';   // eski açık kayıt — ilk açılışta şifreliye taşınıp silinir
 const FL_BOLUM = { tatli: 'Tatlılar', sandvic: 'Sandviç & Tost' };
 const FL = { veri: null, urunler: [], kirli: false, yuklendi: false };
 
@@ -41,21 +42,73 @@ function flKirli(v = true) {
 }
 window.addEventListener('beforeunload', e => { if (FL.kirli) { e.preventDefault(); e.returnValue = ''; } });
 
+// ── ŞİFRELEME (admin şifresinden PBKDF2 ile türetilen AES-GCM anahtarı) ──
+const flB64 = u8 => { let b = ''; for (let i = 0; i < u8.length; i += 0x8000) b += String.fromCharCode.apply(null, u8.subarray(i, i + 0x8000)); return btoa(b); };
+const flU8 = b64 => Uint8Array.from(atob(b64), c => c.charCodeAt(0));
+async function flAnahtar(sifre, tuz, tur) {
+  const ham = await crypto.subtle.importKey('raw', new TextEncoder().encode(sifre), 'PBKDF2', false, ['deriveKey']);
+  return crypto.subtle.deriveKey({ name: 'PBKDF2', salt: tuz, iterations: tur, hash: 'SHA-256' }, ham, { name: 'AES-GCM', length: 256 }, false, ['encrypt', 'decrypt']);
+}
+async function flSifrele(obj, sifre) {
+  const tuz = crypto.getRandomValues(new Uint8Array(16)), iv = crypto.getRandomValues(new Uint8Array(12)), tur = 250000;
+  const k = await flAnahtar(sifre, tuz, tur);
+  const c = await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, k, new TextEncoder().encode(JSON.stringify(obj)));
+  return JSON.stringify({ v: 1, kdf: 'PBKDF2-SHA256', tur, tuz: flB64(tuz), iv: flB64(iv), veri: flB64(new Uint8Array(c)) });
+}
+async function flCoz(metin, sifre) {
+  const o = JSON.parse(metin);
+  const k = await flAnahtar(sifre, flU8(o.tuz), o.tur);
+  const d = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: flU8(o.iv) }, k, flU8(o.veri));
+  return JSON.parse(new TextDecoder().decode(d));
+}
+async function flOku(yol) {
+  const token = getToken();
+  let res = null;
+  if (token) {
+    res = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${yol}?ref=${GH_BRANCH}&_=${Date.now()}`, {
+      headers: { 'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github.raw+json' }, cache: 'no-store'
+    }).catch(() => null);
+  }
+  if (!res || !res.ok) res = await fetch(yol + '?_=' + Date.now(), { cache: 'no-store' }).catch(() => null);
+  return res && res.ok ? await res.text() : null;
+}
+function flGhBaslik() {
+  return { 'Authorization': 'Bearer ' + getToken(), 'Accept': 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' };
+}
+async function flGhSil(path, headers) {
+  const sha = await flGhSha(path, headers);
+  if (!sha) return;
+  await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${path}`, {
+    method: 'DELETE', headers, body: JSON.stringify({ message: 'Açık fiyat listesi kaldırıldı (şifreliye taşındı)', sha, branch: GH_BRANCH })
+  });
+}
+async function flSifreliYaz(veri, sifre, headers) {
+  await flGhPut(FL_ENC, toB64(await flSifrele(veri, sifre)), 'Fiyat listesi güncellendi (şifreli, admin paneli)', headers);
+  await flGhSil(FL_ESKI, headers);
+}
+
 // ── YÜKLE ──
 async function flYukle(zorla) {
   if (FL.yuklendi && !zorla) { flCiz(); return; }
   flDurum('⏳ Fiyat listesi yükleniyor...');
   try {
-    const token = getToken();
-    let res = null;
-    if (token) {
-      res = await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${FL_FILE}?ref=${GH_BRANCH}&_=${Date.now()}`, {
-        headers: { 'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github.raw+json' }, cache: 'no-store'
-      }).catch(() => null);
+    let veri = null, tasindi = false;
+    const enc = await flOku(FL_ENC);
+    if (enc) {
+      try { veri = await flCoz(enc, _adminPass); }
+      catch (e) {
+        const eski = prompt('Fiyat listesi farklı bir şifreyle kilitlenmiş (şifre değişmiş olabilir). Kilitlendiği şifreyi girin:');
+        if (!eski) throw new Error('Fiyat listesi açılamadı (şifre uyuşmuyor).');
+        veri = await flCoz(enc, eski);
+        if (getToken()) { await flSifreliYaz(veri, _adminPass, flGhBaslik()); tasindi = true; }
+      }
+    } else {
+      const acik = await flOku(FL_ESKI);
+      if (!acik) throw new Error('kayıtlı liste bulunamadı');
+      veri = JSON.parse(acik);
+      if (getToken()) { flDurum('⏳ Fiyat listesi şifreleniyor...'); await flSifreliYaz(veri, _adminPass, flGhBaslik()); tasindi = true; }
     }
-    if (!res || !res.ok) res = await fetch(FL_FILE + '?_=' + Date.now(), { cache: 'no-store' });
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    FL.veri = await res.json();
+    FL.veri = veri;
     FL.urunler = (FL.veri.urunler || []).map(u => Object.assign({}, u, { dahil: true, sec: false, isk: 0 }));
     FL.yuklendi = true;
     flKirli(false);
@@ -63,10 +116,22 @@ async function flYukle(zorla) {
     if (!document.getElementById('flTarih').value) document.getElementById('flTarih').value = flBugun();
     flSiteSecenekleri();
     flCiz();
-    flDurum('');
+    if (tasindi) flDurum('🔒 Fiyat listesi admin şifrenle kilitlendi; artık yalnızca bu panelden açılabilir.');
+    else if (!enc) flDurum('⚠️ Liste henüz kilitli değil: kilitlemek için Ayarlar sekmesinde GitHub anahtarı olmalı.', true);
+    else flDurum('');
   } catch (e) {
     flDurum('⚠️ Fiyat listesi okunamadı: ' + e.message, true);
   }
+}
+
+// Admin şifresi değişip yayınlanınca liste yeni şifreyle yeniden kilitlenir
+async function flYenidenKilitle(eski, yeni) {
+  if (!getToken()) return;
+  try {
+    let veri = FL.veri;
+    if (!veri) { const enc = await flOku(FL_ENC); if (!enc) return; veri = await flCoz(enc, eski); }
+    await flSifreliYaz(veri, yeni, flGhBaslik());
+  } catch (e) { console.error('Fiyat listesi yeniden kilitlenemedi', e); }
 }
 
 // ── LİSTEYİ ÇİZ ──
@@ -298,10 +363,10 @@ async function flKaydet() {
       notlar: document.getElementById('flNotlar').value.split('\n').map(s => s.trim()).filter(Boolean),
       urunler: temiz
     });
-    await flGhPut(FL_FILE, toB64(JSON.stringify(veri, null, 1)), 'Fiyat listesi güncellendi (admin paneli)', headers);
+    await flSifreliYaz(veri, _adminPass, headers);
     FL.veri = veri;
     flKirli(false); flCiz();
-    flDurum('✅ Fiyat listesi kaydedildi. Bir sonraki açılışta bu haliyle gelir.');
+    flDurum('✅ Fiyat listesi kaydedildi (🔒 şifreli). Bir sonraki açılışta bu haliyle gelir.');
   } catch (e) {
     flDurum('⚠️ ' + e.message, true);
   }

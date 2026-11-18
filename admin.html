@@ -1094,6 +1094,7 @@ async function changeAdminPass() {
   if (oldHash !== currentPassHash) { errEl.textContent = 'Mevcut şifre hatalı!'; return; }
 
   currentPassHash = await sha256(newP);
+  window._bekleyenSifre = newP;   // yayınlanınca fiyat listesi yeni şifreyle yeniden kilitlenir
   markDirty();
   document.getElementById('oldPass').value = '';
   document.getElementById('newPass').value = '';
@@ -1330,6 +1331,11 @@ async function publishSite() {
 
     mainSource = html;
     _dirty = false;
+    if (window._bekleyenSifre) {
+      const eski = _adminPass, yeni = window._bekleyenSifre;
+      window._bekleyenSifre = null; _adminPass = yeni;
+      if (window.flYenidenKilitle) await flYenidenKilitle(eski, yeni);
+    }
     renderAdminProducts();
     const btn = document.getElementById('publishTopBtn');
     if (btn) btn.classList.remove('attention');
@@ -1357,6 +1363,6 @@ function exportSite() {
 document.addEventListener('DOMContentLoaded', loadMainSite);
 
 </script>
-<script src="fiyat/fiyat-admin.js?v=1"></script>
+<script src="fiyat/fiyat-admin.js?v=2"></script>
 </body>
 </html>
