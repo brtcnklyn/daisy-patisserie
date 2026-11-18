@@ -1,0 +1,601 @@
+{
+ "surum": 1,
+ "guncelleme": "2026-11-18",
+ "notlar": [
+  "Kup tatlılar adet fiyatıyla verilmiştir; pasta ve cheesecake'lerin dilim sayısı Birim sütununda yazar. Brownie tepsi halinde teslim edilir.",
+  "Sandviç, tost ve kruvasanlar donuk olarak, koli halinde teslim edilir; raf ömrü (SKT) 9 aydır. Kruvasanlar pişmiş olarak dondurulmuştur. Koli fiyatı = adet fiyatı × koli içi adet.",
+  "İstanbul içine soğuk zincir korunarak teslimat yapılır. Fiyatlara KDV dahil değildir."
+ ],
+ "urunler": [
+  {
+   "bolum": "tatli",
+   "grup": "Kup tatlılar",
+   "ad": "Oreo Cup",
+   "gorsel": "fiyat/img/urun-79a3b8369e.jpg",
+   "aciklama": "Siyah ve beyazın en tatlı uyumu!",
+   "saklama": "Taze",
+   "birim": "adet",
+   "fiyat": 145
+  },
+  {
+   "bolum": "tatli",
+   "grup": "Kup tatlılar",
+   "ad": "Lotus Cup",
+   "gorsel": "fiyat/img/urun-6e80d5453d.jpg",
+   "aciklama": "Karamel aşkına!",
+   "saklama": "Taze",
+   "birim": "adet",
+   "fiyat": 145
+  },
+  {
+   "bolum": "tatli",
+   "grup": "Kup tatlılar",
+   "ad": "Medovik Cup",
+   "gorsel": "fiyat/img/urun-0f530b0766.jpg",
+   "aciklama": "Balın en zarif hali!",
+   "saklama": "Taze",
+   "birim": "adet",
+   "fiyat": 145
+  },
+  {
+   "bolum": "tatli",
+   "grup": "Kup tatlılar",
+   "ad": "Red Velvet Cup",
+   "gorsel": "fiyat/img/urun-6652e4d5f3.jpg",
+   "aciklama": "Kadife dokulu kek, hafif peynirli muhallebi ve aralara…",
+   "saklama": "Donuk",
+   "birim": "adet",
+   "fiyat": 145
+  },
+  {
+   "bolum": "tatli",
+   "grup": "Kup tatlılar",
+   "ad": "Spoonful",
+   "gorsel": "fiyat/img/urun-57aadb0bb8.jpg",
+   "aciklama": "Üç katlı lezzet dengesi: En altta çıtır fındıklı kakaolu…",
+   "saklama": "Taze",
+   "birim": "adet",
+   "fiyat": 145
+  },
+  {
+   "bolum": "tatli",
+   "grup": "Kup tatlılar",
+   "ad": "Spoonful of Dubai",
+   "gorsel": "fiyat/img/urun-302fa683c3.jpg",
+   "aciklama": "Dubai lezzetlerinden ilham alan bu eşsiz tatlı; en altta…",
+   "saklama": "Taze",
+   "birim": "adet",
+   "fiyat": 175
+  },
+  {
+   "bolum": "tatli",
+   "grup": "Kup tatlılar",
+   "ad": "Kadayıflı Muhallebi",
+   "gorsel": "fiyat/img/urun-446fcb43dd.jpg",
+   "aciklama": "Tereyağının eşsiz kokusu, şekerin karamelize tadı…",
+   "saklama": "Taze",
+   "birim": "adet",
+   "fiyat": 145
+  },
+  {
+   "bolum": "tatli",
+   "grup": "Kup tatlılar",
+   "ad": "Oreolu Magnolya",
+   "gorsel": "fiyat/img/urun-6ae2fa7b82.jpg",
+   "aciklama": "Oreo kırıntıları ve ipeksi kremanın nefis katmanlarıyla…",
+   "saklama": "Taze",
+   "birim": "adet",
+   "fiyat": 145
+  },
+  {
+   "bolum": "tatli",
+   "grup": "Kup tatlılar",
+   "ad": "Muzlu Magnolya",
+   "gorsel": "fiyat/img/urun-04172de2a7.jpg",
+   "aciklama": "İpeksi kreması, taze muz dilimleri ve kıtır bisküvi…",
+   "saklama": "Taze",
+   "birim": "adet",
+   "fiyat": 145
+  },
+  {
+   "bolum": "tatli",
+   "grup": "Kup tatlılar",
+   "ad": "Çilekli Magnolya",
+   "gorsel": "fiyat/img/urun-9529ee0a44.jpg",
+   "aciklama": "Hafiflik arayanlara!",
+   "saklama": "Taze",
+   "birim": "adet",
+   "fiyat": 145
+  },
+  {
+   "bolum": "tatli",
+   "grup": "Kup tatlılar",
+   "ad": "Tiramisu",
+   "gorsel": "fiyat/img/urun-c95b3bdf8e.jpg",
+   "aciklama": "Kahve molalarınızın en şık eşlikçisi!",
+   "saklama": "Taze",
+   "birim": "adet",
+   "fiyat": 145
+  },
+  {
+   "bolum": "tatli",
+   "grup": "Kup tatlılar",
+   "ad": "Marki",
+   "gorsel": "fiyat/img/urun-725e277952.jpg",
+   "aciklama": "Çikolataya doyuran bir başyapıt!",
+   "saklama": "Donuk",
+   "birim": "adet",
+   "fiyat": 145
+  },
+  {
+   "bolum": "tatli",
+   "grup": "Kup tatlılar",
+   "ad": "Fırın Sütlaç",
+   "gorsel": "fiyat/img/urun-c01508dce2.jpg",
+   "aciklama": "Geleneksel lezzetin en saf formu!",
+   "saklama": "Taze",
+   "birim": "adet",
+   "fiyat": 95
+  },
+  {
+   "bolum": "tatli",
+   "grup": "Bütün pastalar",
+   "ad": "Lotuslu Cheesecake",
+   "gorsel": "fiyat/img/urun-f91de0e63a.jpg",
+   "aciklama": "Üç farklı formda Lotus tek bir dilimde!",
+   "saklama": "Donuk",
+   "birim": "1 bütün · 10 dilim",
+   "fiyat": 1400
+  },
+  {
+   "bolum": "tatli",
+   "grup": "Bütün pastalar",
+   "ad": "Çikolatalı Cheesecake",
+   "gorsel": "fiyat/img/urun-1f1d100256.jpg",
+   "aciklama": "Yoğun çikolata lezzeti ve ipeksi cheesecake dokusunun…",
+   "saklama": "Donuk",
+   "birim": "1 bütün · 10 dilim",
+   "fiyat": 1450
+  },
+  {
+   "bolum": "tatli",
+   "grup": "Bütün pastalar",
+   "ad": "San Sebastian",
+   "gorsel": "fiyat/img/urun-8a7d85d8f0.jpg",
+   "aciklama": "Dışı yanık ve karamelize, içi tam kıvamında akışkan.",
+   "saklama": "Donuk",
+   "birim": "1 bütün · 12 dilim",
+   "fiyat": 1450
+  },
+  {
+   "bolum": "tatli",
+   "grup": "Bütün pastalar",
+   "ad": "Yaban Mersinli San Sebastian",
+   "gorsel": "fiyat/img/urun-4271f82fbd.jpg",
+   "aciklama": "San Sebastian'ın o meşhur akışkanlığı, yaban mersininin…",
+   "saklama": "Donuk",
+   "birim": "1 bütün · 12 dilim",
+   "fiyat": 1600
+  },
+  {
+   "bolum": "tatli",
+   "grup": "Bütün pastalar",
+   "ad": "Medovik Pasta",
+   "gorsel": "fiyat/img/urun-58fca0e9eb.jpg",
+   "aciklama": "Klasik Medovik, süt reçeli dokunuşuyla yeniden yorumlandı!",
+   "saklama": "Donuk",
+   "birim": "1 bütün · 10 dilim",
+   "fiyat": 1400
+  },
+  {
+   "bolum": "tatli",
+   "grup": "Bütün pastalar",
+   "ad": "Mozaik Pasta",
+   "gorsel": "fiyat/img/urun-8aff152345.jpg",
+   "aciklama": "Her lokmasıyla sizi çocukluğunuza, o en güzel aile…",
+   "saklama": "Donuk",
+   "birim": "1 bütün · 12 dilim",
+   "fiyat": 1400
+  },
+  {
+   "bolum": "tatli",
+   "grup": "Bütün pastalar",
+   "ad": "Brownie",
+   "gorsel": "fiyat/img/urun-73a0260073.jpg",
+   "aciklama": "Bitter ve beyazın en tatlı karşılaşması!",
+   "saklama": "Donuk",
+   "birim": "1 tepsi · 9 dilim",
+   "fiyat": 1400
+  },
+  {
+   "bolum": "tatli",
+   "grup": "Bütün pastalar",
+   "ad": "Vişneli Brownie",
+   "gorsel": "fiyat/img/urun-8d3fd7ed2c.jpg",
+   "aciklama": "Yoğun çikolatalı brownie ile bütün vişnelerin buluşması!",
+   "saklama": "Donuk",
+   "birim": "1 tepsi · 9 dilim",
+   "fiyat": 1400
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Panini Sandviçler",
+   "ad": "Dana Jambon",
+   "gorsel": "fiyat/img/s-g1-255.jpg",
+   "aciklama": "Panini Sandviçler",
+   "gramaj": "155 gr",
+   "koli": 18,
+   "fiyat": 115.8
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Panini Sandviçler",
+   "ad": "Mozzarella",
+   "gorsel": "fiyat/img/s-g1-307.jpg",
+   "aciklama": "Panini Sandviçler",
+   "gramaj": "165 gr",
+   "koli": 18,
+   "fiyat": 108.58
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Panini Sandviçler",
+   "ad": "Hindi Füme",
+   "gorsel": "fiyat/img/s-g1-363.jpg",
+   "aciklama": "Panini Sandviçler",
+   "gramaj": "165 gr",
+   "koli": 18,
+   "fiyat": 104.21
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Panini Sandviçler",
+   "ad": "5 Peynirli",
+   "gorsel": "fiyat/img/s-g1-412.jpg",
+   "aciklama": "Panini Sandviçler",
+   "gramaj": "160 gr",
+   "koli": 18,
+   "fiyat": 109.2
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Panini Sandviçler",
+   "ad": "Tavuk Fileto",
+   "gorsel": "fiyat/img/s-g1-466.jpg",
+   "aciklama": "Panini Sandviçler",
+   "gramaj": "170 gr",
+   "koli": 18,
+   "fiyat": 116.28
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Panini Sandviçler",
+   "ad": "Roastbeef",
+   "gorsel": "fiyat/img/s-g1-518.jpg",
+   "aciklama": "Panini Sandviçler",
+   "gramaj": "165 gr",
+   "koli": 18,
+   "fiyat": 123.0
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Panini Sandviçler",
+   "ad": "Beyaz Peynirli",
+   "gorsel": "fiyat/img/s-g1-569.jpg",
+   "aciklama": "Panini Sandviçler",
+   "gramaj": "165 gr",
+   "koli": 18,
+   "fiyat": 89.1
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Aperto Sandviçler",
+   "ad": "Bella",
+   "gorsel": "fiyat/img/s-g1-645.jpg",
+   "aciklama": "Aperto Sandviçler",
+   "gramaj": "230 gr",
+   "koli": 10,
+   "fiyat": 111.84
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Aperto Sandviçler",
+   "ad": "Rosso",
+   "gorsel": "fiyat/img/s-g1-697.jpg",
+   "aciklama": "Aperto Sandviçler",
+   "gramaj": "260 gr",
+   "koli": 10,
+   "fiyat": 114.6
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Aperto Sandviçler",
+   "ad": "Bianca",
+   "gorsel": "fiyat/img/s-g2-54.jpg",
+   "aciklama": "Aperto Sandviçler",
+   "gramaj": "235 gr",
+   "koli": 10,
+   "fiyat": 114.9
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Bagel Sandviçler",
+   "ad": "Üç Peynirli",
+   "gorsel": "fiyat/img/s-g2-131.jpg",
+   "aciklama": "Bagel Sandviçler",
+   "gramaj": "150 gr",
+   "koli": 18,
+   "fiyat": 78.0
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Bagel Sandviçler",
+   "ad": "Dana Jambon",
+   "gorsel": "fiyat/img/s-g2-184.jpg",
+   "aciklama": "Bagel Sandviçler",
+   "gramaj": "155 gr",
+   "koli": 18,
+   "fiyat": 113.4
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Bagel Sandviçler",
+   "ad": "Hindi Füme",
+   "gorsel": "fiyat/img/s-g2-242.jpg",
+   "aciklama": "Bagel Sandviçler",
+   "gramaj": "155 gr",
+   "koli": 18,
+   "fiyat": 98.4
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Bagel Sandviçler",
+   "ad": "Roastbeef",
+   "gorsel": "fiyat/img/s-g2-297.jpg",
+   "aciklama": "Bagel Sandviçler",
+   "gramaj": "160 gr",
+   "koli": 18,
+   "fiyat": 116.7
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Bunwich Sandviçler",
+   "ad": "Mozzarella",
+   "gorsel": "fiyat/img/s-g2-375.jpg",
+   "aciklama": "Bunwich Sandviçler",
+   "gramaj": "145 gr",
+   "koli": 16,
+   "fiyat": 120.96
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Bunwich Sandviçler",
+   "ad": "Hindi Füme",
+   "gorsel": "fiyat/img/s-g2-432.jpg",
+   "aciklama": "Bunwich Sandviçler",
+   "gramaj": "145 gr",
+   "koli": 16,
+   "fiyat": 118.32
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Bunwich Sandviçler",
+   "ad": "Çıtır Tavuk",
+   "gorsel": "fiyat/img/s-g2-480.jpg",
+   "aciklama": "Bunwich Sandviçler",
+   "gramaj": "130 gr",
+   "koli": 20,
+   "fiyat": 104.7
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Bunwich Sandviçler",
+   "ad": "Roastbeef",
+   "gorsel": "fiyat/img/s-g2-536.jpg",
+   "aciklama": "Bunwich Sandviçler",
+   "gramaj": "130 gr",
+   "koli": 20,
+   "fiyat": 132.3
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Gurme Sandviçler",
+   "ad": "Hamburger Füme Jambonlu",
+   "gorsel": "fiyat/img/s-g2-613.jpg",
+   "aciklama": "Gurme Sandviçler",
+   "gramaj": "175 gr",
+   "koli": 12,
+   "fiyat": 123.0
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Gurme Sandviçler",
+   "ad": "Deluxe Beef",
+   "gorsel": "fiyat/img/s-g2-667.jpg",
+   "aciklama": "Gurme Sandviçler",
+   "gramaj": "185 gr",
+   "koli": 14,
+   "fiyat": 130.56
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Gurme Sandviçler",
+   "ad": "Deluxe İsli",
+   "gorsel": "fiyat/img/s-g2-717.jpg",
+   "aciklama": "Gurme Sandviçler",
+   "gramaj": "195 gr",
+   "koli": 14,
+   "fiyat": 120.6
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Gurme Sandviçler",
+   "ad": "Üç Peynir Kruvasan",
+   "gorsel": "fiyat/img/s-g3-61.jpg",
+   "aciklama": "Gurme Sandviçler",
+   "gramaj": "150 gr",
+   "koli": 12,
+   "fiyat": 126.0
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Gurme Sandviçler",
+   "ad": "Hindi Füme Kruvasan",
+   "gorsel": "fiyat/img/s-g3-106.jpg",
+   "aciklama": "Gurme Sandviçler",
+   "gramaj": "150 gr",
+   "koli": 12,
+   "fiyat": 135.6
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Gurme Sandviçler",
+   "ad": "Gurme Fiesta",
+   "gorsel": "fiyat/img/s-g3-161.jpg",
+   "aciklama": "Gurme Sandviçler",
+   "gramaj": "190 gr",
+   "koli": 12,
+   "fiyat": 118.2
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Gurme Sandviçler",
+   "ad": "Gurme Beef",
+   "gorsel": "fiyat/img/s-g3-213.jpg",
+   "aciklama": "Gurme Sandviçler",
+   "gramaj": "165 gr",
+   "koli": 14,
+   "fiyat": 133.8
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Gurme Sandviçler",
+   "ad": "Gurme Çıtır",
+   "gorsel": "fiyat/img/s-g3-267.jpg",
+   "aciklama": "Gurme Sandviçler",
+   "gramaj": "175 gr",
+   "koli": 14,
+   "fiyat": 107.4
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Gurme Sandviçler",
+   "ad": "Gurme Barbekü",
+   "gorsel": "fiyat/img/s-g3-313.jpg",
+   "aciklama": "Gurme Sandviçler",
+   "gramaj": "185 gr",
+   "koli": 14,
+   "fiyat": 149.4
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Tostlar",
+   "ad": "Klasik Ayvalık Tost",
+   "gorsel": "fiyat/img/s-g3-393.jpg",
+   "aciklama": "Tostlar",
+   "gramaj": "150 gr",
+   "koli": 12,
+   "fiyat": 83.46
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Tostlar",
+   "ad": "Klasik Ayvalık Tost (Dana)",
+   "gorsel": "fiyat/img/s-g3-393.jpg",
+   "aciklama": "Tostlar",
+   "gramaj": "150 gr",
+   "koli": 12,
+   "fiyat": 105.0
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Tostlar",
+   "ad": "Tost Kare Peynirli",
+   "gorsel": "fiyat/img/s-g3-449.jpg",
+   "aciklama": "Tostlar",
+   "gramaj": "145 gr",
+   "koli": 16,
+   "fiyat": 64.2
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Tostlar",
+   "ad": "Tost Kare Karışık",
+   "gorsel": "fiyat/img/s-g3-502.jpg",
+   "aciklama": "Tostlar",
+   "gramaj": "150 gr",
+   "koli": 16,
+   "fiyat": 73.32
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Tostlar",
+   "ad": "Tost Kare Karışık (Dana)",
+   "gorsel": "fiyat/img/s-g3-502.jpg",
+   "aciklama": "Tostlar",
+   "gramaj": "150 gr",
+   "koli": 16,
+   "fiyat": 82.2
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Tostlar",
+   "ad": "Acukalı Bazlama",
+   "gorsel": "fiyat/img/s-g3-567.jpg",
+   "aciklama": "Tostlar",
+   "gramaj": "150 gr",
+   "koli": 16,
+   "fiyat": 73.32
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Tostlar",
+   "ad": "Acukalı Bazlama (Dana)",
+   "gorsel": "fiyat/img/s-g3-567.jpg",
+   "aciklama": "Tostlar",
+   "gramaj": "150 gr",
+   "koli": 16,
+   "fiyat": 84.6
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Tostlar",
+   "ad": "Kumru Tost",
+   "gorsel": "fiyat/img/s-g3-627.jpg",
+   "aciklama": "Tostlar",
+   "gramaj": "150 gr",
+   "koli": 14,
+   "fiyat": 79.8
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Tostlar",
+   "ad": "Pizza Tost",
+   "gorsel": "fiyat/img/s-g3-678.jpg",
+   "aciklama": "Tostlar",
+   "gramaj": "200 gr",
+   "koli": 40,
+   "fiyat": 51.0
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Unlu Mamuller",
+   "ad": "Tereyağlı Kruvasan",
+   "gorsel": "fiyat/img/s-g4-58.jpg",
+   "aciklama": "Unlu Mamuller",
+   "gramaj": "90 gr",
+   "koli": 17,
+   "fiyat": 113.4
+  },
+  {
+   "bolum": "sandvic",
+   "grup": "Unlu Mamuller",
+   "ad": "Çikolatalı Kruvasan",
+   "gorsel": "fiyat/img/s-g4-114.jpg",
+   "aciklama": "Unlu Mamuller",
+   "gramaj": "90 gr",
+   "koli": 20,
+   "fiyat": 103.8
+  }
+ ]
+}
