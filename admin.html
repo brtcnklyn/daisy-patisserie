@@ -7,6 +7,7 @@
 <title>Daisy Patisserie — Admin Paneli</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fiyat/fiyat-admin.css?v=1">
 <style>
 
   :root {
@@ -442,6 +443,7 @@
     <button class="admin-tab active" id="tabbtn-popup" onclick="switchTab('popup', this)">📢 Popup Yönetimi</button>
     <button class="admin-tab" id="tabbtn-products" onclick="switchTab('products', this)">🍰 Ürünler</button>
     <button class="admin-tab" id="tabbtn-addprod" onclick="switchTab('addprod', this)">➕ Yeni Ürün</button>
+    <button class="admin-tab" id="tabbtn-fiyat" onclick="switchTab('fiyat', this)">💰 Fiyat Listesi</button>
     <button class="admin-tab" id="tabbtn-davet" onclick="switchTab('davet', this)">🎉 Davet</button>
     <button class="admin-tab" id="tabbtn-settings" onclick="switchTab('settings', this)">⚙️ Ayarlar</button>
   </div>
@@ -542,6 +544,73 @@
         <button class="admin-btn" id="saveProdBtn" onclick="saveProduct()" style="margin-top:16px;">✅ Ürünü Ekle</button>
         <button class="admin-btn secondary" id="cancelEditBtn" onclick="cancelEdit()" style="display:none;">Vazgeç</button>
         <div class="admin-success" id="addProdSuccess">✅ Kaydedildi! Üstteki "🚀 Yayınla" ile siteye gönderin.</div>
+      </div>
+    </div>
+
+    <!-- FİYAT LİSTESİ TAB -->
+    <div class="admin-panel" id="tab-fiyat">
+      <div class="admin-card">
+        <h3>📄 Teklif Bilgileri</h3>
+        <p class="fl-not">Firma adını boş bırakırsan liste <b>isimsiz</b> çıkar (herkese gönderilebilir). Bu alanlar ve iskontolar kaydedilmez, her teklif için yeniden doldurulur.</p>
+        <div class="fl-ust">
+          <div><label class="admin-label">Firma adı</label><input class="admin-input" id="flFirma" placeholder="Boş = isimsiz liste"></div>
+          <div><label class="admin-label">Yetkili</label><input class="admin-input" id="flYetkili" placeholder="İsteğe bağlı"></div>
+          <div><label class="admin-label">Telefon / e-posta</label><input class="admin-input" id="flIletisim" placeholder="İsteğe bağlı"></div>
+          <div><label class="admin-label">Başlık</label><input class="admin-input" id="flBaslik" value="FİYAT LİSTESİ"></div>
+          <div><label class="admin-label">Tarih</label><input class="admin-input" type="date" id="flTarih"></div>
+          <div><label class="admin-label">Geçerlilik tarihi</label><input class="admin-input" type="date" id="flGecer"></div>
+        </div>
+        <label class="admin-label">Notlar (her satır bir madde, PDF'in sonunda çıkar)</label>
+        <textarea class="admin-textarea" id="flNotlar" rows="4" oninput="flKirli()"></textarea>
+        <div class="fl-satir-btn" style="margin-top:14px;">
+          <button class="fl-btn sari" onclick="flPdf()">📄 PDF Oluştur</button>
+          <button class="fl-btn ana" onclick="flKaydet()">💾 Listeyi Kaydet</button>
+          <button class="fl-btn" onclick="flGeriAl()">↺ Kayıtlı listeye dön</button>
+          <span class="fl-kirli" id="flKirli">● Kaydedilmemiş değişiklik var</span>
+        </div>
+        <div class="fl-durum" id="flDurum"></div>
+      </div>
+
+      <div class="admin-card">
+        <h3>🏷️ İskonto</h3>
+        <p class="fl-not">Tümüne uygulayabilir ya da aşağıda ürünlerin solundaki kutucuklarla seçtiklerine uygulayabilirsin. Tek bir ürünün iskontosunu satırındaki "İskonto %" alanından da değiştirebilirsin.</p>
+        <div class="fl-satir-btn">
+          <input class="admin-input" id="flIskOran" inputmode="decimal" placeholder="Oran %" style="max-width:110px;margin:0;">
+          <button class="fl-btn ana" id="flSecBtn" onclick="flIskUygula('sec')">Seçili ürünlere uygula</button>
+          <button class="fl-btn" onclick="flIskUygula('tum')">Tümüne uygula</button>
+          <button class="fl-btn" onclick="flIskTemizle()">İskontoları kaldır</button>
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <h3>🍰 Ürünler ve Fiyatlar</h3>
+        <div class="fl-arac">
+          <input class="admin-input" id="flAra" placeholder="Ürün ara..." oninput="flCiz()">
+          <button class="fl-mini" onclick="flTumunuSec(true)">Tümünü seç</button>
+          <button class="fl-mini" onclick="flTumunuSec(false)">Seçimi kaldır</button>
+          <span class="fl-ozet" id="flOzet"></span>
+        </div>
+        <p class="fl-not">👁 düğmesiyle bir ürünü sadece bu tekliften gizleyebilirsin. Ad, açıklama, birim ve fiyat değişiklikleri "💾 Listeyi Kaydet" ile kalıcı olur.</p>
+        <div id="flListe"></div>
+      </div>
+
+      <div class="admin-card">
+        <h3>➕ Listeye Ürün Ekle</h3>
+        <label class="admin-label">Sitedeki üründen doldur</label>
+        <select class="admin-select" id="flSite" onchange="flSiteDoldur()"></select>
+        <div class="fl-yeni">
+          <div><label class="admin-label">Bölüm</label><select class="admin-select" id="flYBolum" onchange="flYeniBolum()"><option value="tatli">Tatlılar</option><option value="sandvic">Sandviç &amp; Tost</option></select></div>
+          <div><label class="admin-label">Grup</label><input class="admin-input" id="flYGrup" list="flGrupList" placeholder="ör. Kup tatlılar"><datalist id="flGrupList"></datalist></div>
+          <div><label class="admin-label">Ürün adı *</label><input class="admin-input" id="flYAd"></div>
+          <div><label class="admin-label">Kısa açıklama</label><input class="admin-input" id="flYAc"></div>
+          <div class="fl-y-tatli"><label class="admin-label">Birim</label><input class="admin-input" id="flYBirim" placeholder="adet / 1 bütün · 10 dilim"></div>
+          <div class="fl-y-tatli"><label class="admin-label">Saklama</label><select class="admin-select" id="flYSak"><option>Taze</option><option>Donuk</option></select></div>
+          <div class="fl-y-sandvic" style="display:none"><label class="admin-label">Gramaj</label><input class="admin-input" id="flYGr" placeholder="ör. 155 gr"></div>
+          <div class="fl-y-sandvic" style="display:none"><label class="admin-label">Koli içi adet</label><input class="admin-input" id="flYKoli" inputmode="numeric"></div>
+          <div><label class="admin-label">Fiyat (₺) *</label><input class="admin-input" id="flYFiyat" inputmode="decimal" placeholder="ör. 145"></div>
+          <div><label class="admin-label">Görsel (isteğe bağlı)</label><input class="admin-input" type="file" accept="image/*" id="flYImg" onchange="flYeniGorsel(this)"><div class="fl-img-on" id="flYImgOn"></div></div>
+        </div>
+        <button class="fl-btn ana" onclick="flUrunEkle()">➕ Listeye ekle</button>
       </div>
     </div>
 
@@ -749,6 +818,7 @@ function switchTab(name, btn) {
   if (btn) btn.classList.add('active');
   if (name === 'products') renderAdminProducts();
   if (name === 'davet') loadDavet();
+  if (name === 'fiyat') flYukle();
 }
 
 // ── AÇILIŞ DAVETİ ──
@@ -1287,5 +1357,6 @@ function exportSite() {
 document.addEventListener('DOMContentLoaded', loadMainSite);
 
 </script>
+<script src="fiyat/fiyat-admin.js?v=1"></script>
 </body>
 </html>

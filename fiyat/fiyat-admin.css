@@ -1,0 +1,46 @@
+/* Fiyat listesi sekmesi (admin) */
+.fl-ust { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0 16px; }
+.fl-ust .admin-input, .fl-ust .admin-select { margin-bottom: 14px; }
+.fl-not { font-size: 0.78rem; color: rgba(255,255,255,0.45); margin: -6px 0 14px; line-height: 1.5; }
+.fl-satir-btn { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.fl-btn { background: rgba(255,255,255,0.08); color: #fff; border: 1px solid rgba(120,136,107,0.35); border-radius: 10px; padding: 10px 16px; font: 500 0.85rem 'DM Sans', sans-serif; cursor: pointer; }
+.fl-btn:hover { background: rgba(255,255,255,0.14); }
+.fl-btn.ana { background: linear-gradient(135deg, #4f5f42, #78886b); border-color: transparent; font-weight: 600; }
+.fl-btn.sari { background: #E8D07A; color: #2a332a; border-color: transparent; font-weight: 600; }
+.fl-kirli { display: none; align-items: center; gap: 6px; font-size: 0.78rem; color: #E8D07A; }
+.fl-durum { font-size: 0.86rem; color: #95a882; min-height: 1.3em; margin-top: 12px; }
+.fl-durum.error { color: #e74c3c; }
+.fl-ozet { font-size: 0.8rem; color: rgba(255,255,255,0.5); }
+.fl-arac { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 12px; }
+.fl-arac .admin-input { margin: 0; max-width: 260px; padding: 9px 12px; }
+.fl-bolum { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: #fff; margin: 22px 0 6px; letter-spacing: 0.04em; }
+.fl-grup { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: #95a882; padding: 10px 2px 6px; border-bottom: 1px solid rgba(120,136,107,0.25); margin-bottom: 6px; }
+.fl-satir { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 8px; border-radius: 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(120,136,107,0.12); margin-bottom: 6px; }
+.fl-satir.secili { border-color: #E8D07A; background: rgba(232,208,122,0.07); }
+.fl-satir.kapali { opacity: 0.45; }
+.fl-satir > img, .fl-ph { width: 46px; height: 46px; border-radius: 8px; object-fit: cover; flex: none; background: #fff; }
+.fl-ph { display: flex; align-items: center; justify-content: center; color: #78886b; font-size: 1.3rem; }
+.fl-cb { width: 18px; height: 18px; accent-color: #E8D07A; flex: none; cursor: pointer; }
+.fl-ad { flex: 1 1 200px; min-width: 160px; display: flex; flex-direction: column; gap: 4px; }
+.fl-in { background: rgba(255,255,255,0.06); border: 1px solid rgba(120,136,107,0.28); color: #fff; border-radius: 8px; padding: 6px 8px; font: 0.84rem 'DM Sans', sans-serif; outline: none; }
+.fl-in:focus { border-color: #95a882; }
+.fl-in.nm { font-weight: 500; font-size: 0.9rem; }
+.fl-in.ac { font-size: 0.74rem; color: rgba(255,255,255,0.6); }
+.fl-in.fiyat { font-weight: 600; color: #E8D07A; }
+select.fl-in option { color: #000; }
+.fl-alanlar { display: flex; gap: 8px; flex-wrap: wrap; align-items: flex-end; }
+.fl-k { display: flex; flex-direction: column; gap: 3px; font-size: 0.64rem; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+.w-xs { width: 62px; } .w-s { width: 86px; } .w-m { width: 140px; }
+.fl-net { font-size: 0.8rem; color: #b9cba6; padding-bottom: 7px; white-space: nowrap; }
+.fl-islem { display: flex; gap: 4px; margin-left: auto; }
+.fl-mini { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.75); border: 0; border-radius: 8px; padding: 6px 9px; font: 0.74rem 'DM Sans', sans-serif; cursor: pointer; white-space: nowrap; }
+.fl-mini:hover { background: rgba(255,255,255,0.15); color: #fff; }
+.fl-mini.off { background: rgba(192,57,43,0.25); color: #f1a097; }
+.fl-mini.sil:hover { background: rgba(192,57,43,0.5); }
+.fl-yeni { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0 14px; }
+.fl-yeni .admin-input, .fl-yeni .admin-select { margin-bottom: 12px; }
+.fl-img-on img { width: 70px; height: 70px; object-fit: cover; border-radius: 10px; margin-top: 4px; }
+@media (max-width: 640px) {
+  .fl-islem { margin-left: 0; width: 100%; justify-content: flex-end; }
+  .fl-ad { flex-basis: calc(100% - 90px); }
+}
